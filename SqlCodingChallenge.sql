@@ -10,7 +10,9 @@ INSERT INTO department (name, location) VALUES ('Marketing', 'Hongkong');
 INSERT INTO department (name, location) VALUES ('Human Resources', 'Newyork');
 INSERT INTO department (name, location) VALUES ('Marketing', 'Queens');
 
--- select * from department;
+select * from department;
+
+SELECT * FROM mock_data;
 
 CREATE TABLE employee (
     ID int IDENTITY(1, 1) NOT NULL,
@@ -19,7 +21,7 @@ CREATE TABLE employee (
     ssn int,
     deptID int NOT NULL,
     PRIMARY KEY (ID),
-    FOREIGN KEY (deptID) REFERENCES department(ID)
+    FOREIGN KEY (ID) REFERENCES department(ID)
 );
 
 
