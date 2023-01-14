@@ -1,0 +1,5 @@
+D:\Yuva\VS_Codes\Project_0\ClassLib\obj\Debug\net6.0\ClassLib.csproj.AssemblyReference.cache
+D:\Yuva\VS_Codes\Project_0\ClassLib\obj\Debug\net6.0\ClassLib.GeneratedMSBuildEditorConfig.editorconfig
+D:\Yuva\VS_Codes\Project_0\ClassLib\obj\Debug\net6.0\ClassLib.AssemblyInfoInputs.cache
+D:\Yuva\VS_Codes\Project_0\ClassLib\obj\Debug\net6.0\ClassLib.AssemblyInfo.cs
+D:\Yuva\VS_Codes\Project_0\ClassLib\obj\Debug\net6.0\ClassLib.csproj.CoreCompileInputs.cache
