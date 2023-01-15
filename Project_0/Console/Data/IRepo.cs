@@ -9,7 +9,6 @@ namespace Data
     public interface IRepo
     {
         Trainer Insertion(Trainer trainer);
-
-        //List<Trainer> GetAllTrainers();
+        List<Trainer> GetAllTrainers();
     }
 }

@@ -4,11 +4,16 @@ namespace Data
 {
     public class Trainer
     {
+        public Trainer()
+        {
+
+        }
+        string userid;
         string emailid;
         string password;
         string firstName;
         string lastName;
-        string age;
+        int age;
         string gender;
         string phonenumber;
         string city;
@@ -29,6 +34,12 @@ namespace Data
         string companyName;
         string field;
         string experience;
+
+        public string Userid
+        {
+            get { return userid; }
+            set { userid = value; }
+        }
         public string Emailid
         {
             get { return emailid; }
@@ -51,7 +62,7 @@ namespace Data
             get { return lastName; }
             set { lastName = value; }
         }
-        public string Age
+        public int Age
         {
             get { return age; }
             set { age = value; }
@@ -154,8 +165,7 @@ namespace Data
 
         public string TrainerDetails()
         {
-            return $@"{Emailid} {Firstname} {Lastname} {Age} {Gender} {Phonenumber} {City} {Companyname} {Field} {Experience}
-{Ug_collage} {Ug_stream} {Ug_percentage} {Ug_year} {Pg_collage} {Pg_stream} {Pg_percentage} {Pg_year} {Skill_1}, {Skill_2}, {Skill_3}";
+            return $@"{Emailid}, {Firstname}, {Lastname}, {Age}, {Gender}, {Phonenumber}, {City}, {Ug_collage}, {Ug_stream}, {Ug_percentage}, {Ug_year}, {Pg_collage}, {Pg_stream}, {Pg_percentage}, {Pg_year}, {Skill_1}, {Skill_2}, {Skill_3}, {Companyname}, {Field}, {Experience}";
         }
     }
 
@@ -176,4 +186,34 @@ namespace Data
             set { userPassword = value; }
         }
     }
+
+    //public class Dummy
+    //{
+    //    int product_id;
+    //    string product;
+    //    int price;
+
+    //    public int ProductID
+    //    {
+    //        get { return product_id; }
+    //        set { product_id = value; }
+    //    }
+
+    //    public string Product
+    //    {
+    //        get { return product; }
+    //        set { product = value; }
+    //    }
+
+    //    public int Price
+    //    {
+    //        get { return price; }
+    //        set { price = value; }
+    //    }
+
+    //    public string returnDummy()
+    //    {
+    //        return $"{ProductID} {Product} {Price}";
+    //    }
+    //}
 }

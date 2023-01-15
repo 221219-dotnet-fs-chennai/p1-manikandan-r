@@ -32,7 +32,7 @@ namespace UI_Console
             Console.WriteLine("[14] PG Collage name     : " + trainer.Pg_collage);
             Console.WriteLine("[15] PG Stream           : " + trainer.Pg_stream);
             Console.WriteLine("[16] PG Percentage       : " + trainer.Pg_percentage);
-            Console.WriteLine("[17] UG Year             : " + trainer.Pg_year);
+            Console.WriteLine("[17] PG Year             : " + trainer.Pg_year);
             Console.WriteLine("[18] Skill 1*            : " + trainer.Skill_1);
             Console.WriteLine("[19] Skill 2*            : " + trainer.Skill_2);
             Console.WriteLine("[20] Skill 3             : " + trainer.Skill_3);
@@ -56,11 +56,15 @@ namespace UI_Console
                 case "1":
                     try
                     {
+                        Log.Logger.Information("Adding trainer details");
                         repo.Insertion(trainer);
+                        Log.Logger.Information("Successfully added trainer details");
                     }
                     catch (System.Exception ex) 
                     {
+                        Log.Logger.Information($"Failed to add trainer details {ex.Message}");
                         Console.WriteLine(ex.Message);
+                        Console.WriteLine("Press Enter to continue");
                         Console.ReadLine();
                     }
                     return "TrainerMenu";
@@ -82,7 +86,7 @@ namespace UI_Console
                     return "Signup";
                 case "6":
                     Console.Write("Enter your Age: ");
-                    trainer.Age = Console.ReadLine();
+                    trainer.Age = Convert.ToInt32(Console.ReadLine());
                     return "Signup";
                 case "7":
                     Console.Write("Enter your Gender: ");
