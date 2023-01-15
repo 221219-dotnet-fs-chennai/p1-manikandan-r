@@ -8,11 +8,27 @@ namespace Data
         string password;
         string firstName;
         string lastName;
-        byte age;
+        string age;
         string gender;
         string phonenumber;
         string city;
 
+        string ug_collage;
+        string ug_stream;
+        string ug_percentage;
+        string ug_year;
+        string pg_collage;
+        string pg_stream;
+        string pg_percentage;
+        string pg_year;
+
+        string skill_1;
+        string skill_2;
+        string skill_3;
+
+        string companyName;
+        string field;
+        string experience;
         public string Emailid
         {
             get { return emailid; }
@@ -35,7 +51,7 @@ namespace Data
             get { return lastName; }
             set { lastName = value; }
         }
-        public byte Age
+        public string Age
         {
             get { return age; }
             set { age = value; }
@@ -56,23 +72,6 @@ namespace Data
             set { city = value; }
         }
 
-        public string UserString()
-        {
-            return $"{Emailid} {Firstname} {Lastname} {Age} {Gender} {Phonenumber} {City}";
-        }
-    }
-
-    public class Education
-    {
-        string ug_collage;
-        string ug_stream;
-        double ug_percentage;
-        string ug_year;
-        string pg_collage;
-        string pg_stream;
-        double pg_percentage;
-        string pg_year;
-
         public string Ug_collage
         {
             get { return ug_collage; }
@@ -85,7 +84,7 @@ namespace Data
             set { ug_stream = value; }
         }
 
-        public double Ug_percentage
+        public string Ug_percentage
         {
             get { return ug_percentage; }
             set { ug_percentage = value; }
@@ -109,7 +108,7 @@ namespace Data
             set { pg_stream = value; }
         }
 
-        public double Pg_percentage
+        public string Pg_percentage
         {
             get { return pg_percentage; }
             set { pg_percentage = value; }
@@ -120,18 +119,6 @@ namespace Data
             get { return pg_year; }
             set { pg_year = value; }
         }
-
-        public string EducationString()
-        {
-            return $"{Ug_collage} {Ug_stream} {Ug_percentage} {Ug_year} {Pg_collage} {Pg_stream} {Pg_percentage} {Pg_year}";
-        }
-    }
-
-    public class Skills
-    {
-        string skill_1;
-        string skill_2;
-        string skill_3;
 
         public string Skill_1
         {
@@ -149,19 +136,7 @@ namespace Data
             set { skill_3 = value; }
         }
 
-        public string SkillString()
-        {
-            return $"{Skill_1}, {Skill_2}, {Skill_3}";
-        }
-    }
-
-    public class Work
-    {
-        string companyName;
-        string field;
-        string experience;
-
-        public string Comapnyname
+        public string Companyname
         {
             get { return companyName; }
             set { companyName = value; }
@@ -177,9 +152,10 @@ namespace Data
             set { experience = value; }
         }
 
-        public string CompanyString()
+        public string TrainerDetails()
         {
-            return $"{Comapnyname} {Field} {Experience}";
+            return $@"{Emailid} {Firstname} {Lastname} {Age} {Gender} {Phonenumber} {City} {Companyname} {Field} {Experience}
+{Ug_collage} {Ug_stream} {Ug_percentage} {Ug_year} {Pg_collage} {Pg_stream} {Pg_percentage} {Pg_year} {Skill_1}, {Skill_2}, {Skill_3}";
         }
     }
 

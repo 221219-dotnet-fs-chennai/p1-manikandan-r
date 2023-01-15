@@ -1,4 +1,5 @@
-﻿using System;
+﻿global using Serilog;
+using System;
 using System.Data.SqlClient;
 
 namespace UI_Console
@@ -25,10 +26,12 @@ namespace UI_Console
                     case "Menu":
                         menu = new Menu();
                         break;
+
                     case "User":
                         LogIn login = new LogIn();
                         login.login();
                         break;
+
                     case "Trainer":
 
                         value_2 = true;
@@ -70,6 +73,7 @@ namespace UI_Console
                         Console.WriteLine("Exiting...");
                         value = false;
                         break;
+
                     default:
                         Console.WriteLine("DataBase Does not exist");
                         Console.WriteLine("Press Enter to continue...");
@@ -77,9 +81,6 @@ namespace UI_Console
                         break;
                 }
             }
-            //SqlRepo sql = new SqlRepo();
-            //sql.Add();
-            //sql.Insert();
         }
     }
 }
