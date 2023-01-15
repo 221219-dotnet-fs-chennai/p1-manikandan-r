@@ -2,7 +2,7 @@
 
 namespace Data
 {
-    public class User
+    public class Trainer
     {
         string emailid;
         string password;
@@ -180,6 +180,24 @@ namespace Data
         public string CompanyString()
         {
             return $"{Comapnyname} {Field} {Experience}";
+        }
+    }
+
+    public class User
+    {
+        string userMailId;
+        string userPassword;
+
+        public string UserMailId
+        {
+            get { return userMailId; }
+            set { userMailId = value; }
+        }
+
+        public string UserPassword
+        {
+            get { return userPassword; }
+            set { userPassword = value; }
         }
     }
 }
