@@ -2,7 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,dotnetcore,csharp,aspnetcore,angular
 
 # textfiles
-test_files/.txt/
+Logs/.txt/
+text_files/.txt/
 .txt/
 
 
