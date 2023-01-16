@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace UI_Console
 {
-    public class MainFile
+    internal class MainFile: SignUp
     {
         static void Main(string[] args)
         {
@@ -17,6 +17,7 @@ namespace UI_Console
 
             bool value = true;
             bool value_2 = true;
+            bool value_3 = true;
 
             IMenu menu = new Menu();
 
@@ -54,9 +55,9 @@ namespace UI_Console
                             switch (trainerChoice)
                             {
                                 case "Login":
+                                    trainer = new Trainer();
                                     Log.Logger.Information("User select trainer login");
-                                    LogIn trainerLogin = new LogIn();
-                                    trainerLogin.login();
+                                    menu = new LogIn();
                                     break;
                                 case "Signup":
                                     Log.Logger.Information("User select trainer signup");
@@ -70,6 +71,9 @@ namespace UI_Console
                                 case "TrainerMenu":
                                     Log.Logger.Information("User select trainer menu");
                                     menu = new TrainerMenu();
+                                    break;
+                                case "TrainerProfile":
+                                    menu = new TrainerProfile(trainer);
                                     break;
                                 default:
                                     Console.WriteLine("Wrong Choice! Try again...");

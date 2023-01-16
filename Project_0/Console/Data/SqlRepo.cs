@@ -47,7 +47,7 @@ namespace Data
             command_2.Parameters.AddWithValue("@Ug_stream", trainer.Ug_stream);
             command_2.Parameters.AddWithValue("@Ug_Percentage", trainer.Ug_percentage);
             command_2.Parameters.AddWithValue("@Ug_year", trainer.Ug_year);
-            
+
 
             if (string.IsNullOrEmpty(trainer.Pg_collage))
             {
@@ -90,7 +90,7 @@ namespace Data
             command_3.Parameters.AddWithValue("@User_ID", trainer.Userid);
             command_3.Parameters.AddWithValue("@Skill_1", trainer.Skill_1);
             command_3.Parameters.AddWithValue("@Skill_2", trainer.Skill_2);
-            
+
             if (string.IsNullOrEmpty(trainer.Skill_3))
             {
                 command_3.Parameters.AddWithValue("@Skill_3", "Null");
@@ -140,55 +140,55 @@ namespace Data
             return trainer;
         }
 
-        public List<Trainer> GetAllTrainers()
+        public Trainer GetAllTrainer(string eMail)
         {
-            List<Trainer> trainer = new List<Trainer>();
+            Trainer trainer = new Trainer();
 
-            try
+            string[] emailarr = eMail.Split("@");
+            trainer.Userid = emailarr[0];
+
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            string query_5 = $@"Select TrainerDetails.User_ID, TrainerDetails.Email_ID, TrainerDetails.Firstname, TrainerDetails.Lastname, TrainerDetails.Age, TrainerDetails.Gender, TrainerDetails.Phone_Number, TrainerDetails.City, 
+Education.Ug_collage, Education.Ug_stream, Education.Ug_Percentage, Education.Ug_year, Education.Pg_collage, Education.Pg_stream, Education.Pg_Percentage, Education.Pg_year,
+Skill.Skill_1, Skill.Skill_2, Skill.Skill_3,
+Company.Company_Name, Company.Field, Company.Overall_Experience From TrainerDetails
+join Education on TrainerDetails.User_ID = Education.User_ID
+join Skill on Education.User_ID = Skill.User_ID
+join Company on Skill.User_ID = Company.User_ID
+where TrainerDetails.User_ID = '{trainer.Userid}';";
+
+            SqlCommand command = new SqlCommand(query_5, con);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
             {
-                SqlConnection con = new SqlConnection(connectionString);
-                con.Open();
-
-                string query_5 = File.ReadAllText("../../../../Data/query_5.txt");
-
-                SqlCommand command = new SqlCommand(query_5, con);
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    trainer.Add(new Trainer()
-                    {
-                        Userid = reader.GetString(0),
-                        Emailid = reader.GetString(1),
-                        Firstname = reader.GetString(2),
-                        Lastname = reader.GetString(3),
-                        Age = reader.GetInt32(4),
-                        Gender = reader.GetString(5),
-                        Phonenumber = reader.GetString(6),
-                        City = reader.GetString(7),
-                        Ug_collage = reader.GetString(8),
-                        Ug_stream = reader.GetString(9),
-                        Ug_percentage = reader.GetString(10),
-                        Ug_year = reader.GetString(11),
-                        Pg_collage = reader.GetString(12),
-                        Pg_stream = reader.GetString(13),
-                        Pg_percentage = reader.GetString(14),
-                        Pg_year = reader.GetString(15),
-                        Skill_1 = reader.GetString(16),
-                        Skill_2 = reader.GetString(17),
-                        Skill_3 = reader.GetString(18),
-                        Companyname = reader.GetString(19),
-                        Field = reader.GetString(20),
-                        Experience = reader.GetString(21)
-                    });
-                }
-                reader.Close();
+                trainer.Emailid = reader.GetString(1);
+                trainer.Firstname = reader.GetString(2);
+                trainer.Lastname = reader.GetString(3);
+                trainer.Age = reader.GetInt32(4);
+                trainer.Gender = reader.GetString(5);
+                trainer.Phonenumber = reader.GetString(6);
+                trainer.City = reader.GetString(7);
+                trainer.Ug_collage = reader.GetString(8);
+                trainer.Ug_stream = reader.GetString(9);
+                trainer.Ug_percentage = reader.GetString(10);
+                trainer.Ug_year = reader.GetString(11);
+                trainer.Pg_collage = reader.GetString(12);
+                trainer.Pg_stream = reader.GetString(13);
+                trainer.Pg_percentage = reader.GetString(14);
+                trainer.Pg_year = reader.GetString(15);
+                trainer.Skill_1 = reader.GetString(16);
+                trainer.Skill_2 = reader.GetString(17);
+                trainer.Skill_3 = reader.GetString(18);
+                trainer.Companyname = reader.GetString(19);
+                trainer.Field = reader.GetString(20);
+                trainer.Experience = reader.GetString(21);
             }
-            catch (SqlException ex)
-            {
-                throw;
-            }
+            reader.Close();
+
             return trainer;
         }
 
@@ -237,6 +237,43 @@ namespace Data
             }
 
             return trainer;
+        }
+
+        public bool login(string eMail)
+        {
+            string query_7 = $"select Email_ID from TrainerDetails where Email_ID='{eMail}';";
+            using SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand command1 = new SqlCommand(query_7, con);
+
+            SqlDataReader reader = command1.ExecuteReader();
+
+            if (reader.Read())
+            {
+                reader.Close();
+                Console.Write("Enter you password: ");
+                string password = Console.ReadLine();
+                string query_8 = $"select Email_ID from TrainerDetails where Password='{password}';";
+                SqlCommand command2 = new SqlCommand(query_8, con);
+                using SqlDataReader reader1 = command2.ExecuteReader();
+                if (reader1.Read())
+                {
+                    Console.WriteLine("Login Success");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Wrong Password");
+                    reader1.Close();
+                    return false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("No data found in this email\nCheck your credentails or Signup First");
+                Console.ReadLine();
+                return false;
+            }
         }
     }
 }

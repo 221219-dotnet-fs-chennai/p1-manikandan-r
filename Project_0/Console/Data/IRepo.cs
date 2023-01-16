@@ -9,8 +9,8 @@ namespace Data
     public interface IRepo
     {
         Trainer Insertion(Trainer trainer);
-        List<Trainer> GetAllTrainers();
-
         List<Trainer> GetAllTrainersDisconnected();
+        Trainer GetAllTrainer(string eMail);
+        bool login(string email);
     }
 }

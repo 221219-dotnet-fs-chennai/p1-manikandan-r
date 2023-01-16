@@ -4,4 +4,5 @@ Skill.Skill_1, Skill.Skill_2, Skill.Skill_3,
 Company.Company_Name, Company.Field, Company.Overall_Experience From TrainerDetails
 join Education on TrainerDetails.User_ID = Education.User_ID
 join Skill on Education.User_ID = Skill.User_ID
-join Company on Skill.User_ID = Company.User_ID;
+join Company on Skill.User_ID = Company.User_ID
+where TrainerDetails.User_ID = 'yuvatony';

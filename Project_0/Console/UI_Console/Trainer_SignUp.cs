@@ -7,7 +7,16 @@ namespace UI_Console
 {
     internal class SignUp : IMenu
     {
-        private static Trainer trainer = new Trainer();
+        internal static Trainer trainer = new Trainer();
+
+        public SignUp(Trainer trainer_1)
+        {
+            trainer = trainer_1;
+        }
+        public SignUp()
+        {
+
+        }
         
         static string conStr = File.ReadAllText("../../../../Data/connectionString.txt");
 
