@@ -8,6 +8,7 @@ namespace Data
     {
         private readonly string connectionString;
 
+
         public SqlRepo(string connectionString)
         {
             this.connectionString = connectionString;
@@ -22,7 +23,7 @@ namespace Data
             connection.Open();
 
 
-            string query_1 = File.ReadAllText("../../../../query_1.txt");
+            string query_1 = File.ReadAllText("../../../../text_files/query_1.txt");
             SqlCommand command_1 = new SqlCommand(query_1, connection);
 
             command_1.Parameters.AddWithValue("@User_ID", trainer.Userid);
@@ -38,7 +39,7 @@ namespace Data
             command_1.ExecuteNonQuery();
 
 
-            string query_2 = File.ReadAllText("../../../../query_2.txt");
+            string query_2 = File.ReadAllText("../../../../text_files/query_2.txt");
             SqlCommand command_2 = new SqlCommand(query_2, connection);
 
             command_2.Parameters.AddWithValue("@User_ID", trainer.Userid);
@@ -83,7 +84,7 @@ namespace Data
 
             command_2.ExecuteNonQuery();
 
-            string query_3 = File.ReadAllText("../../../../query_3.txt");
+            string query_3 = File.ReadAllText("../../../../text_files/query_3.txt");
             SqlCommand command_3 = new SqlCommand(query_3, connection);
 
             command_3.Parameters.AddWithValue("@User_ID", trainer.Userid);
@@ -101,7 +102,7 @@ namespace Data
 
             command_3.ExecuteNonQuery();
 
-            string query_4 = File.ReadAllText("../../../../query_4.txt");
+            string query_4 = File.ReadAllText("../../../../text_files/query_4.txt");
             SqlCommand command_4 = new SqlCommand(query_4, connection);
 
             command_4.Parameters.AddWithValue("@User_ID", trainer.Userid);
@@ -148,7 +149,7 @@ namespace Data
                 SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
 
-                string query_5 = File.ReadAllText("../../../../query_5.txt");
+                string query_5 = File.ReadAllText("../../../../text_files/query_5.txt");
 
                 SqlCommand command = new SqlCommand(query_5, con);
 
@@ -197,7 +198,7 @@ namespace Data
 
             SqlConnection con = new SqlConnection(connectionString);
 
-            string query_6 = File.ReadAllText("../../../../query_6.txt");
+            string query_6 = File.ReadAllText("../../../../text_files/query_6.txt");
 
             SqlDataAdapter adapter = new SqlDataAdapter(query_6, con);
 
