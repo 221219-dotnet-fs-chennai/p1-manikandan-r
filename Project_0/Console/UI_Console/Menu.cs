@@ -6,13 +6,13 @@ namespace UI_Console
     {
         public void Display()
         {
-            Console.WriteLine("Welcome to Trainer Picker :)...\nSelect an option to proceed.");
+            Console.WriteLine("\nWelcome to Trainer Picker :)...\nSelect an option to proceed.");
             Console.Write("\nPress [0] to Exit\nPress [1] to Get Trainers List\nPress [2] to Trainer\n> ");
         }
 
         public string UserChoice()
         {
-            string login_signup = (Console.ReadLine());
+            string login_signup = Console.ReadLine();
 
             switch (login_signup)
             {

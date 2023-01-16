@@ -9,14 +9,15 @@ public class LogIn : IMenu
     IRepo repo = new SqlRepo(conStr);
     public void Display()
     {
-        Console.WriteLine("-------LOGIN PAGE------");
+        Console.WriteLine("\n-------LOGIN PAGE------\n");
         Console.WriteLine("[0] for Trainer Menu");
         Console.WriteLine("[1] to Proceed Login");
     }
 
     public string UserChoice()
     {
-        Console.Write("Enter your choice: ");
+        Console.WriteLine("---------------------------");
+        Console.Write("\nEnter your choice: ");
         string userChoice = Console.ReadLine();
 
         switch(userChoice)

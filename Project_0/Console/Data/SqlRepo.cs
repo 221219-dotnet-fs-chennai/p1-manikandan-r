@@ -1,6 +1,5 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
-using System.Reflection.PortableExecutable;
 
 namespace Data
 {
@@ -295,6 +294,18 @@ where TrainerDetails.User_ID = '{trainer.Userid}';";
             SqlCommand command1 = new SqlCommand(query_9, con);
             command1.ExecuteNonQuery();
             Console.WriteLine("Data Updated Successfully!");
+        }
+
+        public void DeleteTrainer(string eMail)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            string query_10 = $"delete from TrainerDetails where User_ID = '{eMail}'";
+
+            SqlCommand command = new SqlCommand(query_10, con);
+            command.ExecuteNonQuery();
+            Console.WriteLine("Profile Deleted Successfully");
         }
     }
 }

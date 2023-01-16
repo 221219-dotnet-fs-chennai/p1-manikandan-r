@@ -5,6 +5,7 @@ namespace UI_Console
     {
         public void Display()
         {
+            Console.WriteLine("\n----------TRAINER'S MENU----------\n");
             Console.WriteLine("[0] to Main Menu");
             Console.WriteLine("[1] to Login");
             Console.WriteLine("[2] to Signup");
@@ -12,7 +13,8 @@ namespace UI_Console
 
         public string UserChoice()
         {
-            Console.Write("Enter your choice: ");
+            Console.WriteLine("--------------------------");
+            Console.Write("\nEnter your choice: ");
             string userChoice = Console.ReadLine();
 
             switch (userChoice)

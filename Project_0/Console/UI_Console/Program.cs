@@ -36,7 +36,7 @@ namespace UI_Console
                         break;
 
                     case "GetTrainers":
-                        menu = new GetTrainer();
+                        menu = new GetTrainers();
                         break;
 
                     case "Trainer":
@@ -77,6 +77,9 @@ namespace UI_Console
                                     break;
                                 case "TrainerUpdate":
                                     menu = new TrainerUpdate();
+                                    break;
+                                case "TrainerDelete":
+                                    menu = new Trainer_delete(); 
                                     break;
                                 default:
                                     Console.WriteLine("Wrong Choice! Try again...");

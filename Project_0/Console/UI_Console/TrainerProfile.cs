@@ -11,6 +11,9 @@ namespace UI_Console
     {
         Trainer trainerProfile = new Trainer();
 
+        static string conStr = File.ReadAllText("../../../../Data/connectionString.txt");
+
+        IRepo repo = new SqlRepo(conStr);
         public TrainerProfile(Trainer trainer)
         {
             trainerProfile = trainer;
@@ -18,8 +21,8 @@ namespace UI_Console
         public void Display()
         {
             Console.WriteLine("--------------------------------------");
-            Console.WriteLine($"Welcome {trainerProfile.Firstname} {trainerProfile.Lastname}");
-            Console.WriteLine("Choose below options to perform actions");
+            Console.WriteLine($"Welcome {trainerProfile.Firstname} {trainerProfile.Lastname} :)");
+            Console.WriteLine("Choose below options to perform actions\n");
             Console.WriteLine("[0] to Back");
             Console.WriteLine("[1] View Profile");
             Console.WriteLine("[2] Update Profile");
@@ -28,7 +31,8 @@ namespace UI_Console
 
         public string UserChoice()
         {
-            Console.Write("Enter your choice: ");
+            Console.WriteLine("--------------------------");
+            Console.Write("\nEnter your choice: ");
             string userChoice = Console.ReadLine();
             
             switch(userChoice)
@@ -37,14 +41,44 @@ namespace UI_Console
                     return "Login";
                 case "1":
                     ShowProfile();
+                    Console.WriteLine("--------------------------------------");
+                    Console.WriteLine("Press Enter to continue...");
                     Console.ReadLine();
                     return "TrainerProfile";
                 case "2":
                     return "TrainerUpdate";
                 case "3":
-                    Console.WriteLine("code is under development");
-                    Console.ReadLine();
-                    return "TrainerProfile";
+                    Console.Clear();
+                    Console.WriteLine("\n-------DELETE PAGE------\n");
+                    Console.WriteLine("Are you Sure?");
+                    Console.WriteLine("[0] for Back");
+                    Console.WriteLine("[1] proceed to delete");
+                    Console.WriteLine("---------------------------");
+                    Console.Write("\nEnter your choice: ");
+                    string userChoice_1 = Console.ReadLine();
+
+                    Console.Write("Enter your Email ID: ");
+                    string email = Console.ReadLine();
+
+                    switch (userChoice_1)
+                    {
+                        case "0":
+                            return "TrainerProfile";
+                        case "1":
+                            Console.WriteLine("Thank You For using 'Trainer Picker'");
+                            string[] emailArr = email.Split("@");
+                            string userId = emailArr[0];
+                            repo.DeleteTrainer(userId);
+                            Console.WriteLine("\nProfile Deleted Successfully...");
+                            Console.WriteLine("Press Enter to Continue");
+                            Console.ReadLine();
+                            return "TrainerMenu";
+                        default:
+                            Console.WriteLine("Wrong Choice try again");
+                            Console.WriteLine("Press Enter to continue...");
+                            Console.ReadLine();
+                            return "TrainerProfile";
+                    }
                 default:
                     Console.WriteLine("Wrong choice try again");
                     Console.WriteLine("Press Enter to continue");

@@ -70,12 +70,13 @@ namespace UI_Console
                     {
                         Log.Logger.Information("Adding trainer details");
                         repo.Insertion(trainer);
+                        trainer = new Trainer();
                         Log.Logger.Information("Successfully added trainer details");
                     }
                     catch (System.Exception ex) 
                     {
                         Log.Logger.Information($"Failed to add trainer details {ex.Message}");
-                        Console.WriteLine(ex.Message);
+                        Console.WriteLine("Fields Cannot be Empty!!\n" + ex.Message);
                         Console.WriteLine("Press Enter to continue");
                         Console.ReadLine();
                     }
@@ -97,8 +98,16 @@ namespace UI_Console
                     trainer.Lastname = Console.ReadLine();
                     return "Signup";
                 case "6":
-                    Console.Write("Enter your Age: ");
-                    trainer.Age = Convert.ToInt32(Console.ReadLine());
+                    try
+                    {
+                        Console.Write("Enter your Age: ");
+                        trainer.Age = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch(Exception ex)
+                    {
+                        Console.WriteLine("Age should be in numbers!!");
+                        Console.ReadLine();
+                    }
                     return "Signup";
                 case "7":
                     Console.Write("Enter your Gender: ");

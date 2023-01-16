@@ -14,9 +14,9 @@ namespace UI_Console
         IRepo repo = new SqlRepo(conStr);
         public void Display()
         {
-            Console.WriteLine("---------------------------");
+            Console.WriteLine("---------------UPDATE PAGE-----------------");
             Console.WriteLine("Note: You can update below details only\n");
-            Console.WriteLine("[0] go Back");
+            Console.WriteLine("[0] Go Back");
             Console.WriteLine("[1] Save");
             Console.WriteLine("[2] Password                 : " + trainer.Password);
             Console.WriteLine("[3] Age                      : " + trainer.Age);
