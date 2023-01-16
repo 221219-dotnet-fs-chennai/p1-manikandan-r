@@ -305,7 +305,6 @@ where TrainerDetails.User_ID = '{trainer.Userid}';";
 
             SqlCommand command = new SqlCommand(query_10, con);
             command.ExecuteNonQuery();
-            Console.WriteLine("Profile Deleted Successfully");
         }
     }
 }
