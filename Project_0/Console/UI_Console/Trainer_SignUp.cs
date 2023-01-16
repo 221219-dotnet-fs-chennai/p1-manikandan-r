@@ -9,7 +9,7 @@ namespace UI_Console
     {
         private static Trainer trainer = new Trainer();
         
-        static string conStr = File.ReadAllText("../../../../text_files/connectionString.txt");
+        static string conStr = File.ReadAllText("../../../../Data/connectionString.txt");
 
         IRepo repo = new SqlRepo(conStr);
 
