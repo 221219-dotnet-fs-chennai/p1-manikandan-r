@@ -1,0 +1,7 @@
+Select TrainerDetails.User_ID, TrainerDetails.Email_ID, TrainerDetails.Firstname, TrainerDetails.Lastname, TrainerDetails.Age, TrainerDetails.Gender, TrainerDetails.Phone_Number, TrainerDetails.City, 
+Education.Ug_collage, Education.Ug_stream, Education.Ug_Percentage, Education.Ug_year, Education.Pg_collage, Education.Pg_stream, Education.Pg_Percentage, Education.Pg_year,
+Skill.Skill_1, Skill.Skill_2, Skill.Skill_3,
+Company.Company_Name, Company.Field, Company.Overall_Experience From TrainerDetails
+join Education on TrainerDetails.User_ID = Education.User_ID
+join Skill on Education.User_ID = Skill.User_ID
+join Company on Skill.User_ID = Company.User_ID;

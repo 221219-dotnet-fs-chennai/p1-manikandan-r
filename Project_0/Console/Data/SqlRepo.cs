@@ -22,7 +22,7 @@ namespace Data
             connection.Open();
 
 
-            string query_1 = @"insert into TrainerDetails(User_ID, Email_ID, Password, Firstname, Lastname, Age, Gender, Phone_Number, City) values (@User_ID, @Email_ID, @Password, @Fname, @Lname, @Age, @gender, @Phone_number, @City)";
+            string query_1 = File.ReadAllText("../../../../text_files/query_1.txt");
             SqlCommand command_1 = new SqlCommand(query_1, connection);
 
             command_1.Parameters.AddWithValue("@User_ID", trainer.Userid);
@@ -38,7 +38,7 @@ namespace Data
             command_1.ExecuteNonQuery();
 
 
-            string query_2 = @"insert into Education(User_ID, Ug_collage, Ug_stream, Ug_Percentage, Ug_year, Pg_collage, Pg_stream, Pg_Percentage, Pg_year) values (@User_ID, @Ug_collage, @Ug_stream, @Ug_Percentage, @Ug_year, @Pg_collage, @Pg_stream, @Pg_Percentage, @Pg_year)";
+            string query_2 = File.ReadAllText("../../../../text_files/query_2.txt");
             SqlCommand command_2 = new SqlCommand(query_2, connection);
 
             command_2.Parameters.AddWithValue("@User_ID", trainer.Userid);
@@ -83,7 +83,7 @@ namespace Data
 
             command_2.ExecuteNonQuery();
 
-            string query_3 = @"insert into Skill(User_ID, Skill_1, Skill_2, Skill_3) values(@User_ID, @Skill_1, @Skill_2, @Skill_3)";
+            string query_3 = File.ReadAllText("../../../../text_files/query_3.txt");
             SqlCommand command_3 = new SqlCommand(query_3, connection);
 
             command_3.Parameters.AddWithValue("@User_ID", trainer.Userid);
@@ -101,7 +101,7 @@ namespace Data
 
             command_3.ExecuteNonQuery();
 
-            string query_4 = @"insert into Company(User_ID, Company_Name, Field, Overall_Experience) values (@User_ID, @Company_Name, @Field, @Overall_Experience)";
+            string query_4 = File.ReadAllText("../../../../text_files/query_4.txt");
             SqlCommand command_4 = new SqlCommand(query_4, connection);
 
             command_4.Parameters.AddWithValue("@User_ID", trainer.Userid);
@@ -148,13 +148,7 @@ namespace Data
                 SqlConnection con = new SqlConnection(connectionString);
                 con.Open();
 
-                string query_5 = @"Select TrainerDetails.User_ID, TrainerDetails.Email_ID, TrainerDetails.Firstname, TrainerDetails.Lastname, TrainerDetails.Age, TrainerDetails.Gender, TrainerDetails.Phone_Number, TrainerDetails.City, 
-Education.Ug_collage, Education.Ug_stream, Education.Ug_Percentage, Education.Ug_year, Education.Pg_collage, Education.Pg_stream, Education.Pg_Percentage, Education.Pg_year,
-Skill.Skill_1, Skill.Skill_2, Skill.Skill_3,
-Company.Company_Name, Company.Field, Company.Overall_Experience From TrainerDetails
-join Education on TrainerDetails.User_ID = Education.User_ID
-join Skill on Education.User_ID = Skill.User_ID
-join Company on Skill.User_ID = Company.User_ID;";
+                string query_5 = File.ReadAllText("../../../../text_files/query_5.txt");
 
                 SqlCommand command = new SqlCommand(query_5, con);
 
@@ -203,13 +197,7 @@ join Company on Skill.User_ID = Company.User_ID;";
 
             SqlConnection con = new SqlConnection(connectionString);
 
-            string query_6 = @"Select TrainerDetails.User_ID, TrainerDetails.Email_ID, TrainerDetails.Firstname, TrainerDetails.Lastname, TrainerDetails.Age, TrainerDetails.Gender, TrainerDetails.Phone_Number, TrainerDetails.City, 
-Education.Ug_collage, Education.Ug_stream, Education.Ug_Percentage, Education.Ug_year, Education.Pg_collage, Education.Pg_stream, Education.Pg_Percentage, Education.Pg_year,
-Skill.Skill_1, Skill.Skill_2, Skill.Skill_3,
-Company.Company_Name, Company.Field, Company.Overall_Experience From TrainerDetails
-join Education on TrainerDetails.User_ID = Education.User_ID
-join Skill on Education.User_ID = Skill.User_ID
-join Company on Skill.User_ID = Company.User_ID;";
+            string query_6 = File.ReadAllText("../../../../text_files/query_6.txt");
 
             SqlDataAdapter adapter = new SqlDataAdapter(query_6, con);
 
