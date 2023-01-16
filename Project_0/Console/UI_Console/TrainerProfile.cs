@@ -57,7 +57,7 @@ namespace UI_Console
                     Console.Write("\nEnter your choice: ");
                     string userChoice_1 = Console.ReadLine();
 
-                    Console.Write("Enter your Email ID: ");
+                    Console.Write("\nEnter your Email ID: ");
                     string email = Console.ReadLine();
 
                     switch (userChoice_1)
@@ -70,7 +70,7 @@ namespace UI_Console
                             string userId = emailArr[0];
                             repo.DeleteTrainer(userId);
                             Console.WriteLine("\nProfile Deleted Successfully...");
-                            Console.WriteLine("Press Enter to Continue");
+                            Console.WriteLine("\nPress Enter to Continue");
                             Console.ReadLine();
                             return "TrainerMenu";
                         default:

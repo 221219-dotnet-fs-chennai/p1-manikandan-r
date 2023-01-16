@@ -40,11 +40,11 @@ namespace UI_Console
             Console.WriteLine("[10] UG Collage name*    : " + trainer.Ug_collage);
             Console.WriteLine("[11] UG Stream*          : " + trainer.Ug_stream);
             Console.WriteLine("[12] UG Percentage*      : " + trainer.Ug_percentage);
-            Console.WriteLine("[13] UG Year*            : " + trainer.Ug_year);
+            Console.WriteLine("[13] UG Passed out Year* : " + trainer.Ug_year);
             Console.WriteLine("[14] PG Collage name     : " + trainer.Pg_collage);
             Console.WriteLine("[15] PG Stream           : " + trainer.Pg_stream);
             Console.WriteLine("[16] PG Percentage       : " + trainer.Pg_percentage);
-            Console.WriteLine("[17] PG Year             : " + trainer.Pg_year);
+            Console.WriteLine("[17] PG Passed out Year  : " + trainer.Pg_year);
             Console.WriteLine("[18] Skill 1*            : " + trainer.Skill_1);
             Console.WriteLine("[19] Skill 2*            : " + trainer.Skill_2);
             Console.WriteLine("[20] Skill 3             : " + trainer.Skill_3);
@@ -146,7 +146,7 @@ namespace UI_Console
                     trainer.Ug_percentage = Console.ReadLine();
                     return "Signup";
                 case "13":
-                    Console.Write("Enter your UG year: ");
+                    Console.Write("Enter your UG passed out year: ");
                     trainer.Ug_year = Console.ReadLine();
                     return "Signup";
                 case "14":
@@ -162,7 +162,7 @@ namespace UI_Console
                     trainer.Pg_percentage = Console.ReadLine();
                     return "Signup";
                 case "17":
-                    Console.Write("Enter your PG year: ");
+                    Console.Write("Enter your PG passed out year: ");
                     trainer.Pg_year = Console.ReadLine();
                     return "Signup";
                 case "18":

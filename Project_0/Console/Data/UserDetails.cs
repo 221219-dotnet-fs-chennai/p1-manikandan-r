@@ -166,18 +166,22 @@ namespace Data
         public string TrainerDetails()
         {
             return $@"
-========================================================================================================================
+=============================================================================================================================
+
 Personal Details:
-{Emailid}, {Firstname}, {Lastname}, {Age}, {Gender}, {Phonenumber}, {City}
-------------------------------------------------------------------------------------------------------------------------
-Education Details:
-{Ug_collage}, {Ug_stream}, {Ug_percentage}, {Ug_year}, {Pg_collage}, {Pg_stream}, {Pg_percentage}, {Pg_year}
-------------------------------------------------------------------------------------------------------------------------
+Email: {Emailid}, Firstname: {Firstname}, Lastname: {Lastname}, Age: {Age}, Gender: {Gender}, Phonenumber: {Phonenumber}, City: {City}
+
+UG Education Details:
+UG college name: {Ug_collage}, UG stream: {Ug_stream}, UG percentage: {Ug_percentage}, UG passed out year: {Ug_year}
+
+PG Education Details:
+PG college name: {Pg_collage},  PG stream: {Pg_stream},  PG percentage: {Pg_percentage}, PG passed out year: {Pg_year}
+
 Skills:
-{Skill_1}, {Skill_2}, {Skill_3}
-------------------------------------------------------------------------------------------------------------------------
+Skill 1: {Skill_1}, Skill 2: {Skill_2}, Skill 3: {Skill_3}
+
 Word Details:
-{Companyname}, {Field}, {Experience}";
+Last working company: {Companyname}, Field: {Field}, Overall Experience: {Experience}";
         }
     }
 }
