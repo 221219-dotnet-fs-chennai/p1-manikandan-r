@@ -6,7 +6,7 @@ namespace UI_Console
     {
         public void Display()
         {
-            Console.WriteLine("\nWelcome to Trainer Picker :)...\nSelect an option to proceed.");
+            Console.WriteLine("\nWelcome to Trainer Picker :)...\n\nSelect an option to proceed...");
             Console.Write("\nPress [0] to Exit\nPress [1] to Get Trainers List\nPress [2] to Trainer\n> ");
         }
 

@@ -54,7 +54,7 @@ namespace UI_Console
         }
         public string UserChoice()
         {
-            Console.WriteLine("--------------------------");
+            Console.WriteLine("\n--------------------------");
             Console.Write("\nEnter your choice: ");
             string userchoice = Console.ReadLine();
 
@@ -105,6 +105,7 @@ namespace UI_Console
                     }
                     catch(Exception ex)
                     {
+                        Log.Logger.Information("Age value entered in numbers it throws exception");
                         Console.WriteLine("Age should be in numbers!!");
                         Console.ReadLine();
                     }

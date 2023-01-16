@@ -13,7 +13,7 @@ namespace UI_Console
 
         public string UserChoice()
         {
-            Console.WriteLine("--------------------------");
+            Console.WriteLine("\n--------------------------");
             Console.Write("\nEnter your choice: ");
             string userChoice = Console.ReadLine();
 

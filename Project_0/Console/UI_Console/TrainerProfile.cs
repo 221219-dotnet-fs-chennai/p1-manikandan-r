@@ -20,18 +20,19 @@ namespace UI_Console
         }
         public void Display()
         {
+            Log.Logger.Information($"{trainerProfile.Firstname} {trainerProfile.Lastname} trainer logged in");
             Console.WriteLine("--------------------------------------");
             Console.WriteLine($"Welcome {trainerProfile.Firstname} {trainerProfile.Lastname} :)");
-            Console.WriteLine("Choose below options to perform actions\n");
+            Console.WriteLine("\nChoose below options to perform actions");
             Console.WriteLine("[0] to Back");
             Console.WriteLine("[1] View Profile");
-            Console.WriteLine("[2] Update Profile");
+            Console.WriteLine("[2] Update/Edit Profile");
             Console.WriteLine("[3] Delete Profile");
         }
 
         public string UserChoice()
         {
-            Console.WriteLine("--------------------------");
+            Console.WriteLine("\n--------------------------");
             Console.Write("\nEnter your choice: ");
             string userChoice = Console.ReadLine();
             
@@ -53,19 +54,20 @@ namespace UI_Console
                     Console.WriteLine("Are you Sure?");
                     Console.WriteLine("[0] for Back");
                     Console.WriteLine("[1] proceed to delete");
-                    Console.WriteLine("---------------------------");
+                    Console.WriteLine("\n---------------------------");
                     Console.Write("\nEnter your choice: ");
                     string userChoice_1 = Console.ReadLine();
-
-                    Console.Write("\nEnter your Email ID: ");
-                    string email = Console.ReadLine();
 
                     switch (userChoice_1)
                     {
                         case "0":
                             return "TrainerProfile";
                         case "1":
-                            Console.WriteLine("Thank You For using 'Trainer Picker'");
+                            Console.Write("\nEnter your Email ID: ");
+                            string email = Console.ReadLine();
+
+                            Log.Logger.Information($"{trainerProfile.Firstname} {trainerProfile.Lastname} profile deleted");
+                            Console.WriteLine("\nThank You For using 'Trainer Picker'");
                             string[] emailArr = email.Split("@");
                             string userId = emailArr[0];
                             repo.DeleteTrainer(userId);
@@ -90,7 +92,7 @@ namespace UI_Console
         public void ShowProfile()
         {
             Console.Clear();
-
+            Log.Logger.Information($"display {trainerProfile.Firstname} {trainerProfile.Lastname} profile");
             Console.WriteLine($"\n-------{trainerProfile.Firstname.ToUpper()} {trainerProfile.Lastname.ToUpper()} PROFILE-------\n");
             Console.WriteLine("Email ID             : " + trainerProfile.Emailid);
             Console.WriteLine("Password             : " + trainerProfile.Password);

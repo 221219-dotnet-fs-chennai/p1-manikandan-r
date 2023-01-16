@@ -36,6 +36,7 @@ namespace UI_Console
                         break;
 
                     case "GetTrainers":
+                        Log.Logger.Information("User choose get trainers");
                         menu = new GetTrainers();
                         break;
 
@@ -64,12 +65,10 @@ namespace UI_Console
                                     menu = new SignUp();
                                     break;
                                 case "MainMenu":
-                                    Log.Logger.Information("User select Main menu");
                                     menu = new Menu();
                                     value_2 = false;
                                     break;
                                 case "TrainerMenu":
-                                    Log.Logger.Information("User select trainer menu");
                                     menu = new TrainerMenu();
                                     break;
                                 case "TrainerProfile":
@@ -88,7 +87,7 @@ namespace UI_Console
                         break;
 
                     case "Exit":
-                        Console.WriteLine("Exiting...");
+                        Console.WriteLine("Thank for using 'Trainer Picker'");
                         Log.Logger.Information("-------Program ends-------");
                         Log.CloseAndFlush();
                         value = false;

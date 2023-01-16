@@ -180,7 +180,7 @@ PG college name: {Pg_collage},  PG stream: {Pg_stream},  PG percentage: {Pg_perc
 Skills:
 Skill 1: {Skill_1}, Skill 2: {Skill_2}, Skill 3: {Skill_3}
 
-Word Details:
+Work Details:
 Last working company: {Companyname}, Field: {Field}, Overall Experience: {Experience}";
         }
     }

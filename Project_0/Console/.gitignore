@@ -2,6 +2,13 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,dotnetcore,csharp,aspnetcore,angular
 
 # text_file #
+Data/connectionString.txt/
+Data/query_1.txt/
+Data/query_2.txt/
+Data/query_3.txt/
+Data/query_4.txt/
+Data/query_5.txt/
+Data/query_6.txt/
 *.txt/
 
 

@@ -43,7 +43,7 @@ namespace UI_Console
             string[] emailArr = trainer.Emailid.Split("@");
             string userId = emailArr[0];
 
-            Console.WriteLine("--------------------------");
+            Console.WriteLine("\n--------------------------");
             Console.Write("\nEnter your choice: ");
             string userChoice = Console.ReadLine();
             
@@ -52,6 +52,7 @@ namespace UI_Console
                 case "0":
                     return "TrainerProfile";
                 case "1":
+                    Log.Logger.Information($"{trainer.Firstname} {trainer.Lastname} trainer updated his profile");
                     Console.WriteLine("Date(s) Updated Successfully");
                     Console.WriteLine("Press Enter to continue...");
                     return "TrainerProfile";

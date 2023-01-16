@@ -132,7 +132,8 @@ namespace Data
 
             command_4.ExecuteNonQuery();
 
-            Console.WriteLine("row(s) added successfully");
+            Console.WriteLine("\nrow(s) added successfully");
+            Console.WriteLine("Press Enter to Continue...");
             Console.ReadLine();
 
             return trainer;
