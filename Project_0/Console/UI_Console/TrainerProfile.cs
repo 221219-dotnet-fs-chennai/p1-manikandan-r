@@ -17,42 +17,69 @@ namespace UI_Console
         }
         public void Display()
         {
-            Console.WriteLine("\n-------TRAINER PROFILE-------\n");
-            Console.WriteLine("NOTE: * fields are mandatory\n");
-            Console.WriteLine("[1] Save");
-            Console.WriteLine("[2] Email ID*            : " + trainerProfile.Emailid);
-            Console.WriteLine("[3] Password*            : " + trainerProfile.Password);
-            Console.WriteLine("[4] Firstname*           : " + trainerProfile.Firstname);
-            Console.WriteLine("[5] Lastname*            : " + trainerProfile.Lastname);
-            Console.WriteLine("[6] Age*                 : " + trainerProfile.Age);
-            Console.WriteLine("[7] Gender*              : " + trainerProfile.Gender);
-            Console.WriteLine("[8] Phone number*        : " + trainerProfile.Phonenumber);
-            Console.WriteLine("[9] City*                : " + trainerProfile.City);
-            Console.WriteLine("[10] UG Collage name*    : " + trainerProfile.Ug_collage);
-            Console.WriteLine("[11] UG Stream*          : " + trainerProfile.Ug_stream);
-            Console.WriteLine("[12] UG Percentage*      : " + trainerProfile.Ug_percentage);
-            Console.WriteLine("[13] UG Year*            : " + trainerProfile.Ug_year);
-            Console.WriteLine("[14] PG Collage name     : " + trainerProfile.Pg_collage);
-            Console.WriteLine("[15] PG Stream           : " + trainerProfile.Pg_stream);
-            Console.WriteLine("[16] PG Percentage       : " + trainerProfile.Pg_percentage);
-            Console.WriteLine("[17] PG Year             : " + trainerProfile.Pg_year);
-            Console.WriteLine("[18] Skill 1*            : " + trainerProfile.Skill_1);
-            Console.WriteLine("[19] Skill 2*            : " + trainerProfile.Skill_2);
-            Console.WriteLine("[20] Skill 3             : " + trainerProfile.Skill_3);
-            Console.WriteLine("[21] Company name        : " + trainerProfile.Companyname);
-            Console.WriteLine("[22] Field of working    : " + trainerProfile.Field);
-            Console.WriteLine("[23] Overall experience  : " + trainerProfile.Experience);
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine($"Welcome {trainerProfile.Firstname} {trainerProfile.Lastname}");
+            Console.WriteLine("Choose below options to perform actions");
+            Console.WriteLine("[0] to Back");
+            Console.WriteLine("[1] View Profile");
+            Console.WriteLine("[2] Update Profile");
+            Console.WriteLine("[3] Delete Profile");
         }
 
         public string UserChoice()
         {
-            Console.WriteLine("Good job");
-            return "";
+            Console.Write("Enter your choice: ");
+            string userChoice = Console.ReadLine();
+            
+            switch(userChoice)
+            {
+                case "0":
+                    return "Login";
+                case "1":
+                    ShowProfile();
+                    Console.ReadLine();
+                    return "TrainerProfile";
+                case "2":
+                    return "TrainerUpdate";
+                case "3":
+                    Console.WriteLine("code is under development");
+                    Console.ReadLine();
+                    return "TrainerProfile";
+                default:
+                    Console.WriteLine("Wrong choice try again");
+                    Console.WriteLine("Press Enter to continue");
+                    Console.ReadLine();
+                    return "TrainerProfile";
+            }
         }
 
         public void ShowProfile()
         {
+            Console.Clear();
 
+            Console.WriteLine($"\n-------{trainerProfile.Firstname.ToUpper()} {trainerProfile.Lastname.ToUpper()} PROFILE-------\n");
+            Console.WriteLine("Email ID             : " + trainerProfile.Emailid);
+            Console.WriteLine("Password             : " + trainerProfile.Password);
+            Console.WriteLine("Firstname            : " + trainerProfile.Firstname);
+            Console.WriteLine("Lastname             : " + trainerProfile.Lastname);
+            Console.WriteLine("Age                  : " + trainerProfile.Age);
+            Console.WriteLine("Gender               : " + trainerProfile.Gender);
+            Console.WriteLine("Phone number         : " + trainerProfile.Phonenumber);
+            Console.WriteLine("City                 : " + trainerProfile.City);
+            Console.WriteLine("UG Collage name      : " + trainerProfile.Ug_collage);
+            Console.WriteLine("UG Stream            : " + trainerProfile.Ug_stream);
+            Console.WriteLine("UG Percentage        : " + trainerProfile.Ug_percentage);
+            Console.WriteLine("UG Year              : " + trainerProfile.Ug_year);
+            Console.WriteLine("PG Collage name      : " + trainerProfile.Pg_collage);
+            Console.WriteLine("PG Stream            : " + trainerProfile.Pg_stream);
+            Console.WriteLine("PG Percentage        : " + trainerProfile.Pg_percentage);
+            Console.WriteLine("PG Year              : " + trainerProfile.Pg_year);
+            Console.WriteLine("Skill 1              : " + trainerProfile.Skill_1);
+            Console.WriteLine("Skill 2              : " + trainerProfile.Skill_2);
+            Console.WriteLine("Skill 3              : " + trainerProfile.Skill_3);
+            Console.WriteLine("Company name         : " + trainerProfile.Companyname);
+            Console.WriteLine("Field of working     : " + trainerProfile.Field);
+            Console.WriteLine("Overall experience   : " + trainerProfile.Experience);
         }
     }
 }

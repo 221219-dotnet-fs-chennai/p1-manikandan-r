@@ -11,7 +11,7 @@ public class LogIn : IMenu
     {
         Console.WriteLine("-------LOGIN PAGE------");
         Console.WriteLine("[0] for Trainer Menu");
-        Console.WriteLine("[1] to proceed Login");
+        Console.WriteLine("[1] to Proceed Login");
     }
 
     public string UserChoice()
@@ -34,8 +34,6 @@ public class LogIn : IMenu
                 }
                 else
                 {
-                    Console.WriteLine("Account not found");
-                    Console.ReadLine();
                     return "Login";
                 }
 
@@ -43,7 +41,7 @@ public class LogIn : IMenu
                 Console.WriteLine("Wrong choice try again...");
                 Console.WriteLine("Press Enter to continue...");
                 Console.ReadLine();
-                return "TrainerLogin";
+                return "Login";
         }
     }
 }

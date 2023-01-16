@@ -165,7 +165,7 @@ namespace Data
 
         public string TrainerDetails()
         {
-            return $@"{Userid}, {Emailid}, {Firstname}, {Lastname}, {Age}, {Gender}, {Phonenumber}, {City}, {Ug_collage}, {Ug_stream}, {Ug_percentage}, {Ug_year}, {Pg_collage}, {Pg_stream}, {Pg_percentage}, {Pg_year}, {Skill_1}, {Skill_2}, {Skill_3}, {Companyname}, {Field}, {Experience}";
+            return $"{Userid}, {Emailid}, {Firstname}, {Lastname}, {Age}, {Gender}, {Phonenumber}, {City}, {Ug_collage}, {Ug_stream}, {Ug_percentage}, {Ug_year}, {Pg_collage}, {Pg_stream}, {Pg_percentage}, {Pg_year}, {Skill_1}, {Skill_2}, {Skill_3}, {Companyname}, {Field}, {Experience}\n";
         }
     }
 }

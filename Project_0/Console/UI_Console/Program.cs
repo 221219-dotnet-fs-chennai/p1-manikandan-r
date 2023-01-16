@@ -75,6 +75,9 @@ namespace UI_Console
                                 case "TrainerProfile":
                                     menu = new TrainerProfile(trainer);
                                     break;
+                                case "TrainerUpdate":
+                                    menu = new TrainerUpdate();
+                                    break;
                                 default:
                                     Console.WriteLine("Wrong Choice! Try again...");
                                     Console.WriteLine("Enter to Continue...");

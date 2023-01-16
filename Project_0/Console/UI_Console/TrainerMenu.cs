@@ -5,9 +5,9 @@ namespace UI_Console
     {
         public void Display()
         {
+            Console.WriteLine("[0] to Main Menu");
             Console.WriteLine("[1] to Login");
             Console.WriteLine("[2] to Signup");
-            Console.WriteLine("[3] to Main Menu");
         }
 
         public string UserChoice()
@@ -17,12 +17,12 @@ namespace UI_Console
 
             switch (userChoice)
             {
+                case "0":
+                    return "MainMenu";
                 case "1":
                     return "Login";
                 case "2":
-                    return "Signup";
-                case "3":
-                    return "MainMenu";    
+                    return "Signup"; 
                 default:
                     Console.WriteLine("Wrong Choice! Try again...");
                     Console.WriteLine("Enter to Continue...");

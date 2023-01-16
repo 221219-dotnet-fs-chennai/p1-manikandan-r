@@ -10,7 +10,7 @@ namespace UI_Console
 
         public void Display()
         {
-            Console.WriteLine("[0] to Main Menu\n[1] to Get all trainers\n");
+            Console.WriteLine("[0] Main Menu\n[1] Get all trainers\n");
         }
 
         public string UserChoice()

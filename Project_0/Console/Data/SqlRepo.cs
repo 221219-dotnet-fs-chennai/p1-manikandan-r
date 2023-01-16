@@ -8,7 +8,6 @@ namespace Data
     {
         private readonly string connectionString;
 
-
         public SqlRepo(string connectionString)
         {
             this.connectionString = connectionString;
@@ -258,12 +257,14 @@ where TrainerDetails.User_ID = '{trainer.Userid}';";
                 using SqlDataReader reader1 = command2.ExecuteReader();
                 if (reader1.Read())
                 {
-                    Console.WriteLine("Login Success");
+                    Console.WriteLine("Login Success...");
                     return true;
                 }
                 else
                 {
                     Console.WriteLine("Wrong Password");
+                    Console.WriteLine("Enter to continue...");
+                    Console.ReadLine();
                     reader1.Close();
                     return false;
                 }
@@ -274,6 +275,26 @@ where TrainerDetails.User_ID = '{trainer.Userid}';";
                 Console.ReadLine();
                 return false;
             }
+        }
+
+        public void UpdateTrainer(string tableName, string columnName, string newValue, string userID)
+        {
+            string query_9;
+            if (columnName == "Age")
+            {
+                int val = int.Parse(newValue);
+                query_9 = $@"update {tableName} set {columnName}={newValue} where User_ID='{userID}';";
+            }
+            else
+            {
+                query_9 = $@"update {tableName} set {columnName}='{newValue}' where User_ID='{userID}';";
+            }
+
+            using SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlCommand command1 = new SqlCommand(query_9, con);
+            command1.ExecuteNonQuery();
+            Console.WriteLine("Data Updated Successfully!");
         }
     }
 }

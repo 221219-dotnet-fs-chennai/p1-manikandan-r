@@ -55,7 +55,7 @@ namespace UI_Console
         public string UserChoice()
         {
             Console.WriteLine("--------------------------");
-            Console.Write("Enter your choice: ");
+            Console.Write("\nEnter your choice: ");
             string userchoice = Console.ReadLine();
 
             switch (userchoice)
