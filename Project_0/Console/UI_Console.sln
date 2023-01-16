@@ -10,6 +10,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4251B705-10D2-449B-9DAB-D85C2FCD1498}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		Text_Files\connectionString.txt = Text_Files\connectionString.txt
+		Text_Files\query_1.txt = Text_Files\query_1.txt
+		Text_Files\query_2.txt = Text_Files\query_2.txt
+		Text_Files\query_3.txt = Text_Files\query_3.txt
+		Text_Files\query_4.txt = Text_Files\query_4.txt
+		Text_Files\query_5.txt = Text_Files\query_5.txt
+		Text_Files\query_6.txt = Text_Files\query_6.txt
 	EndProjectSection
 EndProject
 Global
