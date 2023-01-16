@@ -7,7 +7,7 @@ namespace UI_Console
         public void Display()
         {
             Console.WriteLine("Welcome to Trainer Picker :)...\nSelect an option to proceed.");
-            Console.Write("Press [1] to User\nPress [2] to Trainer\nPress [3] to Exit\n> ");
+            Console.Write("Press [1] to Get Trainers List\nPress [2] to Trainer\nPress [3] to Exit\n> ");
         }
 
         public string UserChoice()
@@ -17,7 +17,7 @@ namespace UI_Console
             switch (login_signup)
             {
                 case "1":
-                    return "User";
+                    return "GetTrainers";
                 case "2":
                     return "Trainer";
                 case "3":

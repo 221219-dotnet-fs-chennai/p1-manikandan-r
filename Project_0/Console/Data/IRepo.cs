@@ -10,5 +10,7 @@ namespace Data
     {
         Trainer Insertion(Trainer trainer);
         List<Trainer> GetAllTrainers();
+
+        List<Trainer> GetAllTrainersDisconnected();
     }
 }

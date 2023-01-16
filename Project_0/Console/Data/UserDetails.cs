@@ -165,55 +165,7 @@ namespace Data
 
         public string TrainerDetails()
         {
-            return $@"{Emailid}, {Firstname}, {Lastname}, {Age}, {Gender}, {Phonenumber}, {City}, {Ug_collage}, {Ug_stream}, {Ug_percentage}, {Ug_year}, {Pg_collage}, {Pg_stream}, {Pg_percentage}, {Pg_year}, {Skill_1}, {Skill_2}, {Skill_3}, {Companyname}, {Field}, {Experience}";
+            return $@"{Userid}, {Emailid}, {Firstname}, {Lastname}, {Age}, {Gender}, {Phonenumber}, {City}, {Ug_collage}, {Ug_stream}, {Ug_percentage}, {Ug_year}, {Pg_collage}, {Pg_stream}, {Pg_percentage}, {Pg_year}, {Skill_1}, {Skill_2}, {Skill_3}, {Companyname}, {Field}, {Experience}";
         }
     }
-
-    public class User
-    {
-        string userMailId;
-        string userPassword;
-
-        public string UserMailId
-        {
-            get { return userMailId; }
-            set { userMailId = value; }
-        }
-
-        public string UserPassword
-        {
-            get { return userPassword; }
-            set { userPassword = value; }
-        }
-    }
-
-    //public class Dummy
-    //{
-    //    int product_id;
-    //    string product;
-    //    int price;
-
-    //    public int ProductID
-    //    {
-    //        get { return product_id; }
-    //        set { product_id = value; }
-    //    }
-
-    //    public string Product
-    //    {
-    //        get { return product; }
-    //        set { product = value; }
-    //    }
-
-    //    public int Price
-    //    {
-    //        get { return price; }
-    //        set { price = value; }
-    //    }
-
-    //    public string returnDummy()
-    //    {
-    //        return $"{ProductID} {Product} {Price}";
-    //    }
-    //}
 }

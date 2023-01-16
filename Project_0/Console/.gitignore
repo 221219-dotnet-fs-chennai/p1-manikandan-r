@@ -1,6 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,dotnetcore,csharp,aspnetcore,angular
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,dotnetcore,csharp,aspnetcore,angular
 
+# textfiles
+.txt/
+
+
 ### Angular ###
 ## Angular ##
 # compiled output

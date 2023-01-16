@@ -10,18 +10,15 @@ namespace UI_Console
         static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-                .WriteTo.File(@"..\..\..\logs.txt", rollingInterval: RollingInterval.Day, rollOnFileSizeLimit: true)
+                .WriteTo.File(@"..\..\..\..\Logs\logs.txt", rollingInterval: RollingInterval.Day, rollOnFileSizeLimit: true)
                 .CreateLogger();
 
             Log.Logger.Information("-------Program starts-------");
 
             bool value = true;
             bool value_2 = true;
-            bool value_3 = true;
 
             IMenu menu = new Menu();
-            IMenu trainerMenu = new TrainerMenu();
-            IMenu userlogin = new UserMenu();
 
             while (value)
             {
@@ -32,53 +29,23 @@ namespace UI_Console
 
                 switch (reply)
                 {
-
                     case "Menu":
                         Log.Logger.Information("Display menu to the user");
                         menu = new Menu();
                         break;
 
-                    case "User":
-                        Log.Logger.Information("User select general user login");
-                        value_2 = true;
-
-                        menu = new UserMenu();
-
-                        while (value_2)
-                        {
-                            Console.Clear();
-                            menu.Display();
-                            string userChoice = menu.UserChoice();
-
-                            switch (userChoice)
-                            {
-                                case "Menu":
-                                    menu = new Menu();
-                                    value_2 = false;
-                                    break;
-                                case "UserLogin":
-                                    menu = new UserLogin();
-                                    break;
-                                case "UserMenu":
-                                    menu = new UserMenu();
-                                    break;
-                                default:
-                                    Console.WriteLine("Wrong Choice! Try again...");
-                                    Console.WriteLine("Enter to Continue...");
-                                    Console.ReadLine();
-                                    break;
-                            }
-                        }
+                    case "GetTrainers":
+                        menu = new GetTrainer();
                         break;
 
                     case "Trainer":
 
                         Log.Logger.Information("User select trainer");
-                        value_3 = true;
+                        value_2 = true;
 
                         menu = new TrainerMenu();
 
-                        while (value_3)
+                        while (value_2)
                         {
                             Console.Clear();
                             menu.Display();
@@ -98,7 +65,7 @@ namespace UI_Console
                                 case "MainMenu":
                                     Log.Logger.Information("User select Main menu");
                                     menu = new Menu();
-                                    value_3 = false;
+                                    value_2 = false;
                                     break;
                                 case "TrainerMenu":
                                     Log.Logger.Information("User select trainer menu");

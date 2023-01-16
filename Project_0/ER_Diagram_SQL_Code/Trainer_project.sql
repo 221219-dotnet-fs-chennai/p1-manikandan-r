@@ -55,7 +55,4 @@ CREATE TABLE Company
 );
 GO
 
-create table userTable(
-	userEmail varchar(50),
-	[password] varchar(15)
-);
+

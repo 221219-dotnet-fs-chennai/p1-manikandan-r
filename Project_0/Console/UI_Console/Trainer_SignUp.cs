@@ -8,7 +8,10 @@ namespace UI_Console
     internal class SignUp : IMenu
     {
         private static Trainer trainer = new Trainer();
-        IRepo repo = new SqlRepo();
+        
+        static string conStr = File.ReadAllText("../../../../connectionString.txt");
+
+        IRepo repo = new SqlRepo(conStr);
 
         public void Display()
         {
@@ -19,12 +22,12 @@ namespace UI_Console
             Console.WriteLine("[1] Save");
             Console.WriteLine("[2] Email ID*            : " + trainer.Emailid);
             Console.WriteLine("[3] Password*            : " + trainer.Password);
-            Console.WriteLine("[4] Firstname            : " + trainer.Firstname);
-            Console.WriteLine("[5] Lastname             : " + trainer.Lastname);
-            Console.WriteLine("[6] Age                  : " + trainer.Age);
-            Console.WriteLine("[7] Gender               : " + trainer.Gender);
-            Console.WriteLine("[8] Phone number         : " + trainer.Phonenumber);
-            Console.WriteLine("[9] City                 : " + trainer.City);
+            Console.WriteLine("[4] Firstname*           : " + trainer.Firstname);
+            Console.WriteLine("[5] Lastname*            : " + trainer.Lastname);
+            Console.WriteLine("[6] Age*                 : " + trainer.Age);
+            Console.WriteLine("[7] Gender*              : " + trainer.Gender);
+            Console.WriteLine("[8] Phone number*        : " + trainer.Phonenumber);
+            Console.WriteLine("[9] City*                : " + trainer.City);
             Console.WriteLine("[10] UG Collage name*    : " + trainer.Ug_collage);
             Console.WriteLine("[11] UG Stream*          : " + trainer.Ug_stream);
             Console.WriteLine("[12] UG Percentage*      : " + trainer.Ug_percentage);

@@ -1,0 +1,1 @@
+Server=LAPTOP-G6S85J4G; Database=TrainerDb; Trusted_Connection=True
