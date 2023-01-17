@@ -252,7 +252,7 @@ where TrainerDetails.User_ID = '{trainer.Userid}';";
                 reader.Close();
                 Console.Write("Enter you password: ");
                 string password = Console.ReadLine();
-                string query_8 = $"select Email_ID from TrainerDetails where Password='{password}';";
+                string query_8 = $"select Email_ID from TrainerDetails where Email_ID = '{eMail}' and Password='{password}';";
                 SqlCommand command2 = new SqlCommand(query_8, con);
                 using SqlDataReader reader1 = command2.ExecuteReader();
                 if (reader1.Read())

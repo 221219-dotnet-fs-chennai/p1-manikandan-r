@@ -25,7 +25,7 @@ public class LogIn : IMenu
             case "0":
                 return "TrainerMenu";
             case "1":
-                Console.Write("Enter your Email ID: ");
+                Console.Write("\nEnter your Email ID: ");
                 string eMail = Console.ReadLine();
                 bool ans = repo.login(eMail);
                 if (ans)

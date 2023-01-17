@@ -17,7 +17,6 @@ namespace UI_Console
 
             bool value = true;
             bool value_2 = true;
-            bool value_3 = true;
 
             IMenu menu = new Menu();
 
@@ -38,6 +37,10 @@ namespace UI_Console
                     case "GetTrainers":
                         Log.Logger.Information("User choose get trainers");
                         menu = new GetTrainers();
+                        break;
+
+                    case "GetTrainerbyFilter":
+                        menu = new Trainer_Filter(trainer);
                         break;
 
                     case "Trainer":

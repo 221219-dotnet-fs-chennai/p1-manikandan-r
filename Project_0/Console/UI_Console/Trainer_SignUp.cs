@@ -54,7 +54,7 @@ namespace UI_Console
         }
         public string UserChoice()
         {
-            Console.WriteLine("\n--------------------------");
+            Console.WriteLine("--------------------------");
             Console.Write("\nEnter your choice: ");
             string userchoice = Console.ReadLine();
 
@@ -83,7 +83,27 @@ namespace UI_Console
                     return "TrainerMenu";
                 case "2":
                     Console.Write("Enter your Email ID: ");
-                    trainer.Emailid = Console.ReadLine();
+                    string emailPattern = @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,7}$";
+
+                    string email_id = Console.ReadLine();
+                    try
+                    {
+                        if (Regex.IsMatch(email_id, emailPattern))
+                        {
+                            trainer.Emailid = email_id;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Check your Email ID\nWrong pattern try again...");
+                            Console.ReadLine();
+                        }
+                    }
+                    catch (System.Exception)
+                    {
+                        Console.WriteLine("Check your Email ID\nWrong pattern try again...");
+                        Console.ReadLine();
+                    }
+
                     return "Signup";
                 case "3":
                     Console.Write("Enter your Password: ");
@@ -120,7 +140,7 @@ namespace UI_Console
 
                     string phone_number = Console.ReadLine();
 
-                    if (Regex.IsMatch(phone_number, pattern))
+                    if (phone_number.Length <= 15 && Regex.IsMatch(phone_number, pattern))
                     {
                         trainer.Phonenumber = phone_number;
                     }

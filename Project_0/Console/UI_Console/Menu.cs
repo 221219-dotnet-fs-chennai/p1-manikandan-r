@@ -7,11 +7,13 @@ namespace UI_Console
         public void Display()
         {
             Console.WriteLine("\nWelcome to Trainer Picker :)...\n\nSelect an option to proceed...");
-            Console.Write("\nPress [0] to Exit\nPress [1] to Get Trainers List\nPress [2] to Trainer\n> ");
+            Console.Write("\nPress [0] to Exit\nPress [1] to Get Trainers List\nPress [2] to Trainer");
         }
 
         public string UserChoice()
         {
+            Console.WriteLine("\n---------------------------");
+            Console.Write("\nEnter your choice: ");
             string login_signup = Console.ReadLine();
 
             switch (login_signup)

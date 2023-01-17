@@ -10,13 +10,13 @@ namespace UI_Console
 
         public void Display()
         {
-            Console.WriteLine("----------GET TRAINER'S----------");
-            Console.WriteLine("\n[0] Main Menu\n[1] Get all trainers\n");
+            Console.WriteLine("\n----------GET TRAINER'S----------\n");
+            Console.WriteLine("\n[0] Main Menu\n[1] Get all trainers\n[2] Get trainers by filter");
         }
 
         public string UserChoice()
         {
-            Console.WriteLine("---------------------------");
+            Console.WriteLine("\n---------------------------");
             Console.Write("Enter your choice: ");
             string userChoice = Console.ReadLine();
 
@@ -40,7 +40,8 @@ namespace UI_Console
                     Console.WriteLine("\nPress enter to continue...");
                     Console.ReadLine();
                     return "GetTrainers";
-
+                case "2":
+                    return "GetTrainerbyFilter";
                 default:
                     Console.WriteLine("Wrong choice, Try Again!");
                     Console.WriteLine("Enter to continue");
