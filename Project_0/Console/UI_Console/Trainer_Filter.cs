@@ -16,13 +16,14 @@ namespace UI_Console
         static string cityFilter = "ex: chennai or delhi";
         static string skillFilter = "ex: python or java";
         static string companyFilter = "ex: micosoft or infosys";
-  
+
         public void Display()
         {
             Console.WriteLine("----------TRAINER'S FILTER----------");
             Console.WriteLine("\nInstructions:-");
             Console.WriteLine("Choose a filter by respective number and type data");
             Console.WriteLine("Then type [1] and hit enter to search (you can choose multiple filters)\n");
+            Console.WriteLine("Then Choose [1] to search (you can choose multiple filters)");
             Console.WriteLine("[0] Go Back");
             Console.WriteLine("[1] Search");
             Console.WriteLine("[2] Filter by City       : " + cityFilter);
@@ -36,7 +37,7 @@ namespace UI_Console
             Console.Write("\nEnter your choice: ");
             string userChoice = Console.ReadLine();
 
-            switch(userChoice)
+            switch (userChoice)
             {
                 case "0":
                     return "GetTrainers";
@@ -52,7 +53,6 @@ namespace UI_Console
                     cityFilter = "ex: chennai or delhi";
                     skillFilter = "ex: python or java";
                     companyFilter = "ex: micosoft or infosys";
-
                     return "GetTrainers";
                 case "2":
                     Console.Write("Enter City name to filter: ");
