@@ -181,7 +181,7 @@ Skills:
 Skill 1: {Skill_1}, Skill 2: {Skill_2}, Skill 3: {Skill_3}
 
 Work Details:
-Last working company: {Companyname}, Field: {Field}, Overall Experience: {Experience}";
+Last or current working company: {Companyname}, Field: {Field}, Overall Experience: {Experience}";
         }
     }
 }
