@@ -39,7 +39,7 @@ public class LogIn : IMenu
                 }
 
             default:
-                Console.WriteLine("Wrong choice try again...");
+                Console.WriteLine("\nWrong choice try again...");
                 Console.WriteLine("Press Enter to continue...");
                 Console.ReadLine();
                 return "Login";

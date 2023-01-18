@@ -76,8 +76,8 @@ namespace UI_Console
                     catch (System.Exception ex) 
                     {
                         Log.Logger.Information($"Failed to add trainer details {ex.Message}");
-                        Console.WriteLine("Fields Cannot be Empty!!\n" + ex.Message);
-                        Console.WriteLine("Press Enter to continue");
+                        Console.WriteLine("Fields Cannot be Empty!\nFill Mandotory details!!");
+                        Console.WriteLine("\nPress Enter to continue...");
                         Console.ReadLine();
                     }
                     return "TrainerMenu";

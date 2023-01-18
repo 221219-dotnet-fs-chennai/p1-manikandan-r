@@ -21,7 +21,8 @@ namespace Data
             connection.Open();
 
 
-            string query_1 = File.ReadAllText("../../../../Data/query_1.txt");
+            string query_1 = @"insert into TrainerDetails(User_ID, Email_ID, Password, Firstname, Lastname, Age, Gender, Phone_Number, City) 
+values (@User_ID, @Email_ID, @Password, @Fname, @Lname, @Age, @gender, @Phone_number, @City)";
             SqlCommand command_1 = new SqlCommand(query_1, connection);
 
             command_1.Parameters.AddWithValue("@User_ID", trainer.Userid);
@@ -37,7 +38,9 @@ namespace Data
             command_1.ExecuteNonQuery();
 
 
-            string query_2 = File.ReadAllText("../../../../Data/query_2.txt");
+            string query_2 = @"insert into Education(User_ID, Ug_collage, Ug_stream, Ug_Percentage, Ug_year, Pg_collage, Pg_stream, Pg_Percentage, Pg_year)
+values (@User_ID, @Ug_collage, @Ug_stream, @Ug_Percentage, @Ug_year, @Pg_collage, @Pg_stream, @Pg_Percentage, @Pg_year)";
+
             SqlCommand command_2 = new SqlCommand(query_2, connection);
 
             command_2.Parameters.AddWithValue("@User_ID", trainer.Userid);
@@ -82,7 +85,7 @@ namespace Data
 
             command_2.ExecuteNonQuery();
 
-            string query_3 = File.ReadAllText("../../../../Data/query_3.txt");
+            string query_3 = @"insert into Skill(User_ID, Skill_1, Skill_2, Skill_3) values (@User_ID, @Skill_1, @Skill_2, @Skill_3)";
             SqlCommand command_3 = new SqlCommand(query_3, connection);
 
             command_3.Parameters.AddWithValue("@User_ID", trainer.Userid);
@@ -100,7 +103,7 @@ namespace Data
 
             command_3.ExecuteNonQuery();
 
-            string query_4 = File.ReadAllText("../../../../Data/query_4.txt");
+            string query_4 = @"insert into Company(User_ID, Company_Name, Field, Overall_Experience) values (@User_ID, @Company_Name, @Field, @Overall_Experience)";
             SqlCommand command_4 = new SqlCommand(query_4, connection);
 
             command_4.Parameters.AddWithValue("@User_ID", trainer.Userid);
@@ -197,7 +200,13 @@ where TrainerDetails.User_ID = '{trainer.Userid}';";
 
             SqlConnection con = new SqlConnection(connectionString);
 
-            string query_6 = File.ReadAllText("../../../../Data/query_6.txt");
+            string query_6 = @"Select TrainerDetails.User_ID, TrainerDetails.Email_ID, TrainerDetails.Firstname, TrainerDetails.Lastname, TrainerDetails.Age, TrainerDetails.Gender, TrainerDetails.Phone_Number, TrainerDetails.City, 
+Education.Ug_collage, Education.Ug_stream, Education.Ug_Percentage, Education.Ug_year, Education.Pg_collage, Education.Pg_stream, Education.Pg_Percentage, Education.Pg_year,
+Skill.Skill_1, Skill.Skill_2, Skill.Skill_3,
+Company.Company_Name, Company.Field, Company.Overall_Experience From TrainerDetails
+join Education on TrainerDetails.User_ID = Education.User_ID
+join Skill on Education.User_ID = Skill.User_ID
+join Company on Skill.User_ID = Company.User_ID;";
 
             SqlDataAdapter adapter = new SqlDataAdapter(query_6, con);
 
@@ -283,7 +292,7 @@ where TrainerDetails.User_ID = '{trainer.Userid}';";
             if (columnName == "Age")
             {
                 int val = int.Parse(newValue);
-                query_9 = $@"update {tableName} set {columnName}={newValue} where User_ID='{userID}';";
+                query_9 = $@"update {tableName} set {columnName}={val} where User_ID='{userID}';";
             }
             else
             {

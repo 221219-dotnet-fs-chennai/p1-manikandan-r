@@ -40,7 +40,7 @@ namespace UI_Console
                         break;
 
                     case "GetTrainerbyFilter":
-                        menu = new Trainer_Filter(trainer);
+                        menu = new Trainer_Filter();
                         break;
 
                     case "Trainer":
@@ -54,6 +54,7 @@ namespace UI_Console
                         {
                             Console.Clear();
                             menu.Display();
+
                             string trainerChoice = menu.UserChoice();
 
                             switch (trainerChoice)
@@ -81,7 +82,7 @@ namespace UI_Console
                                     menu = new TrainerUpdate();
                                     break;
                                 default:
-                                    Console.WriteLine("Wrong Choice! Try again...");
+                                    Console.WriteLine("\nWrong Choice! Try again...");
                                     Console.WriteLine("Enter to Continue...");
                                     Console.ReadLine();
                                     break;
@@ -97,7 +98,7 @@ namespace UI_Console
                         break;
 
                     default:
-                        Console.WriteLine("DataBase Does not exist");
+                        Console.WriteLine("\nDataBase Does not exist");
                         Console.WriteLine("Press Enter to continue...");
                         Console.ReadLine();
                         break;
