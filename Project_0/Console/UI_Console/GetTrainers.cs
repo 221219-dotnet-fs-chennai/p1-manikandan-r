@@ -25,7 +25,8 @@ namespace UI_Console
                 case "0":
                     return "Menu";
                 case "1":
-                    Console.WriteLine("\n--------------------------------------------TRAINERS LIST----------------------------------------------\n");
+                    Console.Clear();
+                    Console.WriteLine("\n--------------------------------------------------------TRAINERS LIST----------------------------------------------------------\n");
 
                     Log.Logger.Information("Getting all trainers");
                     var listoftrainers = repo.GetAllTrainersDisconnected();
@@ -43,7 +44,7 @@ namespace UI_Console
                 case "2":
                     return "GetTrainerbyFilter";
                 default:
-                    Console.WriteLine("Wrong choice, Try Again!");
+                    Console.WriteLine("\nWrong choice, Try Again!");
                     Console.WriteLine("Enter to continue");
                     Console.ReadLine();
                     return "GetTrainers";

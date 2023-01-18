@@ -9,23 +9,20 @@ namespace UI_Console
 {
     internal class Trainer_Filter : IMenu
     {
-        Trainer trainerFilter = new Trainer();
-
         static string conStr = File.ReadAllText("../../../../Data/connectionString.txt");
 
-        IRepo repo = new SqlRepo(conStr);
+        IFilter repo = new FilterRepo(conStr);
 
-        static string cityFilter;
-        static string skillFilter;
-        static string companyFilter;
-        public Trainer_Filter(Trainer trainer)
-        {
-            trainerFilter = trainer;
-        }
+        static string cityFilter = "ex: chennai or delhi";
+        static string skillFilter = "ex: python or java";
+        static string companyFilter = "ex: micosoft or infosys";
+  
         public void Display()
         {
             Console.WriteLine("----------TRAINER'S FILTER----------");
-            Console.WriteLine("\nChoose a filter and type details then Choose [1] to search");
+            Console.WriteLine("\nInstructions:-");
+            Console.WriteLine("Choose a filter by respective number and type data");
+            Console.WriteLine("Then type [1] and hit enter to search (you can choose multiple filters)\n");
             Console.WriteLine("[0] Go Back");
             Console.WriteLine("[1] Search");
             Console.WriteLine("[2] Filter by City       : " + cityFilter);
@@ -36,7 +33,7 @@ namespace UI_Console
         public string UserChoice()
         {
             Console.WriteLine("\n---------------------------");
-            Console.Write("Enter your choice: ");
+            Console.Write("\nEnter your choice: ");
             string userChoice = Console.ReadLine();
 
             switch(userChoice)
@@ -44,7 +41,19 @@ namespace UI_Console
                 case "0":
                     return "GetTrainers";
                 case "1":
-                    return "GetTrainerbyFilter";
+                    Console.WriteLine("\n--------------------------------------------------------TRAINERS LIST----------------------------------------------------------\n");
+                    var listOfTrainerByFilter = repo.TrainerFilter(cityFilter.ToLower(), skillFilter.ToLower(), companyFilter.ToLower());
+                    foreach (var trainer in listOfTrainerByFilter)
+                    {
+                        Console.WriteLine(trainer.TrainerDetails());
+                    }
+                    Console.WriteLine("\nPress enter to continue...");
+                    Console.ReadLine();
+                    cityFilter = "ex: chennai or delhi";
+                    skillFilter = "ex: python or java";
+                    companyFilter = "ex: micosoft or infosys";
+
+                    return "GetTrainers";
                 case "2":
                     Console.Write("Enter City name to filter: ");
                     cityFilter = Console.ReadLine();
@@ -61,7 +70,7 @@ namespace UI_Console
                     Console.WriteLine("Enter to continue");
                     return "GetTrainerbyFilter";
                 default:
-                    Console.WriteLine("Wrong choice, Try Again!");
+                    Console.WriteLine("\nWrong choice, Try Again!");
                     Console.WriteLine("Enter to continue");
                     Console.ReadLine();
                     return "GetTrainerbyFilter";

@@ -1,1 +1,0 @@
-insert into Skill(User_ID, Skill_1, Skill_2, Skill_3) values(@User_ID, @Skill_1, @Skill_2, @Skill_3)
