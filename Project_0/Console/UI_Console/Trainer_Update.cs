@@ -15,7 +15,7 @@ namespace UI_Console
         public new void Display()
         {
             Console.WriteLine("---------------UPDATE PAGE-----------------");
-            Console.WriteLine("Note: You can update below details only\n");
+            Console.WriteLine("\nNote: You can update below details only\n");
             Console.WriteLine("[0] Go Back");
             Console.WriteLine("[1] Password                 : " + trainer.Password);
             Console.WriteLine("[2] Age                      : " + trainer.Age);
@@ -45,8 +45,8 @@ namespace UI_Console
             Console.WriteLine("\n--------------------------");
             Console.Write("\nEnter your choice: ");
             string userChoice = Console.ReadLine();
-            
-            switch(userChoice)
+
+            switch (userChoice)
             {
                 case "0":
                     Log.Logger.Information($"{trainer.Firstname} {trainer.Lastname} trainer updated his profile");
@@ -54,7 +54,17 @@ namespace UI_Console
                 case "1":
                     Console.Write("Enter new password: ");
                     trainer.Password = Console.ReadLine();
-                    repo.UpdateTrainer("TrainerDetails", "Password", trainer.Password, userId);
+
+                    if (trainer.Password.Length >= 8)
+                    {
+                        repo.UpdateTrainer("TrainerDetails", "Password", trainer.Password, userId);
+                    }
+                    else
+                    {
+                        trainer.Password = "";
+                        Console.WriteLine("\nWarning: Password length must be greater or equal to 8!!");
+                        Console.ReadLine();
+                    }
                     return "TrainerUpdate";
                 case "2":
                     Console.Write("Enter Age: ");

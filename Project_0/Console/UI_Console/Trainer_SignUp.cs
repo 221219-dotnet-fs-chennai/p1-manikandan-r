@@ -107,7 +107,17 @@ namespace UI_Console
                     return "Signup";
                 case "3":
                     Console.Write("Enter your Password: ");
-                    trainer.Password = Console.ReadLine();
+                    string password = Console.ReadLine();
+
+                    if (password.Length >= 8)
+                    {
+                        trainer.Password = password;
+                    }
+                    else
+                    {
+                        Console.WriteLine("\nWarning: Password length must be greater or equal to 8!!");
+                        Console.ReadLine();
+                    }
                     return "Signup";
                 case "4":
                     Console.Write("Enter your Firstname: ");
