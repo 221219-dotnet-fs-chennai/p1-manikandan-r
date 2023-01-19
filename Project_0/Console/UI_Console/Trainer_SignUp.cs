@@ -22,6 +22,8 @@ namespace UI_Console
 
         IRepo repo = new SqlRepo(conStr);
 
+        static string pass = "";
+
         public void Display()
         {
             Console.WriteLine("\n-------USER DETAILS-------\n");
@@ -30,7 +32,7 @@ namespace UI_Console
             Console.WriteLine("[0] Trainer Menu");
             Console.WriteLine("[1] Save");
             Console.WriteLine("[2] Email ID*            : " + trainer.Emailid);
-            Console.WriteLine("[3] Password*            : " + trainer.Password);
+            Console.WriteLine("[3] Password*            : " + pass);
             Console.WriteLine("[4] Firstname*           : " + trainer.Firstname);
             Console.WriteLine("[5] Lastname*            : " + trainer.Lastname);
             Console.WriteLine("[6] Age*                 : " + trainer.Age);
@@ -57,6 +59,7 @@ namespace UI_Console
             Console.WriteLine("--------------------------");
             Console.Write("\nEnter your choice: ");
             string userchoice = Console.ReadLine();
+            Console.WriteLine();
 
             switch (userchoice)
             {
@@ -71,12 +74,15 @@ namespace UI_Console
                         Log.Logger.Information("Adding trainer details");
                         repo.Insertion(trainer);
                         trainer = new Trainer();
+                        pass = "";
                         Log.Logger.Information("Successfully added trainer details");
                     }
                     catch (System.Exception ex) 
                     {
                         Log.Logger.Information($"Failed to add trainer details {ex.Message}");
-                        Console.WriteLine("Fields Cannot be Empty!\nFill Mandotory details!!");
+                        Console.WriteLine("\nFields Cannot be Empty! Fill Mandotory details!!");
+                        Console.WriteLine("            Or             ");
+                        Console.WriteLine("The Email already Exist");
                         Console.WriteLine("\nPress Enter to continue...");
                         Console.ReadLine();
                     }
@@ -111,7 +117,21 @@ namespace UI_Console
 
                     if (password.Length >= 8)
                     {
-                        trainer.Password = password;
+                        Console.Write("Enter Password again: ");
+                        string password_1 = Console.ReadLine();
+                        if (password == password_1)
+                        {
+                            trainer.Password = password;
+                            for (int i = 0; i < password.Length; i++)
+                            {
+                                pass += "*";
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nPassword Does not match...");
+                            Console.ReadLine();
+                        }
                     }
                     else
                     {
@@ -126,7 +146,7 @@ namespace UI_Console
                 case "5":
                     Console.Write("Enter your Lastname: ");
                     trainer.Lastname = Console.ReadLine();
-                    return "Signup";
+                    return "Signup";  
                 case "6":
                     try
                     {

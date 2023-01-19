@@ -91,7 +91,7 @@ namespace UI_Console
                         break;
 
                     case "Exit":
-                        Console.WriteLine("Thank for using 'Trainer Picker'");
+                        Console.WriteLine("\nThank for using 'Trainer Picker'");
                         Log.Logger.Information("-------Program ends-------");
                         Log.CloseAndFlush();
                         value = false;

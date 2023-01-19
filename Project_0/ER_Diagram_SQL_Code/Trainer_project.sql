@@ -5,15 +5,16 @@ CREATE TABLE TrainerDetails
     [User_ID] VARCHAR(50),
     [Email_ID] VARCHAR(50) NOT NULL,
     [Password] VARCHAR(20) NOT NULL,
-    [Firstname] VARCHAR(50),
-    [Lastname] VARCHAR(50),
-    [Age] INT,
-    [Gender] VARCHAR(15),
-    [Phone_Number] VARCHAR(15),
-    [City] VARCHAR(50),
+    [Firstname] VARCHAR(50) NOT NULL,
+    [Lastname] VARCHAR(50) NOT NULL,
+    [Age] INT NOT NULL,
+    [Gender] VARCHAR(15) NOT NULL,
+    [Phone_Number] VARCHAR(15) NOT NULL,
+    [City] VARCHAR(50) NOT NULL,
     CONSTRAINT [PK_User] PRIMARY KEY(User_ID)
 );
 GO
+
 
 CREATE TABLE Education
 (

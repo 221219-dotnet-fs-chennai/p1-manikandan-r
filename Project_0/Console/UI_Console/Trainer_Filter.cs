@@ -23,7 +23,7 @@ namespace UI_Console
             Console.WriteLine("\nInstructions:-");
             Console.WriteLine("Choose a filter by respective number and type data");
             Console.WriteLine("Then type [1] and hit enter to search (you can choose multiple filters)\n");
-            Console.WriteLine("Then Choose [1] to search (you can choose multiple filters)");
+            Console.WriteLine("Then Choose [1] to search (you can choose multiple filters also)");
             Console.WriteLine("[0] Go Back");
             Console.WriteLine("[1] Search");
             Console.WriteLine("[2] Filter by City       : " + cityFilter);
@@ -36,6 +36,7 @@ namespace UI_Console
             Console.WriteLine("\n---------------------------");
             Console.Write("\nEnter your choice: ");
             string userChoice = Console.ReadLine();
+            Console.WriteLine();
 
             switch (userChoice)
             {

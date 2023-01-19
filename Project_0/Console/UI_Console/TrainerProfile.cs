@@ -26,7 +26,7 @@ namespace UI_Console
             Console.WriteLine("\nChoose below options to perform actions");
             Console.WriteLine("[0] to Back");
             Console.WriteLine("[1] View Profile");
-            Console.WriteLine("[2] Update/Edit Profile");
+            Console.WriteLine("[2] Update/Edit/Delete Profile");
             Console.WriteLine("[3] Delete Profile");
         }
 
@@ -51,9 +51,10 @@ namespace UI_Console
                 case "3":
                     Console.Clear();
                     Console.WriteLine("\n-------DELETE PAGE------\n");
-                    Console.WriteLine("Are you Sure?");
+                    Console.WriteLine("\nNote: It will delete your entire profile");
+                    Console.WriteLine("\nAre you Sure?");
                     Console.WriteLine("[0] for Back");
-                    Console.WriteLine("[1] proceed to delete");
+                    Console.WriteLine("[1] Proceed to delete");
                     Console.WriteLine("\n---------------------------");
                     Console.Write("\nEnter your choice: ");
                     string userChoice_1 = Console.ReadLine();
@@ -63,8 +64,7 @@ namespace UI_Console
                         case "0":
                             return "TrainerProfile";
                         case "1":
-                            Console.Write("\nEnter your Email ID: ");
-                            string email = Console.ReadLine();
+                            string email = trainerProfile.Emailid;
 
                             Log.Logger.Information($"{trainerProfile.Firstname} {trainerProfile.Lastname} profile deleted");
                             Console.WriteLine("\nThank You For using 'Trainer Picker'");

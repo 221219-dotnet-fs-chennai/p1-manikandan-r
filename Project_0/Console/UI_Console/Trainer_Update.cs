@@ -12,12 +12,15 @@ namespace UI_Console
         static string conStr = File.ReadAllText("../../../../Data/connectionString.txt");
 
         IRepo repo = new SqlRepo(conStr);
+
+        static string pass = "";
+
         public new void Display()
         {
             Console.WriteLine("---------------UPDATE PAGE-----------------");
             Console.WriteLine("\nNote: You can update below details only\n");
             Console.WriteLine("[0] Go Back");
-            Console.WriteLine("[1] Password                 : " + trainer.Password);
+            Console.WriteLine("[1] Password                 : " + pass);
             Console.WriteLine("[2] Age                      : " + trainer.Age);
             Console.WriteLine("[3] Phone Number             : " + trainer.Phonenumber);
             Console.WriteLine("[4] City                     : " + trainer.City);
@@ -45,6 +48,7 @@ namespace UI_Console
             Console.WriteLine("\n--------------------------");
             Console.Write("\nEnter your choice: ");
             string userChoice = Console.ReadLine();
+            Console.WriteLine();
 
             switch (userChoice)
             {
@@ -53,11 +57,21 @@ namespace UI_Console
                     return "TrainerProfile";
                 case "1":
                     Console.Write("Enter new password: ");
-                    trainer.Password = Console.ReadLine();
+                    string password = Console.ReadLine();
 
-                    if (trainer.Password.Length >= 8)
+                    if (password.Length >= 8)
                     {
-                        repo.UpdateTrainer("TrainerDetails", "Password", trainer.Password, userId);
+                        Console.Write("Enter Password again: ");
+                        string password_1 = Console.ReadLine();
+                        if (password == password_1)
+                        {
+                            trainer.Password = password;
+                            repo.UpdateTrainer("TrainerDetails", "Password", trainer.Password, userId);
+                            for (int i = 0; i < password.Length; i++)
+                            {
+                                pass += "*";
+                            }
+                        }
                     }
                     else
                     {
