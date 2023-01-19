@@ -14,20 +14,21 @@ namespace UI_Console
         static string conStr = File.ReadAllText("../../../../Data/connectionString.txt");
 
         IRepo repo = new SqlRepo(conStr);
-        public TrainerProfile(Trainer trainer)
+        public TrainerProfile(Trainer trainerSignup)
         {
-            trainerProfile = trainer;
+            trainerProfile = trainerSignup;
         }
         public void Display()
         {
             Log.Logger.Information($"{trainerProfile.Firstname} {trainerProfile.Lastname} trainer logged in");
             Console.WriteLine("--------------------------------------");
             Console.WriteLine($"Welcome {trainerProfile.Firstname} {trainerProfile.Lastname} :)");
-            Console.WriteLine("\nChoose below options to perform actions");
+            Console.WriteLine("\nChoose below options to perform actions:-");
             Console.WriteLine("[0] to Back");
             Console.WriteLine("[1] View Profile");
-            Console.WriteLine("[2] Update/Edit/Delete Profile");
-            Console.WriteLine("[3] Delete Profile");
+            Console.WriteLine("[2] Update/Edit Profile");
+            Console.WriteLine("[3] Delete Particular Field");
+            Console.WriteLine("[4] Delete Profile");
         }
 
         public string UserChoice()
@@ -49,6 +50,8 @@ namespace UI_Console
                 case "2":
                     return "TrainerUpdate";
                 case "3":
+                    return "TrainerDelete";
+                case "4":
                     Console.Clear();
                     Console.WriteLine("\n-------DELETE PAGE------\n");
                     Console.WriteLine("\nNote: It will delete your entire profile");

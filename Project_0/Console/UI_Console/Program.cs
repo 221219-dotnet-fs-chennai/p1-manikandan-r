@@ -81,6 +81,9 @@ namespace UI_Console
                                 case "TrainerUpdate":
                                     menu = new TrainerUpdate();
                                     break;
+                                case "TrainerDelete":
+                                    menu = new TrainerDelete();
+                                    break;
                                 default:
                                     Console.WriteLine("\nWrong Choice! Try again...");
                                     Console.WriteLine("Enter to Continue...");

@@ -303,7 +303,6 @@ join Company on Skill.User_ID = Company.User_ID;";
             con.Open();
             SqlCommand command1 = new SqlCommand(query_9, con);
             command1.ExecuteNonQuery();
-            Console.WriteLine("Data Updated Successfully!");
         }
 
         public void DeleteTrainer(string eMail)

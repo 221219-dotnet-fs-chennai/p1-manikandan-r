@@ -9,9 +9,9 @@ namespace UI_Console
     {
         internal static Trainer trainer = new Trainer();
 
-        public SignUp(Trainer trainer_1)
+        public SignUp(Trainer trainerLogin)
         {
-            trainer = trainer_1;
+            trainer = trainerLogin;
         }
         public SignUp()
         {
