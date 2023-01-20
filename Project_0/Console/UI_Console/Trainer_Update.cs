@@ -9,7 +9,7 @@ namespace UI_Console
 {
     internal class TrainerUpdate : SignUp, IMenu
     {
-        static string conStr = File.ReadAllText("../../../../Data/connectionString.txt");
+        static string conStr = File.ReadAllText("../../../../Data/ConnectionString.txt");
 
         IRepo repo = new SqlRepo(conStr);
 

@@ -18,7 +18,7 @@ namespace UI_Console
 
         }
         
-        static string conStr = File.ReadAllText("../../../../Data/connectionString.txt");
+        static string conStr = File.ReadAllText("../../../../Data/ConnectionString.txt");
 
         IRepo repo = new SqlRepo(conStr);
 

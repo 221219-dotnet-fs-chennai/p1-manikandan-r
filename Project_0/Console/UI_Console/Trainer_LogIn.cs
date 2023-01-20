@@ -4,7 +4,7 @@ using UI_Console;
 
 public class LogIn : IMenu
 {
-    static string conStr = File.ReadAllText("../../../../Data/connectionString.txt");
+    static string conStr = File.ReadAllText("../../../../Data/ConnectionString.txt");
 
     IRepo repo = new SqlRepo(conStr);
     public void Display()

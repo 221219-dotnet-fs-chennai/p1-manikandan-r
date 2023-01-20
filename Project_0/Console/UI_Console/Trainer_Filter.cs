@@ -9,7 +9,7 @@ namespace UI_Console
 {
     internal class Trainer_Filter : IMenu
     {
-        static string conStr = File.ReadAllText("../../../../Data/connectionString.txt");
+        static string conStr = File.ReadAllText("../../../../Data/ConnectionString.txt");
 
         IFilter repo = new FilterRepo(conStr);
 

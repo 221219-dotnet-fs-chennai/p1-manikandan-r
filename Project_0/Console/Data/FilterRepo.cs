@@ -10,7 +10,7 @@ namespace Data
     {
         IRepo repo;
 
-        static string conStr = File.ReadAllText("../../../../Data/connectionString.txt");
+        static string conStr = File.ReadAllText("../../../../Data/ConnectionString.txt");
         public FilterRepo(string conStr)
         {
             repo = new SqlRepo(conStr);
