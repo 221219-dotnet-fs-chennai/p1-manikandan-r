@@ -75,6 +75,11 @@ namespace UI_Console
                             Console.WriteLine("Press Enter to continue...");
                             Console.ReadLine();
                         }
+                        else
+                        {
+                            Console.WriteLine("\nPassword Does not match...");
+                            Console.ReadLine();
+                        }
                     }
                     else
                     {

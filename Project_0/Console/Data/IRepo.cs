@@ -35,6 +35,8 @@ namespace Data
         /// <returns>returns true if email and password is match</returns>
         bool login(string email);
 
+        bool forgetPassword(string email);
+
         /// <summary>
         /// update trainer details in the database
         /// </summary>
