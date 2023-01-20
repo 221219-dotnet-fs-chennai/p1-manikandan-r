@@ -166,7 +166,7 @@ namespace Data
         public string TrainerDetails()
         {
             return $@"
-=============================================================================================================================
+===================================================={Firstname.ToUpper()} {Lastname.ToUpper()}============================================================
 
 Personal Details:
 Email: {Emailid}, Firstname: {Firstname}, Lastname: {Lastname}, Age: {Age}, Gender: {Gender}, Phonenumber: {Phonenumber}, City: {City}

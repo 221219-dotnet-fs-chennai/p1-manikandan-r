@@ -26,11 +26,11 @@ namespace UI_Console
 
         public void Display()
         {
-            Console.WriteLine("\n-------USER DETAILS-------\n");
+            Console.WriteLine("\n--------------------------SIGNUP PAGE--------------------------\n");
             Console.WriteLine("NOTE: * fields are mandatory\n");
             Console.WriteLine("[00] Clear");
             Console.WriteLine("[0] Trainer Menu");
-            Console.WriteLine("[1] Save");
+            Console.WriteLine("[1] Submit Details");
             Console.WriteLine("[2] Email ID*            : " + trainer.Emailid);
             Console.WriteLine("[3] Password*            : " + pass);
             Console.WriteLine("[4] Firstname*           : " + trainer.Firstname);
@@ -65,6 +65,7 @@ namespace UI_Console
             {
                 case "00":
                     trainer = new Trainer();
+                    pass = "";
                     return "TrainerMenu";
                 case "0":
                     return "TrainerMenu";
@@ -121,6 +122,7 @@ namespace UI_Console
                         string password_1 = Console.ReadLine();
                         if (password == password_1)
                         {
+                            pass = "";
                             trainer.Password = password;
                             for (int i = 0; i < password.Length; i++)
                             {

@@ -24,7 +24,7 @@ namespace UI_Console
             Console.WriteLine("--------------------------------------");
             Console.WriteLine($"Welcome {trainerProfile.Firstname} {trainerProfile.Lastname} :)");
             Console.WriteLine("\nChoose below options to perform actions:-");
-            Console.WriteLine("[0] to Back");
+            Console.WriteLine("[0] Logout");
             Console.WriteLine("[1] View Profile");
             Console.WriteLine("[2] Update/Edit Profile");
             Console.WriteLine("[3] Delete Particular Field");
