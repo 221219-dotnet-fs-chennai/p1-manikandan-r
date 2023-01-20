@@ -7,7 +7,7 @@ internal class LogIn : SignUp, IMenu
     static string conStr = File.ReadAllText("../../../../Data/ConnectionString.txt");
 
     IRepo repo = new SqlRepo(conStr);
-    public void Display()
+    public new void Display()
     {
         Console.WriteLine("\n-------LOGIN PAGE------\n");
         Console.WriteLine("[0] for Trainer Menu");
@@ -15,7 +15,7 @@ internal class LogIn : SignUp, IMenu
         Console.WriteLine("[2] Forgot password");
     }
 
-    public string UserChoice()
+    public new string UserChoice()
     {
         Console.WriteLine("\n---------------------------");
         Console.Write("\nEnter your choice: ");

@@ -31,7 +31,7 @@ namespace UI_Console
             Console.WriteLine("[4] Delete Profile");
         }
 
-        public string UserChoice()
+        public new string UserChoice()
         {
             Console.WriteLine("\n--------------------------");
             Console.Write("\nEnter your choice: ");

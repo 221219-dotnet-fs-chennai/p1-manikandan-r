@@ -35,6 +35,12 @@ namespace Data
         /// <returns>returns true if email and password is match</returns>
         bool login(string email);
 
+        /// <summary>
+        /// used to reset the password, for that it will check the email and
+        /// phone number present in that table
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>if email id and phone number match it will return true</returns>
         bool forgetPassword(string email);
 
         /// <summary>
