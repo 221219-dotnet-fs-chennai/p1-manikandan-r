@@ -86,6 +86,7 @@ namespace UI_Console
                         Console.WriteLine("The Email already Exist");
                         Console.WriteLine("\nPress Enter to continue...");
                         Console.ReadLine();
+                        return "Signup";
                     }
                     return "TrainerMenu";
                 case "2":
