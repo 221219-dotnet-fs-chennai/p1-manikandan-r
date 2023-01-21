@@ -136,6 +136,7 @@ values (@User_ID, @Ug_collage, @Ug_stream, @Ug_Percentage, @Ug_year, @Pg_collage
             command_4.ExecuteNonQuery();
 
             Console.WriteLine("Your details added successfully");
+            Console.WriteLine("Now you can work as a Trainer! ");
             Console.WriteLine("Press Enter to Continue...");
             Console.ReadLine();
 
