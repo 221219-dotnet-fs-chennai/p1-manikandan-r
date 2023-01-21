@@ -40,7 +40,7 @@ namespace UI_Console
             switch(userChoice)
             {
                 case "0":
-                    return "TrainerMenu";
+                    return "Login";
                 case "1":
                     ShowProfile();
                     Console.WriteLine("--------------------------------------");

@@ -60,6 +60,7 @@ namespace UI_Console
                             switch (trainerChoice)
                             {
                                 case "Login":
+                                    trainer = new Trainer();
                                     Log.Logger.Information("User select trainer login");
                                     menu = new LogIn();
                                     break;
@@ -72,7 +73,6 @@ namespace UI_Console
                                     value_2 = false;
                                     break;
                                 case "TrainerMenu":
-                                    trainer = new Trainer();
                                     menu = new TrainerMenu();
                                     break;
                                 case "TrainerProfile":
