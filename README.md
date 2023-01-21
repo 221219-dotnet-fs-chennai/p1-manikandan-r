@@ -1,2 +1,3 @@
 # p1-manikandan-r
-This is the code for my project 1 in the training
+- This is my repo for Revature training
+- It contains Assignments and Projects

@@ -286,59 +286,22 @@ join Company on Skill.User_ID = Company.User_ID;";
             }
         }
 
-        public bool forgetPassword(string email)
-        {
-            string query_9 = $"select Email_ID from TrainerDetails where Email_ID='{email}';";
-            using SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-            SqlCommand command1 = new SqlCommand(query_9, con);
-
-            SqlDataReader reader = command1.ExecuteReader();
-
-            if (reader.Read())
-            {
-                reader.Close();
-                Console.Write("Enter your Phone number: ");
-                string password = Console.ReadLine();
-                string query_10 = $"select Email_ID from TrainerDetails where Email_ID = '{email}' and Phone_Number ='{password}';";
-                SqlCommand command2 = new SqlCommand(query_10, con);
-                using SqlDataReader reader1 = command2.ExecuteReader();
-                if (reader1.Read())
-                {
-                    return true;
-                }
-                else
-                {
-                    Console.WriteLine("Wrong Phone number");
-                    Console.WriteLine("Enter to continue...");
-                    Console.ReadLine();
-                    reader1.Close();
-                    return false;
-                }
-            }
-            else
-            {
-                Console.WriteLine("No data found in this email\nCheck your credentails or Signup First");
-                Console.ReadLine();
-                return false;
-            }
-        }
         public void UpdateTrainer(string tableName, string columnName, string newValue, string userID)
         {
-            string query_11;
+            string query_9;
             if (columnName == "Age")
             {
                 int val = int.Parse(newValue);
-                query_11 = $@"update {tableName} set {columnName}={val} where User_ID='{userID}';";
+                query_9 = $@"update {tableName} set {columnName}={val} where User_ID='{userID}';";
             }
             else
             {
-                query_11 = $@"update {tableName} set {columnName}='{newValue}' where User_ID='{userID}';";
+                query_9 = $@"update {tableName} set {columnName}='{newValue}' where User_ID='{userID}';";
             }
 
             using SqlConnection con = new SqlConnection(connectionString);
             con.Open();
-            SqlCommand command1 = new SqlCommand(query_11, con);
+            SqlCommand command1 = new SqlCommand(query_9, con);
             command1.ExecuteNonQuery();
         }
 
@@ -347,9 +310,9 @@ join Company on Skill.User_ID = Company.User_ID;";
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
 
-            string query_12 = $"delete from TrainerDetails where User_ID = '{eMail}'";
+            string query_10 = $"delete from TrainerDetails where User_ID = '{eMail}'";
 
-            SqlCommand command = new SqlCommand(query_12, con);
+            SqlCommand command = new SqlCommand(query_10, con);
             command.ExecuteNonQuery();
         }
     }
