@@ -10,15 +10,19 @@ This application has a seperate option for a *Trainer* and a general user. If yo
 - DOT NET
 - C SHARP
 - ADO.NET
+- SQL
 - GIT
 - AZURE
 
 ## FEATURES IMPLEMENTED:
-- Interface
+- Logging using Serilog
 - Exception Handling
 - Regular Expression
-- Logging using Serilog
 - Seperation Of Concern
+- Interface
+- Collections
+- Inheritance
+- Abstraction
 - Polymorphism
 - Encapsulation
 
