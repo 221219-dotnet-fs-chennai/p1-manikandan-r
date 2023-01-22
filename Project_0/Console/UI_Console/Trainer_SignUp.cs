@@ -209,11 +209,16 @@ namespace UI_Console
                             trainer.Ug_year = Ug_year.ToString();
                             return "Signup";
                         }
+                        else
+                        {
+                            Console.WriteLine("\nNote: Passed out year must be less than or equal to 2022!");
+                            Console.WriteLine("Press Enter to continue...");
+                            Console.ReadLine();
+                        }
                     }
                     catch (Exception)
                     {
-                        Console.WriteLine("\nNote: Passed out year must be less than or equal to 2022!");
-                        Console.WriteLine("Year must be in numbers!!");
+                        Console.WriteLine("\nYear must be in numbers!!");
                         Console.WriteLine("Enter to continue");
                         Console.ReadLine();
                         return "Signup";

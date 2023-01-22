@@ -138,11 +138,33 @@ namespace UI_Console
                     return "TrainerUpdate";
                 case "8":
                     Console.Write("Enter UG year: ");
-                    trainer.Ug_year = Console.ReadLine();
-                    repo.UpdateTrainer("Education", "Ug_year", trainer.Ug_year, userId);
-                    Console.WriteLine("\nUG year updated successfully");
-                    Console.WriteLine("Press Enter to continue...");
-                    Console.ReadLine();
+                    string Ug_year = Console.ReadLine();
+                    try
+                    {
+                        if (int.Parse(Ug_year) <= 2022)
+                        {
+                            trainer.Ug_year = Ug_year.ToString();
+                            repo.UpdateTrainer("Education", "Ug_year", trainer.Ug_year, userId);
+                            Console.WriteLine("\nUG year updated successfully");
+                            Console.WriteLine("Press Enter to continue...");
+                            Console.ReadLine();
+                            return "TrainerUpdate";
+                        }
+                        else
+                        {
+                            Console.WriteLine("\nNote: Passed out year must be less than or equal to 2022!");
+                            Console.WriteLine("Press Enter to continue...");
+                            Console.ReadLine();
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("\nYear must be in numbers!!");
+                        Console.WriteLine("Enter to continue");
+                        Console.ReadLine();
+                        return "TrainerUpdate";
+                    }
+                  
                     return "TrainerUpdate";
                 case "9":
                     Console.Write("Enter PG collage name: ");
