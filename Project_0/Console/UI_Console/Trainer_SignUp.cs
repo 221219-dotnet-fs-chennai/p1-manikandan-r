@@ -17,7 +17,7 @@ namespace UI_Console
         {
 
         }
-        
+
         static string conStr = File.ReadAllText("../../../../Data/ConnectionString.txt");
 
         IRepo repo = new SqlRepo(conStr);
@@ -78,7 +78,7 @@ namespace UI_Console
                         pass = "";
                         Log.Logger.Information("Successfully added trainer details");
                     }
-                    catch (System.Exception ex) 
+                    catch (System.Exception ex)
                     {
                         Log.Logger.Information($"Failed to add trainer details {ex.Message}");
                         Console.WriteLine("\nFields Cannot be Empty! Fill Mandotory details!!");
@@ -149,14 +149,14 @@ namespace UI_Console
                 case "5":
                     Console.Write("Enter your Lastname: ");
                     trainer.Lastname = Console.ReadLine();
-                    return "Signup";  
+                    return "Signup";
                 case "6":
                     try
                     {
                         Console.Write("Enter your Age: ");
                         trainer.Age = Convert.ToInt32(Console.ReadLine());
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         Log.Logger.Information("Age value entered in numbers it throws exception");
                         Console.WriteLine("Age should be in numbers!!");
@@ -201,8 +201,25 @@ namespace UI_Console
                     return "Signup";
                 case "13":
                     Console.Write("Enter your UG passed out year: ");
-                    trainer.Ug_year = Console.ReadLine();
+                    string Ug_year = Console.ReadLine();
+                    try
+                    {
+                        if (int.Parse(Ug_year) <= 2022)
+                        {
+                            trainer.Ug_year = Ug_year.ToString();
+                            return "Signup";
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("\nNote: Passed out year must be less than or equal to 2022!");
+                        Console.WriteLine("Year must be in numbers!!");
+                        Console.WriteLine("Enter to continue");
+                        Console.ReadLine();
+                        return "Signup";
+                    }
                     return "Signup";
+
                 case "14":
                     Console.Write("Enter your PG collage name: ");
                     trainer.Pg_collage = Console.ReadLine();

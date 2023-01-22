@@ -62,7 +62,7 @@ namespace UI_Console
             Console.WriteLine("\n-----------------------------------------HUMAN VERIFICATION----------------------------------------\n");
             Console.WriteLine(@"Instruction!! 
 After reading this instruction press enter. A captcha will shown for 7 seconds, Remember the captcha and 
-type the captcha after 7 seconds completed. If you fail You redirected to Trainers Menu again");
+type the captcha after 7 seconds completed. If you fail You redirected to Main Menu again");
             Console.Write("\nPress Enter to Continue...");
             Console.ReadLine();
             Console.Clear();

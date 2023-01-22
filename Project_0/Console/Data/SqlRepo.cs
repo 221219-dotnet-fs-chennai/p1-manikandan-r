@@ -137,7 +137,7 @@ values (@User_ID, @Ug_collage, @Ug_stream, @Ug_Percentage, @Ug_year, @Pg_collage
 
             Console.WriteLine("Your details added successfully");
             Console.WriteLine("Now you can work as a Trainer! ");
-            Console.WriteLine("Press Enter to Continue...");
+            Console.WriteLine("\nPress Enter to Continue...");
             Console.ReadLine();
 
             return trainer;

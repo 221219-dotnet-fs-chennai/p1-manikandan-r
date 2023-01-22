@@ -77,7 +77,7 @@ namespace UI_Console
                             Console.WriteLine("\nProfile Deleted Successfully...");
                             Console.WriteLine("\nPress Enter to Continue");
                             Console.ReadLine();
-                            return "TrainerMenu";
+                            return "Login";
                         default:
                             Console.WriteLine("Wrong Choice try again");
                             Console.WriteLine("Press Enter to continue...");
