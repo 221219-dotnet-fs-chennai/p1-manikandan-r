@@ -12,10 +12,17 @@ namespace Models
         {
         }
 
+        string userid;
         string skill_1;
         string skill_2;
         string skill_3;
 
+
+        public string Userid
+        {
+            get { return userid; }
+            set { userid = value; }
+        }
         public string Skill_1
         {
             get { return skill_1; }

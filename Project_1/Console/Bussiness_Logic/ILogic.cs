@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Models;
+using Trainer_EF_Layer.Entities;
 
 namespace Bussiness_Logic
 {
     public interface ILogic
     {
-        IEnumerable<TrainerDetail> GetTrainers();
+        IEnumerable<Models.TrainerDetail> GetTrainers();
 
         IEnumerable<TrainerEducation> GetEducations();
         IEnumerable<TrainerSkill> GetSkills();
@@ -23,6 +24,6 @@ namespace Bussiness_Logic
         /// <param name="skill"></param>
         /// <param name="company"></param>
         /// <returns>It will return the respective filtered data by user choice</returns>
-        // IEnumerable<TrainerDetail> TrainerFilter(string city, string skill, string company);
+        IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill, string company);
     }
 }

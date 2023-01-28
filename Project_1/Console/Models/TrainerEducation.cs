@@ -12,6 +12,7 @@ namespace Models
         {
         }
 
+        string userid;
         string ug_collage;
         string ug_stream;
         string ug_percentage;
@@ -21,6 +22,12 @@ namespace Models
         string pg_percentage;
         string pg_year;
 
+
+        public string Userid
+        {
+            get { return userid; }
+            set { userid = value; }
+        }
         public string Ug_collage
         {
             get { return ug_collage; }

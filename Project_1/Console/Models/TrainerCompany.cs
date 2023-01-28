@@ -12,10 +12,17 @@ namespace Models
         {
         }
 
+        string userid;
         string companyName;
         string field;
         string experience;
 
+
+        public string Userid
+        {
+            get { return userid; }
+            set { userid = value; }
+        }
         public string Companyname
         {
             get { return companyName; }

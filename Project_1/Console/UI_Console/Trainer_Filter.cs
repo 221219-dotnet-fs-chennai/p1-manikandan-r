@@ -1,17 +1,10 @@
-﻿using Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using Bussiness_Logic;
 
 namespace UI_Console
 {
     internal class Trainer_Filter : IMenu
     {
-        static string conStr = File.ReadAllText("../../../../Data/ConnectionString.txt");
-
         ILogic repo = new Logic();
 
         static string cityFilter = "ex: chennai or delhi";
@@ -44,11 +37,11 @@ namespace UI_Console
                     return "GetTrainers";
                 case "1":
                     Console.WriteLine("\n--------------------------------------------------------TRAINERS LIST----------------------------------------------------------\n");
-                    //var listOfTrainerByFilter = repo.TrainerFilter(cityFilter.ToLower(), skillFilter.ToLower(), companyFilter.ToLower());
-                    //foreach (var trainer in listOfTrainerByFilter)
-                    //{
-                    //    Console.WriteLine(trainer.TrainerDetails());
-                    //}
+                    var listOfTrainerByFilter = repo.TrainerFilter(cityFilter.ToLower(), skillFilter.ToLower(), companyFilter.ToLower());
+                    foreach (var trainer in listOfTrainerByFilter)
+                    {
+                        Console.WriteLine(trainer.DisplayTrainerDetails());
+                    }
                     Console.WriteLine("\nPress enter to continue...");
                     Console.ReadLine();
                     cityFilter = "ex: chennai or delhi";

@@ -27,6 +27,43 @@ namespace Trainer_EF_Layer
             return context.Companies.ToList();
         }
 
+        public IEnumerable<AllTrainerDetails> GetAllTrainerDetails()
+        {
+            var trainer = context.TrainerDetails;
+            var education = context.Educations;
+            var skill = context.Skills;
+            var company = context.Companies;
+
+            var alldetails = (from t in trainer
+                              join e in education on t.UserId equals e.UserId
+                              join s in skill on e.UserId equals s.UserId
+                              join c in company on s.UserId equals c.UserId
+                              select new AllTrainerDetails()
+                              {
+                                  Emailid = t.EmailId,
+                                  Firstname = t.Firstname,
+                                  Lastname = t.Lastname,
+                                  Age = t.Age,
+                                  Gender = t.Gender,
+                                  Phonenumber = t.PhoneNumber,
+                                  City = t.City,
+                                  Ug_collage = e.UgCollage,
+                                  Ug_stream = e.UgStream,
+                                  Ug_percentage = e.UgPercentage,
+                                  Ug_year = e.UgYear,
+                                  Pg_collage = e.PgCollage,
+                                  Pg_stream = e.PgStream,
+                                  Pg_percentage = e.PgPercentage,
+                                  Pg_year = e.PgYear,
+                                  Skill_1 = s.Skill1,
+                                  Skill_2 = s.Skill2,
+                                  Skill_3 = s.Skill3,
+                                  Companyname = c.CompanyName,
+                                  Field = c.Field,
+                                  Experience = c.OverallExperience
+                              });
+            return alldetails.ToList();
+        }
         public void InsertData(Entities.TrainerDetail trainer, Entities.Education education, Entities.Skill skill, Entities.Company company)
         {
             context.TrainerDetails.Add(trainer);
@@ -39,7 +76,38 @@ namespace Trainer_EF_Layer
             Console.WriteLine("Press Enter to Continue...");
             Console.ReadLine();
         }
+    
+        public bool login(string eMail)
+        {
+            var result = context.TrainerDetails;
+            var query = result.FirstOrDefault(val => val.EmailId == eMail);
+
+            if (query != null)
+            {
+                Console.Write("Enter you password: ");
+                string password = Console.ReadLine();
+
+                if (query.Password == password)
+                {
+                    Console.WriteLine("Login Success...");
+                    return true;
+                }
+                else
+                {
+                    Console.WriteLine("Wrong Password");
+                    Console.WriteLine("Enter to continue...");
+                    Console.ReadLine();
+                    return false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("No data found in this email\nCheck your credentails or Signup First");
+                Console.ReadLine();
+                return false;
+            }
+        }
     }
-
-
 }
+
+

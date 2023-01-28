@@ -79,9 +79,9 @@ namespace UI_Console
                                 case "TrainerMenu":
                                     menu = new TrainerMenu();
                                     break;
-                                //case "TrainerProfile":
-                                //    menu = new TrainerProfile(trainer);
-                                //    break;
+                                case "TrainerProfile":
+                                    menu = new TrainerProfile();
+                                    break;
                                 case "TrainerUpdate":
                                     menu = new TrainerUpdate();
                                     break;

@@ -14,10 +14,15 @@ namespace UI_Console
         static string conStr = File.ReadAllText("../../../../Data/ConnectionString.txt");
 
         IRepo repo = new SqlRepo(conStr);
+        public TrainerProfile()
+        {
+        }
+
         public TrainerProfile(Trainer trainerSignup)
         {
             trainerProfile = trainerSignup;
         }
+
         public void Display()
         {
             Log.Logger.Information($"{trainerProfile.Firstname} {trainerProfile.Lastname} trainer logged in");
@@ -36,8 +41,8 @@ namespace UI_Console
             Console.WriteLine("\n--------------------------");
             Console.Write("\nEnter your choice: ");
             string userChoice = Console.ReadLine();
-            
-            switch(userChoice)
+
+            switch (userChoice)
             {
                 case "0":
                     return "Login";

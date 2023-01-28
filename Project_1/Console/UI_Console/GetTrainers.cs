@@ -1,12 +1,11 @@
-﻿using Bussiness_Logic;
+﻿
+using Trainer_EF_Layer;
 
 namespace UI_Console
 {
     public class GetTrainers : IMenu
     {
-        static string conStr = File.ReadAllText("../../../../Data/ConnectionString.txt");
-       
-        ILogic repo = new Logic();
+        TrainerEFRepo repo = new TrainerEFRepo();
 
         public void Display()
         {
@@ -20,7 +19,7 @@ namespace UI_Console
             Console.Write("Enter your choice: ");
             string userChoice = Console.ReadLine();
 
-            switch(userChoice)
+            switch (userChoice)
             {
                 case "0":
                     return "Menu";
@@ -29,15 +28,15 @@ namespace UI_Console
                     Console.WriteLine("\n--------------------------------------------------------TRAINERS LIST----------------------------------------------------------\n");
 
                     Log.Logger.Information("Getting all trainers");
-                    var listoftrainers = repo.GetTrainers();
-                    //Log.Logger.Information($"Got list of {listoftrainers.Count} trainers");
-                    Log.Logger.Information("Reading trainers from database");
 
-                    foreach (var val in listoftrainers)
+                    var details = repo.GetAllTrainerDetails();
+
+                    foreach (var val in details)
                     {
-                        Console.WriteLine(val.GetTrainerDetails());
+                        Console.WriteLine(val.DisplayTrainerDetails());
                     }
 
+                    Log.Logger.Information("Reading trainers from database");
                     Log.Logger.Information("Reading traines Ends");
                     Console.WriteLine("\nPress enter to continue...");
                     Console.ReadLine();
@@ -49,7 +48,6 @@ namespace UI_Console
                     Console.WriteLine("Enter to continue");
                     Console.ReadLine();
                     return "GetTrainers";
-
             }
         }
     }
