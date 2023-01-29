@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bussiness_Logic\Bussiness_Logic.csproj" />
-    <ProjectReference Include="..\Data\Data.csproj" />
     <ProjectReference Include="..\Trainer_EF_Layer\Trainer_EF_Layer.csproj" />
   </ItemGroup>
 

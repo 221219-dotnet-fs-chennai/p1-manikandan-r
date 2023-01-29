@@ -1,4 +1,4 @@
-﻿
+﻿using Bussiness_Logic;
 using Trainer_EF_Layer;
 
 namespace UI_Console
@@ -6,6 +6,7 @@ namespace UI_Console
     public class GetTrainers : IMenu
     {
         TrainerEFRepo repo = new TrainerEFRepo();
+        Logic repo1 = new Logic();
 
         public void Display()
         {
@@ -35,6 +36,13 @@ namespace UI_Console
                     {
                         Console.WriteLine(val.DisplayTrainerDetails());
                     }
+
+                    //var details1 = repo1.GetTrainers();
+
+                    //foreach(var val1 in details1)
+                    //{
+                    //    Console.WriteLine(val1.DisplayTrainerDetails());
+                    //}
 
                     Log.Logger.Information("Reading trainers from database");
                     Log.Logger.Information("Reading traines Ends");

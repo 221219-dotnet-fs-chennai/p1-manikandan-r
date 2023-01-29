@@ -1,4 +1,4 @@
-# Project 0
+# Project 1
 # TITLE: TRAINER PICKER
 
 ## EXPLANATION:
@@ -9,10 +9,11 @@ This application has a seperate option for a *Trainer* and a general user. If yo
 ## TECHNOLOGIES USED:
 - DOT NET
 - C SHARP
-- ADO.NET
+- Entity Framework
 - SQL
 - GIT
 - AZURE
+- NUnit Testing
 
 ## FEATURES IMPLEMENTED:
 - Logging using Serilog

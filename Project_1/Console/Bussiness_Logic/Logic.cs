@@ -1,46 +1,56 @@
 ﻿
 using Models;
-using Trainer_EF_Layer.Entities;
-using TEF = Trainer_EF_Layer;
 
 
 namespace Bussiness_Logic
 {
     public class Logic : ILogic
     {
-        IRepoEF<TEF.Entities.TrainerDetail> repo;
-        IRepoEF_E<Education> repo1;
-        IRepoEF_S<Skill> repo2;
-        IRepoEF_C<Company> repo3;
 
-        TEF.TrainerEFRepo newrepo = new TEF.TrainerEFRepo();
+        TrainerEFRepo newrepo = new TrainerEFRepo();
 
-        public Logic()
+        public bool captchaReturn()
         {
-            repo = new TEF.TrainerEFRepo();
-            repo1 = new TEF.TrainerEFRepo();
-            repo2 = new TEF.TrainerEFRepo();
-            repo3 = new TEF.TrainerEFRepo();
-        }
+            Random rand = new Random();
 
-        public IEnumerable<Models.TrainerDetail> GetTrainers()
-        {
-            return Mapper.Map(repo.GetAllTrainers());
-        }
+            string[] captchas = { "UYW7B2", "NBA82G", "PQ1ZX7", "IGTDYJ", "BVATFH", "LPQTAZ",
+"PQJAYD", "AYUZVB", "VYAFJL", "MQNZYR", "KL187A", "Z72B98", "WLC69A", "BVA39S", "BAYPWH", "N4YU0C", "K8O7Q5",
+"TAZLND", "8BA62F" };
+            int index = rand.Next(captchas.Length);
+            int i = 7;
+            string captcha = captchas[index];
 
-        public IEnumerable<Models.TrainerEducation> GetEducations()
-        {
-            return Mapper.Map(repo1.GetAllEducation());
-        }
+            Console.WriteLine("\n-----------------------------------------HUMAN VERIFICATION----------------------------------------\n");
+            Console.WriteLine(@"Instruction!! 
+After reading this instruction press enter. A captcha will shown for 7 seconds, Remember the captcha and 
+type the captcha after 7 seconds completed. If you fail You redirected to Main Menu again");
+            Console.Write("\nPress Enter to Continue...");
+            Console.ReadLine();
+            Console.Clear();
 
-        public IEnumerable<TrainerSkill> GetSkills()
-        {
-            return Mapper.Map(repo2.GetAllSkills());
-        }
+            while (i >= 1)
+            {
+                Console.WriteLine("\n-----------------------------------------HUMAN VERIFICATION----------------------------------------\n");
+                Console.WriteLine($"\nTime left: {i}");
+                Console.WriteLine($"\nYour captcha to remember: {captchas[index]}");
+                Thread.Sleep(1000);
+                Console.Clear();
+                i--;
+            }
 
-        public IEnumerable<TrainerCompany> GetCompanies()
-        {
-            return Mapper.Map(repo3.GetAllCompanies());
+            Console.Clear();
+            Console.WriteLine("\n-----------------------------------------HUMAN VERIFICATION----------------------------------------\n");
+            Console.Write("\nEnter the captcha: ");
+            string? captchaByUser = Console.ReadLine();
+
+            if (captcha == captchaByUser)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill, string company)

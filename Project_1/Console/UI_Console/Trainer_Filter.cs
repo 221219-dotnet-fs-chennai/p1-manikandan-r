@@ -34,6 +34,9 @@ namespace UI_Console
             switch (userChoice)
             {
                 case "0":
+                    cityFilter = "ex: chennai or delhi";
+                    skillFilter = "ex: python or java";
+                    companyFilter = "ex: micosoft or infosys";
                     return "GetTrainers";
                 case "1":
                     Console.WriteLine("\n--------------------------------------------------------TRAINERS LIST----------------------------------------------------------\n");

@@ -4,9 +4,8 @@ using UI_Console;
 
 internal class LogIn : SignUp, IMenu
 {
-    ILogic newrepo = new Logic();
 
-    TrainerEFRepo repo = new TrainerEFRepo();
+    IRepoEF repo = new TrainerEFRepo();
     public new void Display()
     {
         Console.WriteLine("\n-------LOGIN PAGE------\n");
@@ -26,11 +25,13 @@ internal class LogIn : SignUp, IMenu
                 return "TrainerMenu";
             case "1":
                 Console.Write("\nEnter your Email ID: ");
-                string eMail = Console.ReadLine();
-                bool ans = repo.login(eMail);
+                string EMail = Console.ReadLine();
+                bool ans = repo.login(EMail);
                 if (ans)
                 {
-                    SignUp trainerLogin = new SignUp();
+                    string[] emailarr = EMail.Split("@");
+                    string eMail = emailarr[0];
+                    SignUp trainerLogin = new SignUp(repo.GetAllTrainers(eMail), repo.GetAllEducation(eMail), repo.GetAllSkills(eMail), repo.GetAllCompanies(eMail));
                     return "TrainerProfile";
                 }
                 else

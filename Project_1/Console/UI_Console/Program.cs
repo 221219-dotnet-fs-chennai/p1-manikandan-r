@@ -1,8 +1,8 @@
 ﻿global using Serilog;
 using Trainer_EF_Layer.Entities;
-using Data;
 using System;
 using System.Data.SqlClient;
+using Models;
 
 namespace UI_Console
 {
@@ -61,10 +61,10 @@ namespace UI_Console
                             switch (trainerChoice)
                             {
                                 case "Login":
-                                    trainer = new Trainer_EF_Layer.Entities.TrainerDetail();
-                                    education = new Education();
-                                    skill = new Skill();
-                                    company = new Company();
+                                    trainer = new Models.TrainerDetail();
+                                    education = new TrainerEducation();
+                                    skill = new TrainerSkill();
+                                    company = new TrainerCompany();
                                     Log.Logger.Information("User select trainer login");
                                     menu = new LogIn();
                                     break;
@@ -80,7 +80,7 @@ namespace UI_Console
                                     menu = new TrainerMenu();
                                     break;
                                 case "TrainerProfile":
-                                    menu = new TrainerProfile();
+                                    menu = new TrainerProfile(trainer, education, skill, company);
                                     break;
                                 case "TrainerUpdate":
                                     menu = new TrainerUpdate();

@@ -12,32 +12,10 @@ namespace Models
         {
         }
 
-        string userid;
-        string companyName;
-        string field;
-        string experience;
-
-
-        public string Userid
-        {
-            get { return userid; }
-            set { userid = value; }
-        }
-        public string Companyname
-        {
-            get { return companyName; }
-            set { companyName = value; }
-        }
-        public string Field
-        {
-            get { return field; }
-            set { field = value; }
-        }
-        public string Experience
-        {
-            get { return experience; }
-            set { experience = value; }
-        }
+        public string Userid { get; set; }
+        public string Companyname { get; set; }
+        public string Field { get; set; }
+        public string Experience { get; set; }
         
 
         public string GetTrainerCompany()

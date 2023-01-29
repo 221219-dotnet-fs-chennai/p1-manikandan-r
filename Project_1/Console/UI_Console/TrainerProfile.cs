@@ -1,4 +1,5 @@
-﻿using Data;
+﻿using Bussiness_Logic;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,25 +10,26 @@ namespace UI_Console
 {
     class TrainerProfile : IMenu
     {
-        Trainer trainerProfile = new Trainer();
+        IRepoEF repo = new TrainerEFRepo();
 
-        static string conStr = File.ReadAllText("../../../../Data/ConnectionString.txt");
+        internal static Models.TrainerDetail trainer = new Models.TrainerDetail();
+        internal static TrainerEducation education = new TrainerEducation();
+        internal static TrainerSkill skill = new TrainerSkill();
+        internal static TrainerCompany company = new TrainerCompany();
 
-        IRepo repo = new SqlRepo(conStr);
-        public TrainerProfile()
+        public TrainerProfile(Models.TrainerDetail train, TrainerEducation edu, TrainerSkill ski, TrainerCompany comp)
         {
-        }
-
-        public TrainerProfile(Trainer trainerSignup)
-        {
-            trainerProfile = trainerSignup;
+            trainer = train;
+            education = edu;
+            skill = ski;
+            company = comp;
         }
 
         public void Display()
         {
-            Log.Logger.Information($"{trainerProfile.Firstname} {trainerProfile.Lastname} trainer logged in");
+            Log.Logger.Information($"{trainer.Firstname} {trainer.Lastname} trainer logged in");
             Console.WriteLine("--------------------------------------");
-            Console.WriteLine($"Welcome {trainerProfile.Firstname} {trainerProfile.Lastname} :)");
+            Console.WriteLine($"Welcome {trainer.Firstname} {trainer.Lastname} :)");
             Console.WriteLine("\nChoose below options to perform actions:-");
             Console.WriteLine("[0] Logout");
             Console.WriteLine("[1] View Profile");
@@ -72,9 +74,9 @@ namespace UI_Console
                         case "0":
                             return "TrainerProfile";
                         case "1":
-                            string email = trainerProfile.Emailid;
+                            string email = trainer.Emailid;
 
-                            Log.Logger.Information($"{trainerProfile.Firstname} {trainerProfile.Lastname} profile deleted");
+                            Log.Logger.Information($"{trainer.Firstname} {trainer.Lastname} profile deleted");
                             Console.WriteLine("\nThank You For using 'Trainer Picker'");
                             string[] emailArr = email.Split("@");
                             string userId = emailArr[0];
@@ -100,30 +102,29 @@ namespace UI_Console
         public void ShowProfile()
         {
             Console.Clear();
-            Log.Logger.Information($"display {trainerProfile.Firstname} {trainerProfile.Lastname} profile");
-            Console.WriteLine($"\n-------{trainerProfile.Firstname.ToUpper()} {trainerProfile.Lastname.ToUpper()} PROFILE-------\n");
-            Console.WriteLine("Email ID             : " + trainerProfile.Emailid);
-            Console.WriteLine("Password             : " + trainerProfile.Password);
-            Console.WriteLine("Firstname            : " + trainerProfile.Firstname);
-            Console.WriteLine("Lastname             : " + trainerProfile.Lastname);
-            Console.WriteLine("Age                  : " + trainerProfile.Age);
-            Console.WriteLine("Gender               : " + trainerProfile.Gender);
-            Console.WriteLine("Phone number         : " + trainerProfile.Phonenumber);
-            Console.WriteLine("City                 : " + trainerProfile.City);
-            Console.WriteLine("UG Collage name      : " + trainerProfile.Ug_collage);
-            Console.WriteLine("UG Stream            : " + trainerProfile.Ug_stream);
-            Console.WriteLine("UG Percentage        : " + trainerProfile.Ug_percentage);
-            Console.WriteLine("UG Year              : " + trainerProfile.Ug_year);
-            Console.WriteLine("PG Collage name      : " + trainerProfile.Pg_collage);
-            Console.WriteLine("PG Stream            : " + trainerProfile.Pg_stream);
-            Console.WriteLine("PG Percentage        : " + trainerProfile.Pg_percentage);
-            Console.WriteLine("PG Year              : " + trainerProfile.Pg_year);
-            Console.WriteLine("Skill 1              : " + trainerProfile.Skill_1);
-            Console.WriteLine("Skill 2              : " + trainerProfile.Skill_2);
-            Console.WriteLine("Skill 3              : " + trainerProfile.Skill_3);
-            Console.WriteLine("Company name         : " + trainerProfile.Companyname);
-            Console.WriteLine("Field of working     : " + trainerProfile.Field);
-            Console.WriteLine("Overall experience   : " + trainerProfile.Experience);
+            Log.Logger.Information($"display {trainer.Firstname} {trainer.Lastname} profile");
+            Console.WriteLine($"\n-------{trainer.Firstname.ToUpper()} {trainer.Lastname.ToUpper()} PROFILE-------\n");
+            Console.WriteLine("Email ID             : " + trainer.Emailid);
+            Console.WriteLine("Firstname            : " + trainer.Firstname);
+            Console.WriteLine("Lastname             : " + trainer.Lastname);
+            Console.WriteLine("Age                  : " + trainer.Age);
+            Console.WriteLine("Gender               : " + trainer.Gender);
+            Console.WriteLine("Phone number         : " + trainer.Phonenumber);
+            Console.WriteLine("City                 : " + trainer.City);
+            Console.WriteLine("UG Collage name      : " + education.Ug_collage);
+            Console.WriteLine("UG Stream            : " + education.Ug_stream);
+            Console.WriteLine("UG Percentage        : " + education.Ug_percentage);
+            Console.WriteLine("UG Year              : " + education.Ug_year);
+            Console.WriteLine("PG Collage name      : " + education.Pg_collage);
+            Console.WriteLine("PG Stream            : " + education.Pg_stream);
+            Console.WriteLine("PG Percentage        : " + education.Pg_percentage);
+            Console.WriteLine("PG Year              : " + education.Pg_year);
+            Console.WriteLine("Skill 1              : " + skill.Skill_1);
+            Console.WriteLine("Skill 2              : " + skill.Skill_2);
+            Console.WriteLine("Skill 3              : " + skill.Skill_3);
+            Console.WriteLine("Company name         : " + company.Companyname);
+            Console.WriteLine("Field of working     : " + company.Field);
+            Console.WriteLine("Overall experience   : " + company.Experience);
         }
     }
 }

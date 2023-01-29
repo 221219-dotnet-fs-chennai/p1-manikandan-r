@@ -2,24 +2,29 @@
 
 using System.Text.RegularExpressions;
 using Models;
-using Trainer_EF_Layer;
+using Bussiness_Logic;
 using Trainer_EF_Layer.Entities;
 
 namespace UI_Console
 {
     internal class SignUp : IMenu
     {
-        internal static Trainer_EF_Layer.Entities.TrainerDetail trainer = new Trainer_EF_Layer.Entities.TrainerDetail();
-        internal static Education education = new Education();
-        internal static Skill skill = new Skill();
-        internal static Company company = new Company();
+
+        IRepoEF repo = new TrainerEFRepo();
+
+        static string pass = "";
+
+        internal static Models.TrainerDetail trainer = new Models.TrainerDetail();
+        internal static TrainerEducation education = new TrainerEducation();
+        internal static TrainerSkill skill = new TrainerSkill();
+        internal static TrainerCompany company = new TrainerCompany();
 
         public SignUp()
         {
 
         }
 
-        public SignUp(Trainer_EF_Layer.Entities.TrainerDetail train, Education edu, Skill ski, Company comp)
+        public SignUp(Models.TrainerDetail train, TrainerEducation edu, TrainerSkill ski, TrainerCompany comp)
         {
             trainer = train;
             education = edu;
@@ -27,10 +32,6 @@ namespace UI_Console
             company = comp;
         }
 
-        TrainerEFRepo repo = new TrainerEFRepo();
-
-
-        static string pass = "";
 
         public void Display()
         {
@@ -39,28 +40,28 @@ namespace UI_Console
             Console.WriteLine("[00] Clear");
             Console.WriteLine("[0] Trainer Menu");
             Console.WriteLine("[1] Submit Details");
-            Console.WriteLine("[2] Email ID*            : " + trainer.EmailId);
+            Console.WriteLine("[2] Email ID*            : " + trainer.Emailid);
             Console.WriteLine("[3] Password*            : " + pass);
             Console.WriteLine("[4] Firstname*           : " + trainer.Firstname);
             Console.WriteLine("[5] Lastname*            : " + trainer.Lastname);
             Console.WriteLine("[6] Age*                 : " + trainer.Age);
             Console.WriteLine("[7] Gender*              : " + trainer.Gender);
-            Console.WriteLine("[8] Phone number*        : " + trainer.PhoneNumber);
+            Console.WriteLine("[8] Phone number*        : " + trainer.Phonenumber);
             Console.WriteLine("[9] City*                : " + trainer.City);
-            Console.WriteLine("[10] UG Collage name*    : " + education.UgCollage);
-            Console.WriteLine("[11] UG Stream*          : " + education.UgStream);
-            Console.WriteLine("[12] UG Percentage*      : " + education.UgPercentage);
-            Console.WriteLine("[13] UG Passed out Year* : " + education.UgYear);
-            Console.WriteLine("[14] PG Collage name     : " + education.PgCollage);
-            Console.WriteLine("[15] PG Stream           : " + education.PgStream);
-            Console.WriteLine("[16] PG Percentage       : " + education.PgPercentage);
-            Console.WriteLine("[17] PG Passed out Year  : " + education.PgYear);
-            Console.WriteLine("[18] Skill 1*            : " + skill.Skill1);
-            Console.WriteLine("[19] Skill 2*            : " + skill.Skill2);
-            Console.WriteLine("[20] Skill 3             : " + skill.Skill3);
-            Console.WriteLine("[21] Company name        : " + company.CompanyName);
+            Console.WriteLine("[10] UG Collage name*    : " + education.Ug_collage);
+            Console.WriteLine("[11] UG Stream*          : " + education.Ug_stream);
+            Console.WriteLine("[12] UG Percentage*      : " + education.Ug_percentage);
+            Console.WriteLine("[13] UG Passed out Year* : " + education.Ug_year);
+            Console.WriteLine("[14] PG Collage name     : " + education.Pg_collage);
+            Console.WriteLine("[15] PG Stream           : " + education.Pg_stream);
+            Console.WriteLine("[16] PG Percentage       : " + education.Pg_percentage);
+            Console.WriteLine("[17] PG Passed out Year  : " + education.Pg_year);
+            Console.WriteLine("[18] Skill 1*            : " + skill.Skill_1);
+            Console.WriteLine("[19] Skill 2*            : " + skill.Skill_2);
+            Console.WriteLine("[20] Skill 3             : " + skill.Skill_3);
+            Console.WriteLine("[21] Company name        : " + company.Companyname);
             Console.WriteLine("[22] Field of working    : " + company.Field);
-            Console.WriteLine("[23] Overall experience  : " + company.OverallExperience);
+            Console.WriteLine("[23] Overall experience  : " + company.Experience);
         }
         public string UserChoice()
         {
@@ -72,10 +73,10 @@ namespace UI_Console
             switch (userchoice)
             {
                 case "00":
-                    trainer = new Trainer_EF_Layer.Entities.TrainerDetail();
-                    education = new Education();
-                    skill = new Skill();
-                    company = new Company();
+                    trainer = new Models.TrainerDetail();
+                    education = new TrainerEducation();
+                    skill = new TrainerSkill();
+                    company = new TrainerCompany();
                     pass = "";
                     return "TrainerMenu";
                 case "0":
@@ -85,10 +86,10 @@ namespace UI_Console
                     {
                         Log.Logger.Information("Adding trainer details");
                         repo.InsertData(trainer, education, skill, company);
-                        trainer = new Trainer_EF_Layer.Entities.TrainerDetail();
-                        education = new Education();
-                        skill = new Skill();
-                        company = new Company();
+                        trainer = new Models.TrainerDetail();
+                        education = new TrainerEducation();
+                        skill = new TrainerSkill();
+                        company = new TrainerCompany();
                         pass = "";
                         Log.Logger.Information("Successfully added trainer details");
                     }
@@ -112,7 +113,7 @@ namespace UI_Console
                     {
                         if (Regex.IsMatch(email_id, emailPattern))
                         {
-                            trainer.EmailId = email_id;
+                            trainer.Emailid = email_id;
                         }
                         else
                         {
@@ -126,11 +127,11 @@ namespace UI_Console
                         Console.ReadLine();
                     }
 
-                    string[] emailarr = trainer.EmailId.Split("@");
-                    trainer.UserId = emailarr[0];
-                    education.UserId = trainer.UserId;
-                    skill.UserId = trainer.UserId;
-                    company.UserId = trainer.UserId;
+                    string[] emailarr = trainer.Emailid.Split("@");
+                    trainer.Userid = emailarr[0];
+                    education.Userid = trainer.Userid;
+                    skill.Userid = trainer.Userid;
+                    company.Userid = trainer.Userid;
 
                     return "Signup";
 
@@ -196,7 +197,7 @@ namespace UI_Console
 
                     if (phone_number.Length <= 15 && Regex.IsMatch(phone_number, pattern))
                     {
-                        trainer.PhoneNumber = phone_number;
+                        trainer.Phonenumber = phone_number;
                     }
                     else
                     {
@@ -210,15 +211,15 @@ namespace UI_Console
                     return "Signup";
                 case "10":
                     Console.Write("Enter your UG collage name: ");
-                    education.UgCollage = Console.ReadLine();
+                    education.Ug_collage = Console.ReadLine();
                     return "Signup";
                 case "11":
                     Console.Write("Enter your UG stream: ");
-                    education.UgStream = Console.ReadLine();
+                    education.Ug_stream = Console.ReadLine();
                     return "Signup";
                 case "12":
                     Console.Write("Enter your UG percentage: ");
-                    education.UgPercentage = Console.ReadLine();
+                    education.Ug_percentage = Console.ReadLine();
                     return "Signup";
                 case "13":
                     Console.Write("Enter your UG passed out year: ");
@@ -227,7 +228,7 @@ namespace UI_Console
                     {
                         if (int.Parse(Ug_year) <= 2022)
                         {
-                            education.UgYear = Ug_year.ToString();
+                            education.Ug_year = Ug_year.ToString();
                             return "Signup";
                         }
                         else
@@ -248,35 +249,35 @@ namespace UI_Console
 
                 case "14":
                     Console.Write("Enter your PG collage name: ");
-                    education.PgCollage = Console.ReadLine();
+                    education.Pg_collage = Console.ReadLine();
                     return "Signup";
                 case "15":
                     Console.Write("Enter your PG stream: ");
-                    education.PgStream = Console.ReadLine();
+                    education.Pg_stream = Console.ReadLine();
                     return "Signup";
                 case "16":
                     Console.Write("Enter your PG percentage: ");
-                    education.PgPercentage = Console.ReadLine();
+                    education.Pg_percentage = Console.ReadLine();
                     return "Signup";
                 case "17":
                     Console.Write("Enter your PG passed out year: ");
-                    education.PgYear = Console.ReadLine();
+                    education.Pg_year = Console.ReadLine();
                     return "Signup";
                 case "18":
                     Console.Write("Enter your 1st skill: ");
-                    skill.Skill1 = Console.ReadLine();
+                    skill.Skill_1 = Console.ReadLine();
                     return "Signup";
                 case "19":
                     Console.Write("Enter your 2nd skill: ");
-                    skill.Skill2 = Console.ReadLine();
+                    skill.Skill_2 = Console.ReadLine();
                     return "Signup";
                 case "20":
                     Console.Write("Enter your 3rd skill: ");
-                    skill.Skill3 = Console.ReadLine();
+                    skill.Skill_3 = Console.ReadLine();
                     return "Signup";
                 case "21":
                     Console.Write("Enter your current or last working company: ");
-                    company.CompanyName = Console.ReadLine();
+                    company.Companyname = Console.ReadLine();
                     return "Signup";
                 case "22":
                     Console.Write("Enter your field: ");
@@ -284,7 +285,7 @@ namespace UI_Console
                     return "Signup";
                 case "23":
                     Console.Write("Enter your overall experience: ");
-                    company.OverallExperience = Console.ReadLine();
+                    company.Experience = Console.ReadLine();
                     return "Signup";
                 default:
                     Console.WriteLine("------------------------------");

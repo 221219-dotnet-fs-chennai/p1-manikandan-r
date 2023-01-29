@@ -10,12 +10,11 @@ namespace Bussiness_Logic
 {
     public interface ILogic
     {
-        IEnumerable<Models.TrainerDetail> GetTrainers();
-
-        IEnumerable<TrainerEducation> GetEducations();
-        IEnumerable<TrainerSkill> GetSkills();
-
-        IEnumerable<TrainerCompany> GetCompanies();
+        /// <summary>
+        /// Captcha verification
+        /// </summary>
+        /// <returns>return true if the captcha is right else false</returns>
+        public bool captchaReturn();
 
         /// <summary>
         /// It get city, skill and/or company form user and use LINQ to filter data 
@@ -25,5 +24,6 @@ namespace Bussiness_Logic
         /// <param name="company"></param>
         /// <returns>It will return the respective filtered data by user choice</returns>
         IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill, string company);
+
     }
 }
