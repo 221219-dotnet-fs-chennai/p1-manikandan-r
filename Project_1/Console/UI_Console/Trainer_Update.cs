@@ -1,9 +1,13 @@
 ﻿using Bussiness_Logic;
+using System.Text.RegularExpressions;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
 
 namespace UI_Console
 {
     internal class TrainerUpdate : SignUp, IMenu
     {
+        Bussiness_Logic.Validation validation = new Bussiness_Logic.Validation();
+
         IRepoEF repo = new TrainerEFRepo();
 
         static string pass = "";
@@ -82,20 +86,42 @@ namespace UI_Console
                     }
                     return "TrainerUpdate";
                 case "2":
-                    Console.Write("Enter Age: ");
-                    trainer.Age = Convert.ToInt32(Console.ReadLine());
-                    repo.UpdateTrainer("TrainerDetails", "Age", (trainer.Age).ToString(), userId);
-                    Console.WriteLine("\nAge updated successfully");
-                    Console.WriteLine("Press Enter to continue...");
-                    Console.ReadLine();
+                    try
+                    {
+                        Console.Write("Enter Age: ");
+                        trainer.Age = Convert.ToInt32(Console.ReadLine());
+                        repo.UpdateTrainer("TrainerDetails", "Age", (trainer.Age).ToString(), userId);
+                        Console.WriteLine("\nAge updated successfully");
+                        Console.WriteLine("Press Enter to continue...");
+                        Console.ReadLine();
+                        return "TrainerUpdate";
+                    }
+                    catch (Exception ex)
+                    {
+                        Log.Logger.Information("Age value entered in numbers it throws exception");
+                        Console.WriteLine("Age should be in numbers!!");
+                        Console.ReadLine();
+                    }
                     return "TrainerUpdate";
                 case "3":
                     Console.Write("Enter new Phone Number: ");
-                    trainer.Phonenumber = Console.ReadLine();
-                    repo.UpdateTrainer("TrainerDetails", "Phone_Number", trainer.Phonenumber, userId);
-                    Console.WriteLine("\nPhone number updated successfully");
-                    Console.WriteLine("Press Enter to continue...");
-                    Console.ReadLine();
+
+                    string phone_number = Console.ReadLine();
+                    bool val = validation.IsValidPhoneNumber(phone_number);
+
+                    if (val)
+                    {
+                        trainer.Phonenumber = phone_number;
+                        repo.UpdateTrainer("TrainerDetails", "Phone_Number", trainer.Phonenumber, userId);
+                        Console.WriteLine("\nPhone number updated successfully");
+                        Console.WriteLine("Press Enter to continue...");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Wrong pattern try again...");
+                        Console.ReadLine();
+                    }
                     return "TrainerUpdate";
                 case "4":
                     Console.Write("Enter new city: ");
@@ -248,4 +274,3 @@ namespace UI_Console
         }
     }
 }
-

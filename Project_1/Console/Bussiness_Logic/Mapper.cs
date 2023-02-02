@@ -5,8 +5,8 @@ namespace Bussiness_Logic
 {
     public class Mapper
     {
-
-        public TrainerData.TrainerDetail maptrainer(TrainerDetail valm)
+        // model to entitity
+        public TrainerData.TrainerDetail mapTrainer(TrainerDetail valm)
         {
             return new TrainerData.TrainerDetail()
             {
@@ -38,7 +38,7 @@ namespace Bussiness_Logic
             };
         }
 
-        public TrainerData.Skill mapskill(TrainerSkill vals)
+        public TrainerData.Skill mapSkill(TrainerSkill vals)
         {
             return new TrainerData.Skill()
             {
@@ -61,6 +61,7 @@ namespace Bussiness_Logic
         }
 
 
+        // entitity to model
         public TrainerDetail MapTrainer(TrainerData.TrainerDetail val)
         {
             return new Models.TrainerDetail()

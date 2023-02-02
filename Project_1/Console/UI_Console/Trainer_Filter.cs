@@ -9,7 +9,6 @@ namespace UI_Console
 
         static string cityFilter = "ex: chennai or delhi";
         static string skillFilter = "ex: python or java";
-        static string companyFilter = "ex: micosoft or infosys";
 
         public void Display()
         {
@@ -21,7 +20,6 @@ namespace UI_Console
             Console.WriteLine("[1] Search");
             Console.WriteLine("[2] Filter by City       : " + cityFilter);
             Console.WriteLine("[3] Filter by Skill      : " + skillFilter);
-            Console.WriteLine("[4] Filter by Company    : " + companyFilter);
         }
 
         public string UserChoice()
@@ -36,11 +34,10 @@ namespace UI_Console
                 case "0":
                     cityFilter = "ex: chennai or delhi";
                     skillFilter = "ex: python or java";
-                    companyFilter = "ex: micosoft or infosys";
                     return "GetTrainers";
                 case "1":
                     Console.WriteLine("\n--------------------------------------------------------TRAINERS LIST----------------------------------------------------------\n");
-                    var listOfTrainerByFilter = repo.TrainerFilter(cityFilter.ToLower(), skillFilter.ToLower(), companyFilter.ToLower());
+                    var listOfTrainerByFilter = repo.TrainerFilter(cityFilter.ToLower(), skillFilter.ToLower());
                     foreach (var trainer in listOfTrainerByFilter)
                     {
                         Console.WriteLine(trainer.DisplayTrainerDetails());
@@ -49,7 +46,6 @@ namespace UI_Console
                     Console.ReadLine();
                     cityFilter = "ex: chennai or delhi";
                     skillFilter = "ex: python or java";
-                    companyFilter = "ex: micosoft or infosys";
                     return "GetTrainers";
                 case "2":
                     Console.Write("Enter City name to filter: ");
@@ -59,11 +55,6 @@ namespace UI_Console
                 case "3":
                     Console.Write("Enter Skill name to filter: ");
                     skillFilter = Console.ReadLine();
-                    Console.WriteLine("Enter to continue");
-                    return "GetTrainerbyFilter";
-                case "4":
-                    Console.Write("Enter Company name to filter: ");
-                    companyFilter = Console.ReadLine();
                     Console.WriteLine("Enter to continue");
                     return "GetTrainerbyFilter";
                 default:

@@ -27,14 +27,14 @@ namespace UI_Console
 
                     if (answer)
                     {
-                        Console.WriteLine("\nCaptcha matched ;), You're a Human...");
+                        Console.WriteLine("\nCaptcha matched ;), Welcome Human...");
                         Console.Write("\nPress Enter to Continue...");
                         Console.ReadLine();
                         return "GetTrainers";
                     }
                     else
                     {
-                        Console.WriteLine("\nCaptcha not matched :|, You're a Alien!!...");
+                        Console.WriteLine("\nCaptcha not matched :|, Aliens not allowed!!...");
                         Console.Write("\nPress Enter to Continue...");
                         Console.ReadLine();
                         return "Menu";

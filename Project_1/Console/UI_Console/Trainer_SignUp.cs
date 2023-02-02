@@ -9,6 +9,7 @@ namespace UI_Console
 {
     internal class SignUp : IMenu
     {
+        Bussiness_Logic.Validation validation = new Bussiness_Logic.Validation();
 
         IRepoEF repo = new TrainerEFRepo();
 
@@ -106,33 +107,19 @@ namespace UI_Console
                     return "TrainerMenu";
                 case "2":
                     Console.Write("Enter your Email ID: ");
-                    string emailPattern = @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,7}$";
 
                     string email_id = Console.ReadLine();
-                    try
+                    bool val = validation.IsValidEmail(email_id);
+
+                    if (val)
                     {
-                        if (Regex.IsMatch(email_id, emailPattern))
-                        {
-                            trainer.Emailid = email_id;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Check your Email ID\nWrong pattern try again...");
-                            Console.ReadLine();
-                        }
+                        trainer.Emailid = email_id;
                     }
-                    catch (System.Exception)
+                    else
                     {
                         Console.WriteLine("Check your Email ID\nWrong pattern try again...");
                         Console.ReadLine();
                     }
-
-                    string[] emailarr = trainer.Emailid.Split("@");
-                    trainer.Userid = emailarr[0];
-                    education.Userid = trainer.Userid;
-                    skill.Userid = trainer.Userid;
-                    company.Userid = trainer.Userid;
-
                     return "Signup";
 
                 case "3":
@@ -191,11 +178,11 @@ namespace UI_Console
                     return "Signup";
                 case "8":
                     Console.Write("Enter your Phone number: ");
-                    string pattern = @"\(?\d{3}\)?(-|.|\s)?\d{3}(-|.)?\d{4}";
 
                     string phone_number = Console.ReadLine();
 
-                    if (phone_number.Length <= 15 && Regex.IsMatch(phone_number, pattern))
+                    bool val2 = validation.IsValidPhoneNumber(phone_number);
+                    if (val2)
                     {
                         trainer.Phonenumber = phone_number;
                     }

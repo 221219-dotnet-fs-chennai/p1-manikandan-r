@@ -10,8 +10,11 @@ namespace Bussiness_Logic
 
         TrainerDbContext context = new TrainerDbContext();
 
-        public Models.TrainerDetail GetAllTrainers(string userId)
+        public Models.TrainerDetail GetAllTrainers(string EMail)
         {
+            string[] emailarr = EMail.Split("@");
+            string userId = emailarr[0];
+
             var trainers = context.TrainerDetails;
             var query1 = from trainer in trainers
                          where trainer.UserId == userId
@@ -33,8 +36,11 @@ namespace Bussiness_Logic
             return map.MapTrainer(trainerDetail);
         }
 
-        public TrainerEducation GetAllEducation(string userId)
+        public TrainerEducation GetAllEducation(string EMail)
         {
+            string[] emailarr = EMail.Split("@");
+            string userId = emailarr[0];
+
             var trainers = context.Educations;
             var query2 = from education in trainers
                          where education.UserId == userId
@@ -57,8 +63,11 @@ namespace Bussiness_Logic
             return map.MapEducation(trainerEducation);
         }
 
-        public TrainerSkill GetAllSkills(string userId)
+        public TrainerSkill GetAllSkills(string EMail)
         {
+            string[] emailarr = EMail.Split("@");
+            string userId = emailarr[0];
+
             var trainers = context.Skills;
             var query3 = from skill in trainers
                          where skill.UserId == userId
@@ -76,8 +85,11 @@ namespace Bussiness_Logic
             return map.MapSkill(trainerSkill);
         }
 
-        public TrainerCompany GetAllCompanies(string userId)
+        public TrainerCompany GetAllCompanies(string EMail)
         {
+            string[] emailarr = EMail.Split("@");
+            string userId = emailarr[0];
+
             var trainers = context.Companies;
             var query4 = from company in trainers
                          where company.UserId == userId
@@ -135,43 +147,16 @@ namespace Bussiness_Logic
 
         public void InsertData(Models.TrainerDetail trainer, TrainerEducation education, TrainerSkill skill, TrainerCompany company)
         {
-            context.TrainerDetails.Add(map.maptrainer(trainer));
-            context.Educations.Add(map.mapEducation(education));
-            context.Skills.Add(map.mapskill(skill));
-            context.Companies.Add(map.mapCompany(company));
+            string[] emailarr = trainer.Emailid.Split("@");
+            trainer.Userid = emailarr[0];
+            education.Userid = trainer.Userid;
+            skill.Userid = trainer.Userid;
+            company.Userid = trainer.Userid;
 
-            if (string.IsNullOrEmpty(education.Pg_collage))
-            {
-                education.Pg_collage = "Null";
-            }
-            if (string.IsNullOrEmpty(education.Pg_stream))
-            {
-                education.Pg_stream = "Null";
-            }
-            if (string.IsNullOrEmpty(education.Pg_percentage))
-            {
-                education.Pg_percentage = "Null";
-            }
-            if (string.IsNullOrEmpty(education.Pg_year))
-            {
-                education.Pg_year = "Null";
-            }
-            if (string.IsNullOrEmpty(skill.Skill_3))
-            {
-                skill.Skill_3 = "Null";
-            }
-            if (string.IsNullOrEmpty(company.Companyname))
-            {
-                company.Companyname = "Null";
-            }
-            if (string.IsNullOrEmpty(company.Field))
-            {
-                company.Field = "Null";
-            }
-            if (string.IsNullOrEmpty(company.Experience))
-            {
-                company.Experience = "Null";
-            }
+            context.TrainerDetails.Add(map.mapTrainer(trainer));
+            context.Educations.Add(map.mapEducation(education));
+            context.Skills.Add(map.mapSkill(skill));
+            context.Companies.Add(map.mapCompany(company));
 
             context.SaveChanges();
 

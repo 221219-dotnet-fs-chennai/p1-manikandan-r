@@ -53,61 +53,33 @@ type the captcha after 7 seconds completed. If you fail You redirected to Main M
             }
         }
 
-        public IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill, string company)
+        public IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill)
         {
-            if (city == "ex: chennai or delhi" && skill == "ex: python or java" && company == "ex: micosoft or infosys")
+            if (city == "ex: chennai or delhi" && skill == "ex: python or java")
             {
                 Console.WriteLine("You Didn't choose any filter\n");
                 return newrepo.GetAllTrainerDetails().ToList();
             }
-            else if (city != "ex: chennai or delhi" && skill == "ex: python or java" && company == "ex: micosoft or infosys")
+            else if (city != "ex: chennai or delhi" && skill == "ex: python or java")
             {
                 var query_1 = from trainer in newrepo.GetAllTrainerDetails()
                               where trainer.City.ToLower() == city
                               select trainer;
                 return query_1.ToList();
             }
-            else if (city == "ex: chennai or delhi" && skill != "ex: python or java" && company == "ex: micosoft or infosys")
+            else if (city == "ex: chennai or delhi" && skill != "ex: python or java")
             {
                 var query_2 = from trainer in newrepo.GetAllTrainerDetails()
                               where trainer.Skill_1.ToLower() == skill || trainer.Skill_2.ToLower() == skill || trainer.Skill_3.ToLower() == skill
                               select trainer;
                 return query_2.ToList();
             }
-            else if (city == "ex: chennai or delhi" && skill == "ex: python or java" && company != "ex: micosoft or infosys")
+            else if (city != "ex: chennai or delhi" && skill != "ex: python or java")
             {
                 var query_3 = from trainer in newrepo.GetAllTrainerDetails()
-                              where trainer.Companyname.ToLower() == company
-                              select trainer;
-                return query_3.ToList();
-            }
-            else if (city != "ex: chennai or delhi" && skill != "ex: python or java" && company == "ex: micosoft or infosys")
-            {
-                var query_4 = from trainer in newrepo.GetAllTrainerDetails()
                               where (trainer.Skill_1.ToLower() == skill || trainer.Skill_2.ToLower() == skill || trainer.Skill_3.ToLower() == skill) && (trainer.City.ToLower() == city)
                               select trainer;
-                return query_4.ToList();
-            }
-            else if (city != "ex: chennai or delhi" && skill == "ex: python or java" && company != "ex: micosoft or infosys")
-            {
-                var query_5 = from trainer in newrepo.GetAllTrainerDetails()
-                              where trainer.City.ToLower() == city && trainer.Companyname.ToLower() == company
-                              select trainer;
-                return query_5.ToList();
-            }
-            else if (city == "ex: chennai or delhi" && skill != "ex: python or java" && company != "ex: micosoft or infosys")
-            {
-                var query_6 = from trainer in newrepo.GetAllTrainerDetails()
-                              where (trainer.Skill_1.ToLower() == skill || trainer.Skill_2.ToLower() == skill || trainer.Skill_3.ToLower() == skill) && (trainer.Companyname.ToLower() == company)
-                              select trainer;
-                return query_6.ToList();
-            }
-            if (city != "ex: chennai or delhi" && skill != "ex: python or java" && company != "ex: micosoft or infosys")
-            {
-                var query_7 = from trainer in newrepo.GetAllTrainerDetails()
-                              where (trainer.Skill_1.ToLower() == skill || trainer.Skill_2.ToLower() == skill || trainer.Skill_3.ToLower() == skill) && (trainer.Companyname.ToLower() == company) && (trainer.City.ToLower() == city)
-                              select trainer;
-                return query_7.ToList();
+                return query_3.ToList();
             }
 
             return newrepo.GetAllTrainerDetails().ToList();

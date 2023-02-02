@@ -23,7 +23,7 @@ namespace Bussiness_Logic
         /// <param name="skill"></param>
         /// <param name="company"></param>
         /// <returns>It will return the respective filtered data by user choice</returns>
-        IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill, string company);
+        IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill);
 
     }
 }

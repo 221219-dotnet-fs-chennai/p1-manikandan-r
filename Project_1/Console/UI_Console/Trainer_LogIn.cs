@@ -29,9 +29,7 @@ internal class LogIn : SignUp, IMenu
                 bool ans = repo.login(EMail);
                 if (ans)
                 {
-                    string[] emailarr = EMail.Split("@");
-                    string eMail = emailarr[0];
-                    SignUp trainerLogin = new SignUp(repo.GetAllTrainers(eMail), repo.GetAllEducation(eMail), repo.GetAllSkills(eMail), repo.GetAllCompanies(eMail));
+                    SignUp trainerLogin = new SignUp(repo.GetAllTrainers(EMail), repo.GetAllEducation(EMail), repo.GetAllSkills(EMail), repo.GetAllCompanies(EMail));
                     return "TrainerProfile";
                 }
                 else
