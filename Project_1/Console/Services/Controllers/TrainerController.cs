@@ -19,7 +19,7 @@ namespace Services.Controllers
         }
 
         [HttpGet("GetAllTrainers")]
-        public IActionResult Get()
+        public ActionResult Get()
         {
             try
             {
@@ -42,5 +42,35 @@ namespace Services.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+
+        [HttpGet("city/{city}/{skill}")]
+
+        public ActionResult GetTrainerbyCity([FromRoute] string city = "ex: chennai or delhi", [FromRoute] string skill = "ex: python or java") 
+        {
+            try
+            {
+                var search = _logic.TrainerFilter(city, skill);
+                if(search.Count() > 0)
+                {
+                    return Ok(search);
+                }
+                else
+                {
+                    return NotFound($"No trainer details found in this filter");
+                }
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+
     }
 }
