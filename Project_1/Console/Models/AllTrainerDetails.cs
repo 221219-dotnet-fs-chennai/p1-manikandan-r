@@ -4,9 +4,7 @@ namespace Models
 {
     public class AllTrainerDetails
     {
-        string userid;
         string emailid;
-        string password;
         string firstName;
         string lastName;
         int age;
@@ -31,21 +29,11 @@ namespace Models
         string field;
         string experience;
 
-        public string Userid
-        {
-            get { return userid; }
-            set { userid = value; }
-        }
+       
         public string Emailid
         {
             get { return emailid; }
             set { emailid = value; }
-        }
-
-        public string Password
-        {
-            get { return password; }
-            set { password = value; }
         }
 
         public string Firstname

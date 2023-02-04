@@ -16,6 +16,21 @@ namespace Bussiness_Logic
         /// <returns>return true if the captcha is right else false</returns>
         public bool captchaReturn();
 
+
+        Models.TrainerDetail GetAllTrainers(string userId);
+        TrainerEducation GetAllEducation(string userId);
+        TrainerSkill GetAllSkills(string userId);
+        TrainerCompany GetAllCompanies(string userId);
+
+        public IEnumerable<AllTrainerDetails> GetAllTrainerDetails();
+
+
+        public void InsertData(Models.TrainerDetail trainer, TrainerEducation education, TrainerSkill skill, TrainerCompany company);
+        public bool login(string eMail);
+        public void UpdateTrainer(string tableName, string columnName, string newValue, string userID);
+
+        public void DeleteTrainer(string userID);
+
         /// <summary>
         /// It get city, skill and/or company form user and use LINQ to filter data 
         /// </summary>

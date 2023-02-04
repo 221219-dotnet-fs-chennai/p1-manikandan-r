@@ -16,7 +16,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trainer_EF_Layer", "Trainer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{A747EA4C-4F16-4A13-8FBB-1F91F073942C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing", "Testing\Testing.csproj", "{737FA388-30F3-4F1D-9B40-71E66F021EFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing", "Testing\Testing.csproj", "{737FA388-30F3-4F1D-9B40-71E66F021EFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{3FEB1E0F-ACF7-483B-98BD-327DDFCAC6D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{737FA388-30F3-4F1D-9B40-71E66F021EFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{737FA388-30F3-4F1D-9B40-71E66F021EFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{737FA388-30F3-4F1D-9B40-71E66F021EFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FEB1E0F-ACF7-483B-98BD-327DDFCAC6D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FEB1E0F-ACF7-483B-98BD-327DDFCAC6D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FEB1E0F-ACF7-483B-98BD-327DDFCAC6D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FEB1E0F-ACF7-483B-98BD-327DDFCAC6D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

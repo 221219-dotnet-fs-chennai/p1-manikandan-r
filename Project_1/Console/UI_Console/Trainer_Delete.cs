@@ -5,8 +5,7 @@ namespace UI_Console
     internal class TrainerDelete : SignUp, IMenu
     {
 
-        IRepoEF repo = new TrainerEFRepo();
-
+        Bussiness_Logic.ILogic repo = new Logic();
 
         public new void Display()
         {

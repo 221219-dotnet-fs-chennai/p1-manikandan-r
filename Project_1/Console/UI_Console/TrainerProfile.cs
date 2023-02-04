@@ -10,7 +10,7 @@ namespace UI_Console
 {
     class TrainerProfile : IMenu
     {
-        IRepoEF repo = new TrainerEFRepo();
+        Bussiness_Logic.ILogic repo = new Logic();
 
         internal static Models.TrainerDetail trainer = new Models.TrainerDetail();
         internal static TrainerEducation education = new TrainerEducation();
@@ -76,14 +76,8 @@ namespace UI_Console
                         case "1":
                             string email = trainer.Emailid;
 
-                            Log.Logger.Information($"{trainer.Firstname} {trainer.Lastname} profile deleted");
-                            Console.WriteLine("\nThank You For using 'Trainer Picker'");
-                            string[] emailArr = email.Split("@");
-                            string userId = emailArr[0];
-                            repo.DeleteTrainer(userId);
-                            Console.WriteLine("\nProfile Deleted Successfully...");
-                            Console.WriteLine("\nPress Enter to Continue");
-                            Console.ReadLine();
+                            Log.Logger.Information($"{trainer.Firstname} {trainer.Lastname} profile deleted");                            
+                            repo.DeleteTrainer(email);
                             return "Login";
                         default:
                             Console.WriteLine("Wrong Choice try again");

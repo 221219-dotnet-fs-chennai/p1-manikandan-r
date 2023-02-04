@@ -1,11 +1,10 @@
 ﻿using Bussiness_Logic;
-using Trainer_EF_Layer;
 using UI_Console;
 
 internal class LogIn : SignUp, IMenu
 {
 
-    IRepoEF repo = new TrainerEFRepo();
+    Bussiness_Logic.ILogic repo = new Logic();
     public new void Display()
     {
         Console.WriteLine("\n-------LOGIN PAGE------\n");

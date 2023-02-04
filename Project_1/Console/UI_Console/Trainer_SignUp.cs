@@ -11,7 +11,7 @@ namespace UI_Console
     {
         Bussiness_Logic.Validation validation = new Bussiness_Logic.Validation();
 
-        IRepoEF repo = new TrainerEFRepo();
+        Bussiness_Logic.ILogic repo = new Logic();
 
         static string pass = "";
 

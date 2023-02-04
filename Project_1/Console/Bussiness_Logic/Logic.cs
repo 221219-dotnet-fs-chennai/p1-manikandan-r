@@ -1,4 +1,4 @@
-﻿
+﻿using Trainer_EF_Layer;
 using Models;
 
 
@@ -6,6 +6,7 @@ namespace Bussiness_Logic
 {
     public class Logic : ILogic
     {
+        Mapper map = new Mapper();
 
         TrainerEFRepo newrepo = new TrainerEFRepo();
 
@@ -53,36 +54,54 @@ type the captcha after 7 seconds completed. If you fail You redirected to Main M
             }
         }
 
+        public void DeleteTrainer(string EmailID)
+        {
+            newrepo.DeleteTrainer(EmailID);
+        }
+
+        public TrainerCompany GetAllCompanies(string userId)
+        {
+            return map.MapCompany(newrepo.GetAllCompanies(userId));
+        }
+
+        public TrainerEducation GetAllEducation(string userId)
+        {
+            return map.MapEducation(newrepo.GetAllEducation(userId));
+        }
+
+        public TrainerSkill GetAllSkills(string userId)
+        {
+            return map.MapSkill(newrepo.GetAllSkills(userId));
+        }
+
+        public TrainerDetail GetAllTrainers(string userId)
+        {
+            return map.MapTrainer(newrepo.GetAllTrainers(userId));
+        }
+
+        public IEnumerable<AllTrainerDetails> GetAllTrainerDetails()
+        {
+            return newrepo.GetAllTrainerDetails();
+        }
+
+        public void InsertData(Models.TrainerDetail trainer, TrainerEducation education, TrainerSkill skill, TrainerCompany company)
+        {
+            newrepo.InsertData(map.mapTrainer(trainer), map.mapEducation(education), map.mapSkill(skill), map.mapCompany(company));
+        }
+
+        public bool login(string eMail)
+        {
+            return newrepo.login(eMail);
+        }
+
         public IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill)
         {
-            if (city == "ex: chennai or delhi" && skill == "ex: python or java")
-            {
-                Console.WriteLine("You Didn't choose any filter\n");
-                return newrepo.GetAllTrainerDetails().ToList();
-            }
-            else if (city != "ex: chennai or delhi" && skill == "ex: python or java")
-            {
-                var query_1 = from trainer in newrepo.GetAllTrainerDetails()
-                              where trainer.City.ToLower() == city
-                              select trainer;
-                return query_1.ToList();
-            }
-            else if (city == "ex: chennai or delhi" && skill != "ex: python or java")
-            {
-                var query_2 = from trainer in newrepo.GetAllTrainerDetails()
-                              where trainer.Skill_1.ToLower() == skill || trainer.Skill_2.ToLower() == skill || trainer.Skill_3.ToLower() == skill
-                              select trainer;
-                return query_2.ToList();
-            }
-            else if (city != "ex: chennai or delhi" && skill != "ex: python or java")
-            {
-                var query_3 = from trainer in newrepo.GetAllTrainerDetails()
-                              where (trainer.Skill_1.ToLower() == skill || trainer.Skill_2.ToLower() == skill || trainer.Skill_3.ToLower() == skill) && (trainer.City.ToLower() == city)
-                              select trainer;
-                return query_3.ToList();
-            }
+            return newrepo.TrainerFilter(city, skill);
+        }
 
-            return newrepo.GetAllTrainerDetails().ToList();
+        public void UpdateTrainer(string tableName, string columnName, string newValue, string userID)
+        {
+            newrepo.UpdateTrainer(tableName, columnName, newValue, userID);
         }
     }
 }

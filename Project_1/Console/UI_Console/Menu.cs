@@ -22,23 +22,23 @@ namespace UI_Console
                 case "0":
                     return "Exit";
                 case "1":
-                    Console.Clear();
-                    bool answer = repo.captchaReturn();
+                    //Console.Clear();
+                    //bool answer = repo.captchaReturn();
 
-                    if (answer)
-                    {
-                        Console.WriteLine("\nCaptcha matched ;), Welcome Human...");
-                        Console.Write("\nPress Enter to Continue...");
-                        Console.ReadLine();
-                        return "GetTrainers";
-                    }
-                    else
-                    {
-                        Console.WriteLine("\nCaptcha not matched :|, Aliens not allowed!!...");
-                        Console.Write("\nPress Enter to Continue...");
-                        Console.ReadLine();
-                        return "Menu";
-                    }
+                    //if (answer)
+                    //{
+                    //    Console.WriteLine("\nCaptcha matched ;), Welcome Human...");
+                    //    Console.Write("\nPress Enter to Continue...");
+                    //    Console.ReadLine();
+                       return "GetTrainers";
+                    //}
+                    //else
+                    //{
+                    //    Console.WriteLine("\nCaptcha not matched :|, Aliens not allowed!!...");
+                    //    Console.Write("\nPress Enter to Continue...");
+                    //    Console.ReadLine();
+                    //    return "Menu";
+                    //}
                 case "2":
                     return "Trainer";
                 default:

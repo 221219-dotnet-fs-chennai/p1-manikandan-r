@@ -1,12 +1,10 @@
 ﻿using Bussiness_Logic;
-using Trainer_EF_Layer;
 
 namespace UI_Console
 {
     public class GetTrainers : IMenu
     {
-        TrainerEFRepo repo = new TrainerEFRepo();
-        Logic repo1 = new Logic();
+        ILogic repo = new Logic();
 
         public void Display()
         {

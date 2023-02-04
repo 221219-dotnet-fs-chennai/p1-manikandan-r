@@ -6,7 +6,7 @@ namespace Trainer_EF_Layer.Entities;
 
 public partial class TrainerDbContext : DbContext
 {
-    static string connectionString = File.ReadAllText("../../../../Trainer_EF_Layer/ConnectionString.txt");
+    //static string connectionString = File.ReadAllText("../../../../Trainer_EF_Layer/ConnectionString.txt");
     public TrainerDbContext()
     {
     }
@@ -26,7 +26,7 @@ public partial class TrainerDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer(connectionString);
+        => optionsBuilder.UseSqlServer("Server=LAPTOP-G6S85J4G; Database=TrainerDb; Trusted_Connection=True; Encrypt=False");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

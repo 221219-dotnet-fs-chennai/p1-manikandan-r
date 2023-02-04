@@ -2,15 +2,13 @@
 using Models;
 using Trainer_EF_Layer.Entities;
 
-namespace Bussiness_Logic
+namespace Trainer_EF_Layer
 {
     public class TrainerEFRepo : IRepoEF
     {
-        Mapper map = new Mapper();
-
         TrainerDbContext context = new TrainerDbContext();
 
-        public Models.TrainerDetail GetAllTrainers(string EMail)
+        public TEF.TrainerDetail GetAllTrainers(string EMail)
         {
             string[] emailarr = EMail.Split("@");
             string userId = emailarr[0];
@@ -33,10 +31,10 @@ namespace Bussiness_Logic
                     City = trainer.City,
                 };
             }
-            return map.MapTrainer(trainerDetail);
+            return trainerDetail;
         }
 
-        public TrainerEducation GetAllEducation(string EMail)
+        public Education GetAllEducation(string EMail)
         {
             string[] emailarr = EMail.Split("@");
             string userId = emailarr[0];
@@ -60,10 +58,10 @@ namespace Bussiness_Logic
                     PgYear = education.PgYear,
                 };
             }
-            return map.MapEducation(trainerEducation);
+            return trainerEducation;
         }
 
-        public TrainerSkill GetAllSkills(string EMail)
+        public Skill GetAllSkills(string EMail)
         {
             string[] emailarr = EMail.Split("@");
             string userId = emailarr[0];
@@ -82,10 +80,10 @@ namespace Bussiness_Logic
                     Skill3 = skill.Skill3,
                 };
             }
-            return map.MapSkill(trainerSkill);
+            return trainerSkill;
         }
 
-        public TrainerCompany GetAllCompanies(string EMail)
+        public Company GetAllCompanies(string EMail)
         {
             string[] emailarr = EMail.Split("@");
             string userId = emailarr[0];
@@ -104,7 +102,7 @@ namespace Bussiness_Logic
                     OverallExperience = company.OverallExperience,
                 };
             }
-            return map.MapCompany(trainerCompany);
+            return trainerCompany;
         }
 
         public IEnumerable<AllTrainerDetails> GetAllTrainerDetails()
@@ -145,18 +143,18 @@ namespace Bussiness_Logic
             return alldetails.ToList();
         }
 
-        public void InsertData(Models.TrainerDetail trainer, TrainerEducation education, TrainerSkill skill, TrainerCompany company)
+        public void InsertData(TEF.TrainerDetail trainer, Education education, Skill skill, Company company)
         {
-            string[] emailarr = trainer.Emailid.Split("@");
-            trainer.Userid = emailarr[0];
-            education.Userid = trainer.Userid;
-            skill.Userid = trainer.Userid;
-            company.Userid = trainer.Userid;
+            string[] emailarr = trainer.EmailId.Split("@");
+            trainer.UserId = emailarr[0];
+            education.UserId = trainer.UserId;
+            skill.UserId = trainer.UserId;
+            company.UserId = trainer.UserId;
 
-            context.TrainerDetails.Add(map.mapTrainer(trainer));
-            context.Educations.Add(map.mapEducation(education));
-            context.Skills.Add(map.mapSkill(skill));
-            context.Companies.Add(map.mapCompany(company));
+            context.TrainerDetails.Add(trainer);
+            context.Educations.Add(education);
+            context.Skills.Add(skill);
+            context.Companies.Add(company);
 
             context.SaveChanges();
 
@@ -198,7 +196,10 @@ namespace Bussiness_Logic
 
         public void UpdateTrainer(string tableName, string columnName, string newValue, string userID)
         {
-            if(tableName == "TrainerDetails")
+            string[] emailarr = userID.Split("@");
+            string userId = emailarr[0];
+
+            if (tableName == "TrainerDetails")
             {
                 var train = context.TrainerDetails;
                 var query1 = from t in train
@@ -376,13 +377,52 @@ namespace Bussiness_Logic
             }
         }
 
-        public void DeleteTrainer(string userID)
+        public IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill)
+        {
+            if (city == "ex: chennai or delhi" && skill == "ex: python or java")
+            {
+                Console.WriteLine("You Didn't choose any filter\n");
+                return GetAllTrainerDetails().ToList();
+            }
+            else if (city != "ex: chennai or delhi" && skill == "ex: python or java")
+            {
+                var query_1 = from trainer in GetAllTrainerDetails()
+                              where trainer.City.ToLower() == city
+                              select trainer;
+                return query_1.ToList();
+            }
+            else if (city == "ex: chennai or delhi" && skill != "ex: python or java")
+            {
+                var query_2 = from trainer in GetAllTrainerDetails()
+                              where trainer.Skill_1.ToLower() == skill || trainer.Skill_2.ToLower() == skill || trainer.Skill_3.ToLower() == skill
+                              select trainer;
+                return query_2.ToList();
+            }
+            else if (city != "ex: chennai or delhi" && skill != "ex: python or java")
+            {
+                var query_3 = from trainer in GetAllTrainerDetails()
+                              where (trainer.Skill_1.ToLower() == skill || trainer.Skill_2.ToLower() == skill || trainer.Skill_3.ToLower() == skill) && (trainer.City.ToLower() == city)
+                              select trainer;
+                return query_3.ToList();
+            }
+
+            return GetAllTrainerDetails().ToList();
+        }
+
+        public void DeleteTrainer(string EmailID)
         {
             var delete = context.TrainerDetails;
-            var value = delete.FirstOrDefault(val => val.UserId == userID);
+            var value = delete.FirstOrDefault(val => val.EmailId == EmailID);
 
-            context.TrainerDetails.Remove(value);
-            context.SaveChanges();
+            if (value != null)
+            {
+                context.TrainerDetails.Remove(value);
+                context.SaveChanges();
+                Console.WriteLine("\nThank You For using 'Trainer Picker'");
+                Console.WriteLine("\nProfile Deleted Successfully...");
+                Console.WriteLine("\nPress Enter to Continue");
+                Console.ReadLine();
+            }
         }
     }
 }
