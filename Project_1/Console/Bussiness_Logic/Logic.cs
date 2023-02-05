@@ -54,9 +54,9 @@ type the captcha after 7 seconds completed. If you fail You redirected to Main M
             }
         }
 
-        public void DeleteTrainer(string EmailID)
+        public bool DeleteTrainer(string EmailID, string pass)
         {
-            newrepo.DeleteTrainer(EmailID);
+            return newrepo.DeleteTrainer(EmailID, pass);
         }
 
         public TrainerCompany GetAllCompanies(string userId)
@@ -84,14 +84,15 @@ type the captcha after 7 seconds completed. If you fail You redirected to Main M
             return newrepo.GetAllTrainerDetails();
         }
 
-        public void InsertData(Models.TrainerDetail trainer, TrainerEducation education, TrainerSkill skill, TrainerCompany company)
+        public bool InsertData(Models.TrainerDetail trainer, TrainerEducation education, TrainerSkill skill, TrainerCompany company)
         {
-            newrepo.InsertData(map.mapTrainer(trainer), map.mapEducation(education), map.mapSkill(skill), map.mapCompany(company));
+            return newrepo.InsertData(map.mapTrainer(trainer), map.mapEducation(education), map.mapSkill(skill), map.mapCompany(company));
         }
 
-        public bool login(string eMail)
+
+        public bool login(string eMail, string pass)
         {
-            return newrepo.login(eMail);
+            return newrepo.login(eMail, pass);
         }
 
         public IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill)
@@ -99,9 +100,9 @@ type the captcha after 7 seconds completed. If you fail You redirected to Main M
             return newrepo.TrainerFilter(city, skill);
         }
 
-        public void UpdateTrainer(string tableName, string columnName, string newValue, string userID)
+        public bool UpdateTrainer(string tableName, string columnName, string newValue, string userID)
         {
-            newrepo.UpdateTrainer(tableName, columnName, newValue, userID);
+            return newrepo.UpdateTrainer(tableName, columnName, newValue, userID);
         }
     }
 }

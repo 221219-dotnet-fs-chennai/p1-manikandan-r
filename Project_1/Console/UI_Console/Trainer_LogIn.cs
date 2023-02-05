@@ -18,18 +18,24 @@ internal class LogIn : SignUp, IMenu
         Console.Write("\nEnter your choice: ");
         string userChoice = Console.ReadLine();
 
-        switch(userChoice)
+        switch (userChoice)
         {
             case "0":
                 return "TrainerMenu";
             case "1":
                 Console.Write("\nEnter your Email ID: ");
                 string EMail = Console.ReadLine();
-                bool ans = repo.login(EMail);
+
+                Console.Write("Enter you password: ");
+                string password = Console.ReadLine();
+
+                bool ans = repo.login(EMail, password);
+
                 if (ans)
                 {
                     SignUp trainerLogin = new SignUp(repo.GetAllTrainers(EMail), repo.GetAllEducation(EMail), repo.GetAllSkills(EMail), repo.GetAllCompanies(EMail));
                     return "TrainerProfile";
+
                 }
                 else
                 {

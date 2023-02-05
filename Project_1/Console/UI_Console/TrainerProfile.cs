@@ -75,9 +75,11 @@ namespace UI_Console
                             return "TrainerProfile";
                         case "1":
                             string email = trainer.Emailid;
+                            Console.Write("Enter your password: ");
+                            string pass = Console.ReadLine();
 
                             Log.Logger.Information($"{trainer.Firstname} {trainer.Lastname} profile deleted");                            
-                            repo.DeleteTrainer(email);
+                            repo.DeleteTrainer(email, pass);
                             return "Login";
                         default:
                             Console.WriteLine("Wrong Choice try again");

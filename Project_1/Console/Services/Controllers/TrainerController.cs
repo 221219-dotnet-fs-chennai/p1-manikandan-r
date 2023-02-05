@@ -44,9 +44,8 @@ namespace Services.Controllers
         }
 
 
-        [HttpGet("city/{city}/{skill}")]
-
-        public ActionResult GetTrainerbyCity([FromRoute] string city = "ex: chennai or delhi", [FromRoute] string skill = "ex: python or java") 
+        [HttpGet("TrainerUsingFilter")]
+        public ActionResult GetTrainerbyCity(string city = "ex: chennai or delhi", string skill = "ex: python or java") 
         {
             try
             {
@@ -70,7 +69,44 @@ namespace Services.Controllers
             }
         }
 
+        //[HttpPost("AddTrainers")]
 
+        //public ActionResult AddNewTrainer()
+        //{
 
+        //}
+
+      [HttpDelete("DeleteProfile/{Email}/{Password}")]
+
+      public ActionResult DeleteTrainer(string Email, string Password)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(Email))
+                {
+                    var delete = _logic.DeleteTrainer(Email, Password);
+                    if(delete)
+                    {
+                        return Ok("Your account deleted successfully");
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                else
+                {
+                    return BadRequest("Please check the credentails");
+                }
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

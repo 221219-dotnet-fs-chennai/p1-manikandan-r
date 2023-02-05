@@ -143,7 +143,7 @@ namespace Trainer_EF_Layer
             return alldetails.ToList();
         }
 
-        public void InsertData(TEF.TrainerDetail trainer, Education education, Skill skill, Company company)
+        public bool InsertData(TEF.TrainerDetail trainer, Education education, Skill skill, Company company)
         {
             string[] emailarr = trainer.EmailId.Split("@");
             trainer.UserId = emailarr[0];
@@ -159,42 +159,37 @@ namespace Trainer_EF_Layer
             context.SaveChanges();
 
             Console.WriteLine("Data Added Successfully");
-            Console.WriteLine("Press Enter to Continue...");
-            Console.ReadLine();
+            return true;
         }
     
-        public bool login(string eMail)
+        public bool login(string eMail, string pass)
         {
             var result = context.TrainerDetails;
             var query = result.FirstOrDefault(val => val.EmailId == eMail);
 
             if (query != null)
             {
-                Console.Write("Enter you password: ");
-                string password = Console.ReadLine();
-
-                if (query.Password == password)
+                var query1 = result.FirstOrDefault(val => val.Password == pass);
+                if (query1 != null)
                 {
                     Console.WriteLine("Login Success...");
                     return true;
                 }
                 else
                 {
-                    Console.WriteLine("Wrong Password");
+                    Console.WriteLine("\nWrong Password!! Try again...");
                     Console.WriteLine("Enter to continue...");
-                    Console.ReadLine();
                     return false;
                 }
             }
             else
             {
-                Console.WriteLine("No data found in this email\nCheck your credentails or Signup First");
-                Console.ReadLine();
+                Console.WriteLine("\nNo data found in this email\nCheck your credentails or Signup First");
                 return false;
             }
         }
 
-        public void UpdateTrainer(string tableName, string columnName, string newValue, string userID)
+        public bool UpdateTrainer(string tableName, string columnName, string newValue, string userID)
         {
             string[] emailarr = userID.Split("@");
             string userId = emailarr[0];
@@ -237,6 +232,7 @@ namespace Trainer_EF_Layer
                         context.SaveChanges();
                         break;
                 }
+                return true;
             }
             else if(tableName == "Education")
             {
@@ -304,6 +300,7 @@ namespace Trainer_EF_Layer
                         context.SaveChanges();
                         break;
                 }
+                return true;
             }
             else if(tableName == "Skill")
             {
@@ -336,6 +333,7 @@ namespace Trainer_EF_Layer
                         context.SaveChanges();
                         break;
                 }
+                return true;
             }
             else if(tableName == "Company")
             {
@@ -368,17 +366,20 @@ namespace Trainer_EF_Layer
                         context.SaveChanges();
                         break;
                 }
+                return true;
             }
             else
             {
                 Console.WriteLine("Table not exist");
-                Console.WriteLine("Press Enter to Continue...");
-                Console.ReadLine();
+                return false;
             }
         }
 
         public IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill)
         {
+            city = city.ToLower();
+            skill = skill.ToLower();
+
             if (city == "ex: chennai or delhi" && skill == "ex: python or java")
             {
                 Console.WriteLine("You Didn't choose any filter\n");
@@ -409,19 +410,25 @@ namespace Trainer_EF_Layer
             return GetAllTrainerDetails().ToList();
         }
 
-        public void DeleteTrainer(string EmailID)
+        public bool DeleteTrainer(string EmailID, string pass)
         {
             var delete = context.TrainerDetails;
             var value = delete.FirstOrDefault(val => val.EmailId == EmailID);
 
             if (value != null)
             {
-                context.TrainerDetails.Remove(value);
-                context.SaveChanges();
-                Console.WriteLine("\nThank You For using 'Trainer Picker'");
-                Console.WriteLine("\nProfile Deleted Successfully...");
-                Console.WriteLine("\nPress Enter to Continue");
-                Console.ReadLine();
+                var query1 = delete.FirstOrDefault(val => val.Password == pass);
+                if (query1 != null)
+                {
+                    context.TrainerDetails.Remove(value);
+                    context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+                return false;
             }
         }
     }

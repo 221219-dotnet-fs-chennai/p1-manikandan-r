@@ -25,11 +25,13 @@ namespace Bussiness_Logic
         public IEnumerable<AllTrainerDetails> GetAllTrainerDetails();
 
 
-        public void InsertData(Models.TrainerDetail trainer, TrainerEducation education, TrainerSkill skill, TrainerCompany company);
-        public bool login(string eMail);
-        public void UpdateTrainer(string tableName, string columnName, string newValue, string userID);
+        public bool InsertData(Models.TrainerDetail trainer, TrainerEducation education, TrainerSkill skill, TrainerCompany company);
+        
+        public bool login(string eMail, string pass);
 
-        public void DeleteTrainer(string userID);
+        public bool UpdateTrainer(string tableName, string columnName, string newValue, string userID);
+
+        public bool DeleteTrainer(string userID, string pass);
 
         /// <summary>
         /// It get city, skill and/or company form user and use LINQ to filter data 
