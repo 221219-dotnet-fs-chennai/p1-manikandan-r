@@ -12,7 +12,13 @@ namespace Trainer_EF_Layer
         Company GetAllCompanies(string userId);
 
         public IEnumerable<AllTrainerDetails> GetAllTrainerDetails();
-        public bool InsertData(Entities.TrainerDetail trainer, Education education, Skill skill, Company company);
+        public bool AddTrainer(Entities.TrainerDetail trainer, string Email);
+
+        public bool AddEducation(Education education, string Email);
+
+        public bool AddSkill(Skill skill, string Email);
+
+        public bool AddCompany(Company company, string Email);
 
         public bool login(string eMail, string pass);
         public bool UpdateTrainer(string tableName, string columnName, string newValue, string userID);

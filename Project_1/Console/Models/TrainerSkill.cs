@@ -12,7 +12,7 @@ namespace Models
         {
         }
 
-        public string Userid { get; set; }
+        // public string Userid { get; set; }
         public string Skill_1 { get; set;  } = null!;
         public string Skill_2 { get; set; } = null!;
         public string Skill_3 { get; set; }

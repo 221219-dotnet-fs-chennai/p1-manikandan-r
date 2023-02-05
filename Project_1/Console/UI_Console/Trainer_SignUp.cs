@@ -86,7 +86,12 @@ namespace UI_Console
                     try
                     {
                         Log.Logger.Information("Adding trainer details");
-                        repo.InsertData(trainer, education, skill, company);
+
+                        repo.AddTrainer(trainer, trainer.Emailid);
+                        repo.AddEducation(education, trainer.Emailid);
+                        repo.AddSkill(skill, trainer.Emailid);
+                        repo.AddCompany(company, trainer.Emailid);
+
                         trainer = new Models.TrainerDetail();
                         education = new TrainerEducation();
                         skill = new TrainerSkill();

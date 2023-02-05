@@ -1,6 +1,7 @@
 ﻿using TEF = Trainer_EF_Layer.Entities;
 using Models;
 using Trainer_EF_Layer.Entities;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Trainer_EF_Layer
 {
@@ -143,25 +144,54 @@ namespace Trainer_EF_Layer
             return alldetails.ToList();
         }
 
-        public bool InsertData(TEF.TrainerDetail trainer, Education education, Skill skill, Company company)
+        public bool AddTrainer(TEF.TrainerDetail trainer, string Email)
         {
-            string[] emailarr = trainer.EmailId.Split("@");
+            string[] emailarr = Email.Split("@");
             trainer.UserId = emailarr[0];
-            education.UserId = trainer.UserId;
-            skill.UserId = trainer.UserId;
-            company.UserId = trainer.UserId;
-
+           
             context.TrainerDetails.Add(trainer);
-            context.Educations.Add(education);
-            context.Skills.Add(skill);
-            context.Companies.Add(company);
-
             context.SaveChanges();
 
-            Console.WriteLine("Data Added Successfully");
+            Console.WriteLine("Trainer data Added Successfully");
             return true;
         }
-    
+
+        public bool AddEducation(Education education, string Email)
+        {
+            string[] emailarr = Email.Split("@");
+            education.UserId = emailarr[0];
+
+            context.Educations.Add(education);
+            context.SaveChanges();
+
+            Console.WriteLine("Trainer education Added Successfully");
+            return true;
+        }
+
+        public bool AddSkill(Skill skill, string Email)
+        {
+            string[] emailarr = Email.Split("@");
+            skill.UserId = emailarr[0];
+
+            context.Skills.Add(skill);
+            context.SaveChanges();
+
+            Console.WriteLine("Trainer skill Added Successfully");
+            return true;
+        }
+
+        public bool AddCompany(Company company, string Email)
+        {
+            string[] emailarr = Email.Split("@");
+            company.UserId = emailarr[0];
+
+            context.Companies.Add(company);
+            context.SaveChanges();
+
+            Console.WriteLine("Trainer company Added Successfully");
+            return true;
+        }
+
         public bool login(string eMail, string pass)
         {
             var result = context.TrainerDetails;

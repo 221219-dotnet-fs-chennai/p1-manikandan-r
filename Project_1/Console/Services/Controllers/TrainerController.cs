@@ -69,15 +69,115 @@ namespace Services.Controllers
             }
         }
 
-        //[HttpPost("AddTrainers")]
+        [HttpGet("LoginPage/{Email}/{Password}")]
+        public ActionResult Login(string Email, string Password)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(Email))
+                {
+                    var delete = _logic.login(Email, Password);
+                    if (delete)
+                    {
+                        return Ok("Login Successfull");
+                    }
+                    else
+                    {
+                        return NotFound("Please check the credentails");
+                    }
+                }
+                else
+                {
+                    return BadRequest("Please check the credentails");
+                }
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
-        //public ActionResult AddNewTrainer()
-        //{
 
-        //}
+        [HttpPost("AddTrainer")]
+        public ActionResult AddNewTrainer([FromBody] TrainerDetail trainer, string Email)
+        {
+            try
+            {
+                var addedtrainer = _logic.AddTrainer(trainer, Email);
+                return Created("AddTrainer", addedtrainer);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
-      [HttpDelete("DeleteProfile/{Email}/{Password}")]
+        [HttpPost("AddEducation")]
 
+        public ActionResult AddNewEducation([FromBody] TrainerEducation trainer, string Email)
+        {
+            try
+            {
+                var addedtrainer = _logic.AddEducation(trainer, Email);
+                return Created("AddEducation", addedtrainer);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("AddSkill")]
+
+        public ActionResult AddNewSkill(TrainerSkill trainer, string Email)
+        {
+            try
+            {
+                var addedtrainer = _logic.AddSkill(trainer, Email);
+                return Created("AddSkill", addedtrainer);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("AddCompany")]
+
+        public ActionResult AddNewCompany([FromBody] TrainerCompany trainer, string Email)
+        {
+            try
+            {
+                var addedtrainer = _logic.AddCompany(trainer, Email);
+                return Created("AddCompany", addedtrainer);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpDelete("DeleteProfile/{Email}/{Password}")]
       public ActionResult DeleteTrainer(string Email, string Password)
         {
             try

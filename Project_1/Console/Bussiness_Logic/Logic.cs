@@ -84,9 +84,24 @@ type the captcha after 7 seconds completed. If you fail You redirected to Main M
             return newrepo.GetAllTrainerDetails();
         }
 
-        public bool InsertData(Models.TrainerDetail trainer, TrainerEducation education, TrainerSkill skill, TrainerCompany company)
+        public bool AddTrainer(Models.TrainerDetail trainer, string Email)
         {
-            return newrepo.InsertData(map.mapTrainer(trainer), map.mapEducation(education), map.mapSkill(skill), map.mapCompany(company));
+            return newrepo.AddTrainer(map.mapTrainer(trainer), Email);
+        }
+
+        public bool AddEducation(TrainerEducation education, string Email)
+        {
+            return newrepo.AddEducation(map.mapEducation(education), Email);
+        }
+
+        public bool AddSkill(TrainerSkill skill, string Email)
+        {
+            return newrepo.AddSkill(map.mapSkill(skill), Email);
+        }
+
+        public bool AddCompany(TrainerCompany company, string Email)
+        {
+            return newrepo.AddCompany(map.mapCompany(company), Email);
         }
 
 

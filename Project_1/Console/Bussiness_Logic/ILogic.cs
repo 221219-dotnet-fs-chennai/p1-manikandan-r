@@ -25,8 +25,14 @@ namespace Bussiness_Logic
         public IEnumerable<AllTrainerDetails> GetAllTrainerDetails();
 
 
-        public bool InsertData(Models.TrainerDetail trainer, TrainerEducation education, TrainerSkill skill, TrainerCompany company);
-        
+        public bool AddTrainer(Models.TrainerDetail trainer, string Email);
+
+        public bool AddEducation(TrainerEducation education, string Email);
+
+        public bool AddSkill(TrainerSkill skill, string Email);
+
+        public bool AddCompany(TrainerCompany company, string Email);
+
         public bool login(string eMail, string pass);
 
         public bool UpdateTrainer(string tableName, string columnName, string newValue, string userID);

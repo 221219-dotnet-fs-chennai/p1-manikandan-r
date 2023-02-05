@@ -12,7 +12,7 @@ namespace Models
         {
         }
 
-        public string Userid { get; set; }
+       // public string Userid { get; set; }
         public string Ug_collage { get; set; } = null!;
 
         public string Ug_stream { get; set; } = null!;

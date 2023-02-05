@@ -13,7 +13,7 @@ namespace Models
 
         }
 
-        public string Userid { get; set; }
+        //public string Userid { get; set; }
         public string Emailid { get; set; } = null!;
         public string Password { get; set; } = null!;
 
