@@ -160,6 +160,7 @@ namespace Trainer_EF_Layer
         {
             string[] emailarr = Email.Split("@");
             education.UserId = emailarr[0];
+            
 
             context.Educations.Add(education);
             context.SaveChanges();
@@ -219,190 +220,37 @@ namespace Trainer_EF_Layer
             }
         }
 
-        public bool UpdateTrainer(string tableName, string columnName, string newValue, string userID)
+
+        public Entities.TrainerDetail UpdateTrainer(Entities.TrainerDetail trainer)
         {
-            string[] emailarr = userID.Split("@");
-            string userId = emailarr[0];
+            context.TrainerDetails.Update(trainer);
+            context.SaveChanges();
 
-            if (tableName == "TrainerDetails")
-            {
-                var train = context.TrainerDetails;
-                var query1 = from t in train
-                             where t.UserId == userID
-                             select t;
+            return trainer;
+        }
 
-                switch(columnName)
-                {
-                    case "Password":
-                        foreach(var val in query1)
-                        {
-                            val.Password = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                    case "Age":
-                        foreach (var val in query1)
-                        {
-                            val.Age = int.Parse(newValue);
-                        }
-                        context.SaveChanges();
-                        break;
-                    case "Phone_Number":
-                        foreach (var val in query1)
-                        {
-                            val.PhoneNumber = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                    case "City":
-                        foreach (var val in query1)
-                        {
-                            val.City = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                }
-                return true;
-            }
-            else if(tableName == "Education")
-            {
-                var edu = context.Educations;
-                var query2 = from e in edu
-                             where e.UserId == userID
-                             select e;
+        public Education UpdateEducation(Education education)
+        {
+            context.Educations.Update(education);
+            context.SaveChanges();
 
-                switch(columnName)
-                {
-                    case "Ug_collage":
-                        foreach(var val in query2)
-                        {
-                            val.UgCollage = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                    case "Ug_stream":
-                        foreach (var val in query2)
-                        {
-                            val.UgStream = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                    case "Ug_Percentage":
-                        foreach (var val in query2)
-                        {
-                            val.UgPercentage = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                    case "Ug_year":
-                        foreach (var val in query2)
-                        {
-                            val.UgYear = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                    case "Pg_collage":
-                        foreach (var val in query2)
-                        {
-                            val.PgCollage = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                    case "Pg_stream":
-                        foreach (var val in query2)
-                        {
-                            val.PgStream = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                    case "Pg_Percentage":
-                        foreach (var val in query2)
-                        {
-                            val.PgPercentage = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                    case "Pg_year":
-                        foreach (var val in query2)
-                        {
-                            val.PgYear = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                }
-                return true;
-            }
-            else if(tableName == "Skill")
-            {
-                var ski = context.Skills;
-                var query3 = from s in ski
-                             where s.UserId == userID
-                             select s;
+            return education;
+        }
 
-                switch(columnName)
-                {
-                    case "Skill_1":
-                        foreach(var val in query3)
-                        {
-                            val.Skill1 = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                    case "Skill_2":
-                        foreach (var val in query3)
-                        {
-                            val.Skill2 = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                    case "Skill_3":
-                        foreach (var val in query3)
-                        {
-                            val.Skill3 = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                }
-                return true;
-            }
-            else if(tableName == "Company")
-            {
-                var comp = context.Companies;
-                var query4 = from c in comp
-                             where c.UserId == userID
-                             select c;
+        public Skill UpdateSkill(Skill skill)
+        {
+            context.Skills.Update(skill);  
+            context.SaveChanges();
 
-                switch(columnName)
-                {
-                    case "Company_Name":
-                        foreach(var val in query4)
-                        {
-                            val.CompanyName = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                    case "Field":
-                        foreach (var val in query4)
-                        {
-                            val.Field = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                    case "Overall_Experience":
-                        foreach (var val in query4)
-                        {
-                            val.OverallExperience = newValue;
-                        }
-                        context.SaveChanges();
-                        break;
-                }
-                return true;
-            }
-            else
-            {
-                Console.WriteLine("Table not exist");
-                return false;
-            }
+            return skill;
+        }
+
+        public Company UpdateCompany(Company company)
+        {
+            context.Companies.Update(company);
+            context.SaveChanges();
+
+            return company;
         }
 
         public IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill)
@@ -461,6 +309,7 @@ namespace Trainer_EF_Layer
                 return false;
             }
         }
+
     }
 }
 

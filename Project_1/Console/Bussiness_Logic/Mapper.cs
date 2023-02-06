@@ -66,6 +66,7 @@ namespace Bussiness_Logic
         {
             return new Models.TrainerDetail()
             {
+                Userid = val.UserId,
                 Emailid = val.EmailId,
                 Firstname = val.Firstname,
                 Lastname = val.Lastname,
@@ -80,6 +81,7 @@ namespace Bussiness_Logic
         {
             return new TrainerEducation()
             {
+                Userid = val.UserId,
                 Ug_collage = val.UgCollage,
                 Ug_stream = val.UgStream,
                 Ug_percentage = val.UgPercentage,
@@ -96,6 +98,7 @@ namespace Bussiness_Logic
         {
             return new TrainerSkill()
             {
+                Userid = val.UserId,
                 Skill_1 = val.Skill1,
                 Skill_2 = val.Skill2,
                 Skill_3 = val.Skill3,
@@ -106,6 +109,7 @@ namespace Bussiness_Logic
         {
             return new TrainerCompany()
             {
+                Userid = val.UserId,
                 Companyname = val.CompanyName,
                 Field = val.Field,
                 Experience = val.OverallExperience,

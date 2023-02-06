@@ -24,7 +24,6 @@ namespace Bussiness_Logic
 
         public IEnumerable<AllTrainerDetails> GetAllTrainerDetails();
 
-
         public bool AddTrainer(Models.TrainerDetail trainer, string Email);
 
         public bool AddEducation(TrainerEducation education, string Email);
@@ -35,8 +34,10 @@ namespace Bussiness_Logic
 
         public bool login(string eMail, string pass);
 
-        public bool UpdateTrainer(string tableName, string columnName, string newValue, string userID);
-
+        Models.TrainerDetail UpdateTrainer(Models.TrainerDetail trainer, string email);
+        TrainerEducation UpdateEducation(TrainerEducation education, string email);
+        TrainerSkill UpdateSkill(TrainerSkill skill, string email);
+        TrainerCompany UpdateCompany(TrainerCompany company, string email);
         public bool DeleteTrainer(string userID, string pass);
 
         /// <summary>

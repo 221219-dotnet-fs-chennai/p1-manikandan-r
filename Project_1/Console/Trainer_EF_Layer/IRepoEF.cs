@@ -21,8 +21,10 @@ namespace Trainer_EF_Layer
         public bool AddCompany(Company company, string Email);
 
         public bool login(string eMail, string pass);
-        public bool UpdateTrainer(string tableName, string columnName, string newValue, string userID);
-
+        Entities.TrainerDetail UpdateTrainer(Entities.TrainerDetail trainer);
+        Education UpdateEducation(Education education);
+        Skill UpdateSkill(Skill skill);
+        Company UpdateCompany(Company company);
         public IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill);
         public bool DeleteTrainer(string userID, string pass);
     }

@@ -3,70 +3,20 @@ using Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Data.SqlClient;
 using Microsoft.AspNetCore.Mvc;
+using Trainer_EF_Layer.Entities;
 
 
 namespace Services.Controllers
 {
     [Route("Api/[Controller]")]
     [ApiController]
-    public class TrainerController: ControllerBase
+    public class TrainerLoginController : ControllerBase
     {
         ILogic _logic;
 
-        public TrainerController(ILogic logic)
+        public TrainerLoginController(ILogic logic)
         {
             _logic = logic;
-        }
-
-        [HttpGet("GetAllTrainers")]
-        public ActionResult Get()
-        {
-            try
-            {
-                var trainers = _logic.GetAllTrainerDetails();
-                if(trainers.Count() > 0)
-                {
-                    return Ok(trainers);
-                }
-                else
-                {
-                    return BadRequest("Database is Empty");
-                }
-            }
-            catch (SqlException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
-
-
-        [HttpGet("TrainerUsingFilter")]
-        public ActionResult GetTrainerbyCity(string city = "ex: chennai or delhi", string skill = "ex: python or java") 
-        {
-            try
-            {
-                var search = _logic.TrainerFilter(city, skill);
-                if(search.Count() > 0)
-                {
-                    return Ok(search);
-                }
-                else
-                {
-                    return NotFound($"No trainer details found in this filter");
-                }
-            }
-            catch (SqlException ex)
-            {
-                return BadRequest(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
         }
 
         [HttpGet("LoginPage/{Email}/{Password}")]
@@ -102,13 +52,20 @@ namespace Services.Controllers
         }
 
 
-        [HttpPost("AddTrainer")]
-        public ActionResult AddNewTrainer([FromBody] TrainerDetail trainer, string Email)
+        [HttpPut("UpdateTrainer")]
+        public ActionResult Updatetrainer([FromBody] Models.TrainerDetail trainer, string email)
         {
             try
             {
-                var addedtrainer = _logic.AddTrainer(trainer, Email);
-                return Created("AddTrainer", addedtrainer);
+                if (!string.IsNullOrEmpty(email))
+                {
+                    _logic.UpdateTrainer(trainer, email);
+                    return Ok(trainer);
+                }
+                else
+                {
+                    return BadRequest($"Something went wrong");
+                }
             }
             catch (SqlException ex)
             {
@@ -120,14 +77,20 @@ namespace Services.Controllers
             }
         }
 
-        [HttpPost("AddEducation")]
-
-        public ActionResult AddNewEducation([FromBody] TrainerEducation trainer, string Email)
+        [HttpPut("UpdateEducation")]
+        public ActionResult UpdateEducation([FromBody] TrainerEducation education, string email)
         {
             try
             {
-                var addedtrainer = _logic.AddEducation(trainer, Email);
-                return Created("AddEducation", addedtrainer);
+                if (!string.IsNullOrEmpty(email))
+                {
+                    _logic.UpdateEducation(education, email);
+                    return Ok(education);
+                }
+                else
+                {
+                    return BadRequest($"Something went wrong");
+                }
             }
             catch (SqlException ex)
             {
@@ -139,14 +102,20 @@ namespace Services.Controllers
             }
         }
 
-        [HttpPost("AddSkill")]
-
-        public ActionResult AddNewSkill(TrainerSkill trainer, string Email)
+        [HttpPut("UpdateSkill")]
+        public ActionResult UpdateSkill([FromBody] TrainerSkill skill, string email)
         {
             try
             {
-                var addedtrainer = _logic.AddSkill(trainer, Email);
-                return Created("AddSkill", addedtrainer);
+                if (!string.IsNullOrEmpty(email))
+                {
+                    _logic.UpdateSkill(skill, email);
+                    return Ok(skill);
+                }
+                else
+                {
+                    return BadRequest($"Something went wrong");
+                }
             }
             catch (SqlException ex)
             {
@@ -158,14 +127,20 @@ namespace Services.Controllers
             }
         }
 
-        [HttpPost("AddCompany")]
-
-        public ActionResult AddNewCompany([FromBody] TrainerCompany trainer, string Email)
+        [HttpPut("UpdateCompany")]
+        public ActionResult UpdateCompany([FromBody] TrainerCompany company, string email)
         {
             try
             {
-                var addedtrainer = _logic.AddCompany(trainer, Email);
-                return Created("AddCompany", addedtrainer);
+                if (!string.IsNullOrEmpty(email))
+                {
+                    _logic.UpdateCompany(company, email);
+                    return Ok(company);
+                }
+                else
+                {
+                    return BadRequest($"Something went wrong");
+                }
             }
             catch (SqlException ex)
             {
@@ -178,14 +153,14 @@ namespace Services.Controllers
         }
 
         [HttpDelete("DeleteProfile/{Email}/{Password}")]
-      public ActionResult DeleteTrainer(string Email, string Password)
+        public ActionResult DeleteTrainer(string Email, string Password)
         {
             try
             {
                 if (!string.IsNullOrEmpty(Email))
                 {
                     var delete = _logic.DeleteTrainer(Email, Password);
-                    if(delete)
+                    if (delete)
                     {
                         return Ok("Your account deleted successfully");
                     }

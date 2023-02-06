@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen();
 var trainer_config = builder.Configuration.GetConnectionString("TrainerDBConnection");
 builder.Services.AddDbContext<TrainerDbContext>(options => options.UseSqlServer(trainer_config));
 builder.Services.AddScoped<ILogic, Logic>();
+builder.Services.AddScoped<Validation,Validation>();
 
 var app = builder.Build();
 
