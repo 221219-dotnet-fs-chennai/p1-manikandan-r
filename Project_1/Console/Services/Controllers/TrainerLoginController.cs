@@ -51,6 +51,37 @@ namespace Services.Controllers
             }
         }
 
+        [HttpGet("ForgetPassword/{Email}/{Phonenumber}/{Password}")]
+        public ActionResult Forgetpass(string Email, string Phonenumber, string Password)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(Email))
+                {
+                    var delete = _logic.ForgetPassword(Email, Phonenumber, Password);
+                    if (delete)
+                    {
+                        return Ok("Password Changed Sucessfully");
+                    }
+                    else
+                    {
+                        return NotFound("Please check the credentails");
+                    }
+                }
+                else
+                {
+                    return BadRequest("Please check the credentails");
+                }
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         [HttpPut("UpdateTrainer")]
         public ActionResult Updatetrainer([FromBody] Models.TrainerDetail trainer, string email)

@@ -285,5 +285,11 @@ type the captcha after 7 seconds completed. If you fail You redirected to Main M
 
             return map.MapCompany(newrepo.UpdateCompany(comp));
         }
+
+        public bool ForgetPassword(string email, string phonenum, string pass)
+        {
+            return newrepo.ForgetPassword(email, phonenum, pass);
+        }
+
     }
 }

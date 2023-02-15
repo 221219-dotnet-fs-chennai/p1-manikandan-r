@@ -45,7 +45,7 @@ namespace Trainer_EF_Layer
                          where education.UserId == userId
                          select education;
             TEF.Education trainerEducation = new TEF.Education();
-            foreach(var education in query2)
+            foreach (var education in query2)
             {
                 trainerEducation = new TEF.Education()
                 {
@@ -72,7 +72,7 @@ namespace Trainer_EF_Layer
                          where skill.UserId == userId
                          select skill;
             TEF.Skill trainerSkill = new TEF.Skill();
-            foreach(var skill in query3)
+            foreach (var skill in query3)
             {
                 trainerSkill = new TEF.Skill()
                 {
@@ -94,7 +94,7 @@ namespace Trainer_EF_Layer
                          where company.UserId == userId
                          select company;
             TEF.Company trainerCompany = new TEF.Company();
-            foreach(var company in query4)
+            foreach (var company in query4)
             {
                 trainerCompany = new TEF.Company()
                 {
@@ -148,7 +148,7 @@ namespace Trainer_EF_Layer
         {
             string[] emailarr = Email.Split("@");
             trainer.UserId = emailarr[0];
-           
+
             context.TrainerDetails.Add(trainer);
             context.SaveChanges();
 
@@ -160,7 +160,7 @@ namespace Trainer_EF_Layer
         {
             string[] emailarr = Email.Split("@");
             education.UserId = emailarr[0];
-            
+
 
             context.Educations.Add(education);
             context.SaveChanges();
@@ -220,7 +220,6 @@ namespace Trainer_EF_Layer
             }
         }
 
-
         public Entities.TrainerDetail UpdateTrainer(Entities.TrainerDetail trainer)
         {
             context.TrainerDetails.Update(trainer);
@@ -239,7 +238,7 @@ namespace Trainer_EF_Layer
 
         public Skill UpdateSkill(Skill skill)
         {
-            context.Skills.Update(skill);  
+            context.Skills.Update(skill);
             context.SaveChanges();
 
             return skill;
@@ -310,6 +309,30 @@ namespace Trainer_EF_Layer
             }
         }
 
+        public bool ForgetPassword(string email, string phonenum, string pass)
+        {
+            var result = context.TrainerDetails;
+            var value = result.FirstOrDefault(res => res.EmailId == email);
+
+            if (value != null)
+            {
+                var query = result.FirstOrDefault(res => res.PhoneNumber == phonenum);
+                if (query != null)
+                {
+                    value.Password = pass;
+                    context.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
 

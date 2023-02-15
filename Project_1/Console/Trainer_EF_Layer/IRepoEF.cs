@@ -10,7 +10,6 @@ namespace Trainer_EF_Layer
         Education GetAllEducation(string userId);
         Skill GetAllSkills(string userId);
         Company GetAllCompanies(string userId);
-
         public IEnumerable<AllTrainerDetails> GetAllTrainerDetails();
         public bool AddTrainer(Entities.TrainerDetail trainer, string Email);
 
@@ -27,5 +26,6 @@ namespace Trainer_EF_Layer
         Company UpdateCompany(Company company);
         public IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill);
         public bool DeleteTrainer(string userID, string pass);
+        bool ForgetPassword(string email, string phonenum, string pass);
     }
 }

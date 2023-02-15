@@ -48,6 +48,7 @@ namespace Bussiness_Logic
         /// <param name="company"></param>
         /// <returns>It will return the respective filtered data by user choice</returns>
         IEnumerable<AllTrainerDetails> TrainerFilter(string city, string skill);
+        bool ForgetPassword(string email, string phonenum, string pass);
 
     }
 }
