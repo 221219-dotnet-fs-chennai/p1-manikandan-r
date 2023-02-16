@@ -1,4 +1,5 @@
 using Bussiness_Logic;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Trainer_EF_Layer.Entities;
 
@@ -16,6 +17,15 @@ builder.Services.AddDbContext<TrainerDbContext>(options => options.UseSqlServer(
 builder.Services.AddScoped<ILogic, Logic>();
 builder.Services.AddScoped<Validation,Validation>();
 
+//var AllowPages = "Allowpages";
+//builder.Services.AddCors(options =>
+//options.AddPolicy(AllowPages, policy => { policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); })) ;
+
+builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
+{
+    build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -24,6 +34,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("corspolicy");
 
 app.UseHttpsRedirection();
 

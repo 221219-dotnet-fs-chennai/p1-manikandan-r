@@ -10,7 +10,7 @@ namespace Bussiness_Logic
         {
             return new TrainerData.TrainerDetail()
             {
-               //UserId = valm.Userid,
+                UserId = valm.Userid,
                 EmailId = valm.Emailid,
                 Password = valm.Password,
                 Firstname = valm.Firstname,
@@ -26,7 +26,7 @@ namespace Bussiness_Logic
         {
             return new TrainerData.Education()
             {
-                //UserId = vale.Userid,
+                UserId = vale.Userid,
                 UgCollage = vale.Ug_collage,
                 UgStream = vale.Ug_stream,
                 UgPercentage = vale.Ug_percentage,
@@ -42,7 +42,7 @@ namespace Bussiness_Logic
         {
             return new TrainerData.Skill()
             {
-               // UserId = vals.Userid,
+                UserId = vals.Userid,
                 Skill1 = vals.Skill_1,
                 Skill2 = vals.Skill_2,
                 Skill3 = vals.Skill_3,
@@ -53,7 +53,7 @@ namespace Bussiness_Logic
         {
             return new TrainerData.Company()
             {
-               // UserId = valc.Userid,
+                UserId = valc.Userid,
                 CompanyName = valc.Companyname,
                 Field = valc.Field,
                 OverallExperience = valc.Experience,

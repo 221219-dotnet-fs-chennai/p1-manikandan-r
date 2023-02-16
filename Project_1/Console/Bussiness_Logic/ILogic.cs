@@ -24,13 +24,13 @@ namespace Bussiness_Logic
 
         public IEnumerable<AllTrainerDetails> GetAllTrainerDetails();
 
-        public bool AddTrainer(Models.TrainerDetail trainer, string Email);
+        public Models.TrainerDetail AddTrainer(Models.TrainerDetail trainer);
 
-        public bool AddEducation(TrainerEducation education, string Email);
+        public TrainerEducation AddEducation(TrainerEducation education);
 
-        public bool AddSkill(TrainerSkill skill, string Email);
+        public TrainerSkill AddSkill(TrainerSkill skill);
 
-        public bool AddCompany(TrainerCompany company, string Email);
+        public TrainerCompany AddCompany(TrainerCompany company);
 
         public bool login(string eMail, string pass);
 

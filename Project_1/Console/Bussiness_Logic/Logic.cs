@@ -95,24 +95,24 @@ type the captcha after 7 seconds completed. If you fail You redirected to Main M
             return newrepo.GetAllTrainerDetails();
         }
 
-        public bool AddTrainer(Models.TrainerDetail trainer, string Email)
+        public Models.TrainerDetail AddTrainer(Models.TrainerDetail trainer)
         {
-            return newrepo.AddTrainer(map.mapTrainer(trainer), Email);
+            return map.MapTrainer(newrepo.AddTrainer(map.mapTrainer(trainer)));
         }
 
-        public bool AddEducation(TrainerEducation education, string Email)
+        public TrainerEducation AddEducation(TrainerEducation education)
         {
-            return newrepo.AddEducation(map.mapEducation(education), Email);
+            return map.MapEducation(newrepo.AddEducation(map.mapEducation(education)));
         }
 
-        public bool AddSkill(TrainerSkill skill, string Email)
+        public TrainerSkill AddSkill(TrainerSkill skill)
         {
-            return newrepo.AddSkill(map.mapSkill(skill), Email);
+            return map.MapSkill(newrepo.AddSkill(map.mapSkill(skill)));
         }
 
-        public bool AddCompany(TrainerCompany company, string Email)
+        public TrainerCompany AddCompany(TrainerCompany company)
         {
-            return newrepo.AddCompany(map.mapCompany(company), Email);
+            return map.MapCompany(newrepo.AddCompany(map.mapCompany(company)));
         }
 
 

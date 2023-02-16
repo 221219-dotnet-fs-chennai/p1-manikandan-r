@@ -19,7 +19,7 @@ namespace Services.Controllers
             _logic = logic;
         }
 
-        [HttpGet("LoginPage/{Email}/{Password}")]
+        [HttpGet("LoginPage")]
         public ActionResult Login(string Email, string Password)
         {
             try

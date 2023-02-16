@@ -3,45 +3,28 @@ using Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Data.SqlClient;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Cors;
 
 namespace Services.Controllers
 {
     [Route("Api/[Controller]")]
     [ApiController]
-    public class TrainerSignupController: ControllerBase
+    public class TrainerSignupController : ControllerBase
     {
         ILogic _logic;
-        Validation validation; 
 
         public TrainerSignupController(ILogic logic, Validation validation)
         {
             _logic = logic;
-            this.validation = validation;
         }
 
         [HttpPost("AddTrainer")]
-        public ActionResult AddNewTrainer([FromBody] TrainerDetail trainer, string Email)
+        public ActionResult AddNewTrainer([FromBody] TrainerDetail trainer)
         {
             try
             {
-                if(validation.IsValidEmail(Email))
-                {
-                    if(validation.IsValidPhoneNumber(trainer.Phonenumber))
-                    {
-                        var addedtrainer = _logic.AddTrainer(trainer, Email);
-                        return Created("AddTrainer", addedtrainer);
-                    }
-                    else
-                    {
-                        return BadRequest("Phonenumber format is incorrect");
-                    }
-                }
-                else
-                {
-                    return BadRequest("Email format is invalid");
-                }
-                
+                var addedtrainer = _logic.AddTrainer(trainer);
+                return Created("AddTrainer", addedtrainer);
             }
             catch (SqlException ex)
             {
@@ -53,12 +36,13 @@ namespace Services.Controllers
             }
         }
 
+
         [HttpPost("AddEducation")]
-        public ActionResult AddNewEducation([FromBody] TrainerEducation trainer, string Email)
+        public ActionResult AddNewEducation([FromBody] TrainerEducation trainer)
         {
             try
             {
-                var addedtrainer = _logic.AddEducation(trainer, Email);
+                var addedtrainer = _logic.AddEducation(trainer);
                 return Created("AddEducation", addedtrainer);
             }
             catch (SqlException ex)
@@ -72,11 +56,11 @@ namespace Services.Controllers
         }
 
         [HttpPost("AddSkill")]
-        public ActionResult AddNewSkill(TrainerSkill trainer, string Email)
+        public ActionResult AddNewSkill(TrainerSkill trainer)
         {
             try
             {
-                var addedtrainer = _logic.AddSkill(trainer, Email);
+                var addedtrainer = _logic.AddSkill(trainer);
                 return Created("AddSkill", addedtrainer);
             }
             catch (SqlException ex)
@@ -90,11 +74,11 @@ namespace Services.Controllers
         }
 
         [HttpPost("AddCompany")]
-        public ActionResult AddNewCompany([FromBody] TrainerCompany trainer, string Email)
+        public ActionResult AddNewCompany([FromBody] TrainerCompany trainer)
         {
             try
             {
-                var addedtrainer = _logic.AddCompany(trainer, Email);
+                var addedtrainer = _logic.AddCompany(trainer);
                 return Created("AddCompany", addedtrainer);
             }
             catch (SqlException ex)

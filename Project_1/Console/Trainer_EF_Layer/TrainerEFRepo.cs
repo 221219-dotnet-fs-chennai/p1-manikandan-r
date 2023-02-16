@@ -144,53 +144,40 @@ namespace Trainer_EF_Layer
             return alldetails.ToList();
         }
 
-        public bool AddTrainer(TEF.TrainerDetail trainer, string Email)
+        public TEF.TrainerDetail AddTrainer(TEF.TrainerDetail trainer)
         {
-            string[] emailarr = Email.Split("@");
-            trainer.UserId = emailarr[0];
-
             context.TrainerDetails.Add(trainer);
             context.SaveChanges();
 
             Console.WriteLine("Trainer data Added Successfully");
-            return true;
+            return trainer;
         }
 
-        public bool AddEducation(Education education, string Email)
+        public Education AddEducation(Education education)
         {
-            string[] emailarr = Email.Split("@");
-            education.UserId = emailarr[0];
-
-
             context.Educations.Add(education);
             context.SaveChanges();
 
             Console.WriteLine("Trainer education Added Successfully");
-            return true;
+            return education;
         }
 
-        public bool AddSkill(Skill skill, string Email)
+        public Skill AddSkill(Skill skill)
         {
-            string[] emailarr = Email.Split("@");
-            skill.UserId = emailarr[0];
-
             context.Skills.Add(skill);
             context.SaveChanges();
 
             Console.WriteLine("Trainer skill Added Successfully");
-            return true;
+            return skill;
         }
 
-        public bool AddCompany(Company company, string Email)
+        public Company AddCompany(Company company)
         {
-            string[] emailarr = Email.Split("@");
-            company.UserId = emailarr[0];
-
             context.Companies.Add(company);
             context.SaveChanges();
 
             Console.WriteLine("Trainer company Added Successfully");
-            return true;
+            return company;
         }
 
         public bool login(string eMail, string pass)
