@@ -45,7 +45,7 @@ namespace Services.Controllers
 
 
         [HttpGet("TrainerUsingFilter")]
-        public ActionResult GetTrainerbyCity(string city = "ex: chennai or delhi", string skill = "ex: python or java")
+        public ActionResult GetTrainerbyCity(string city = "ex:_chennai_or_delhi", string skill = "ex:_python_or_java")
         {
             try
             {

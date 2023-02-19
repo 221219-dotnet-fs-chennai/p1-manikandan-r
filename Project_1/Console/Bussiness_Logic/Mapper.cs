@@ -68,6 +68,7 @@ namespace Bussiness_Logic
             {
                 Userid = val.UserId,
                 Emailid = val.EmailId,
+                Password = val.Password,
                 Firstname = val.Firstname,
                 Lastname = val.Lastname,
                 Age = val.Age,

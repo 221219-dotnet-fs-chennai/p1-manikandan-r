@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="personal.css">
+  <title>Personal Details</title>
+</head>
+
+<body class="scroll">
+  <div class="div">
+    <div class="div1">
+      <a class="home-button" href="profile.html">Back</a>
+    </div>
+    <div class="forms">
+      <form id="signupform">
+        <div class="model grid-container">
+          <p class="details">Personal Details</p>
+          <br>
+          <div class="textcol form-group">
+            <label for="exampleInputEmail1"></label>
+            <input id="userid" type="hidden" name="userid" class="input form-control" id="exampleInputEmail1"
+              placeholder="User ID">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputEmail1"></label>
+            <input id="emailid" type="email" name="emailid" class="form-control" id="exampleInputEmail1"
+              placeholder="Enter email">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input id="password" type="password" name="password" class="form-control" id="exampleInputPassword1"
+              placeholder="Password">
+            <button type="button" id="ubutton1" class="ubutton1" onclick="updatePersonal()">Update</button>
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">First Name</label>
+            <input id="fname" type="text" name="firstname" class="form-control" id="exampleInputPassword1"
+              placeholder="First Name">
+            <button type="button" id="ubutton2" class="ubutton2" onclick="updatePersonal()">Update</button>
+            <!-- <button type="button" id="dbutton2" class="dbutton2">Delete</button> -->
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Last Name</label>
+            <input id="lname" type="text" name="lastname" class="form-control" id="exampleInputPassword1"
+              placeholder="Last Name">
+            <button type="button" id="ubutton3" class="ubutton3" onclick="updatePersonal()">Update</button>
+            <!-- <button type="button" id="dbutton3" class="dbutton3">Delete</button> -->
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Age</label>
+            <input id="age" type="number" name="age" class="form-control" id="exampleInputPassword1" placeholder="Age">
+            <button type="button" id="ubutton4" class="ubutton4" onclick="updatePersonal()">Update</button>
+            <!-- <button type="button" id="dbutton4" class="dbutton5">Delete</button> -->
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Gender</label>
+            <input id="gender" type="text" name="gender" class="form-control" id="exampleInputPassword1"
+              placeholder="Gender">
+            <button type="button" id="ubutton5" class="ubutton5" onclick="updatePersonal()">Update</button>
+            <!-- <button type="button" id="dbutton5" class="dbutton5">Delete</button> -->
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Phone Number</label>
+            <input id="phonenumber" type="text" class="form-control" id="exampleInputPassword1"
+              placeholder="Phone Number" name="phonenumber">
+            <button type="button" id="ubutton6" class="ubutton6" onclick="updatePersonal()">Update</button>
+            <!-- <button type="button" id="dbutton6" class="dbutton6">Delete</button> -->
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">City</label>
+            <input id="city" type="text" name="city" class="form-control" id="exampleInputPassword1" placeholder="City">
+            <button type="button" id="ubutton7" class="ubutton7" onclick="updatePersonal()">Update</button>
+            <!-- <button type="button" id="dbutton7" class="dbutton7">Delete</button> -->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="personal.js"></script>
+</body>
+
+</html>

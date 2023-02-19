@@ -1,0 +1,166 @@
+body {
+    background: rgb(0, 12, 34);
+    background-size: cover;
+    overflow-x: hidden;
+    background-repeat: round;
+    width: 100vw;
+    height: 100vh;
+}
+
+.scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.div {
+    padding: 15px 0px 0px 30px;
+}
+
+.div1 {
+    padding: 10px 0px 0px 7px;
+}
+
+.home-button {
+    text-decoration: none;
+    color: #FF4040;
+    font-family: 'Lexend Deca';
+    font-weight: bold;
+    font-size: 1.6vw;
+}
+
+.home-button::before {
+    content: '';
+    width: 0;
+    height: 2em;
+    border-radius: 19em;
+    position: absolute;
+    top: 3%;
+    left: 1%;
+    background-image: linear-gradient(to right, #FF4040 100%, beige 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+.home-button:hover {
+    text-decoration: none;
+    color: rgb(0, 12, 34);
+}
+
+.home-button:hover::before {
+    width: 4em;
+}
+
+.grid-container {
+    background-color: rgb(0, 12, 34);
+    margin: 10px;
+    height: 15%;
+    width: 30%;
+    padding: 10px;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    /* column-gap: 10px; */
+
+    grid-template-rows: auto auto;
+    /* row-gap: 10px; */
+
+    grid-gap: 10px 10px;
+    justify-content: space-between;
+    align-content: space-evenly;
+}
+
+.ubutton1,
+.dbutton1,
+.ubutton2,
+.dbutton2,
+.ubutton3,
+.dbutton3,
+.ubutton4,
+.dbutton4,
+.ubutton5,
+.dbutton5,
+.ubutton6,
+.dbutton6,
+.ubutton7,
+.dbutton7,
+.ubutton8,
+.dbutton8 {
+    color: rgb(0, 12, 34);
+    font-weight: 700;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-family: 'Lexend Deca';
+    width: 48%;
+    height: 35%;
+    border: none;
+    cursor: pointer;
+}
+
+.ubutton1:hover,
+.dbutton1:hover,
+.ubutton2:hover,
+.dbutton2:hover,
+.ubutton3:hover,
+.dbutton3:hover,
+.ubutton4:hover,
+.dbutton4:hover,
+.ubutton5:hover,
+.dbutton5:hover,
+.ubutton6:hover,
+.dbutton6:hover,
+.ubutton7:hover,
+.dbutton7:hover,
+.ubutton8:hover,
+.dbutton8:hover {
+    width: 49%;
+    height: 37%;
+    background-color: #ff3333;
+}
+
+.dbutton1, .dbutton2, .dbutton3, .dbutton4, .dbutton5, .dbutton6, .dbutton7, .dbutton8 {
+    top: 10%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(5%, 1%);
+}
+
+
+.textcol {
+    font-size: 1.3vw;
+    width: 30vw;
+    font-family: 'Lexend Deca';
+    color: beige;
+}
+
+.forms {
+    margin: 0;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-150%, 2%);
+    /* border: 2px coral solid; */
+    padding: 20px;
+    width: 25vw;
+}
+
+.details {
+    font-size: 2vw;
+    width: 27vw;
+    font-family: 'Lexend Deca';
+    color: #FF4040;
+}
+
+.model {
+    width: 70vw;
+    padding: 2rem;
+    color: white;
+    border-width: 3px;
+    border-style: solid;
+    border-image:
+        linear-gradient(to bottom,
+            #ff3333,
+            rgba(0, 0, 0, 0)) 1 100%;
+}
+
+

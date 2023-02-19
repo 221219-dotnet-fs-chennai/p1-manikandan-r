@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="education.css">
+    <title>Document</title>
+</head>
+
+<body class="scroll">
+    <div class="div">
+        <div class="div1">
+            <a class="home-button" href="profile.html">Back</a>
+        </div>
+        <div class="forms">
+            <form id="signupform">
+                <div class="model grid-container">
+                    <p class="details">Education Details</p>
+                    <br>
+                    <div class="textcol form-group">
+                        <label for="exampleInputEmail1"></label>
+                        <input id="userid" type="hidden" name="userid" class="form-control" id="exampleInputEmail1"
+                            placeholder="User ID">
+                    </div>
+                    <br>
+                    <div class="textcol form-group">
+                        <label for="exampleInputPassword1">UG college name</label>
+                        <input id="uclgname" type="text" name="ug_collage" class="form-control"
+                            id="exampleInputPassword1" placeholder="UG college name">
+                        <button type="button" id="ubutton1" class="ubutton1" onclick="updateEducation()">Update</button>
+                        <!-- <button type="button" id="dbutton1" class="dbutton1">Delete</button> -->
+                    </div>
+                    <div class="textcol form-group">
+                        <label for="exampleInputPassword1">UG Stream</label>
+                        <input id="ugstream" type="text" name="ug_stream" class="form-control"
+                            id="exampleInputPassword1" placeholder="UG Stream">
+                        <button type="button" id="ubutton2" class="ubutton2" onclick="updateEducation()">Update</button>
+                        <!-- <button type="button" id="dbutton2" class="dbutton2">Delete</button> -->
+                    </div>
+                    <div class="textcol form-group">
+                        <label for="exampleInputPassword1">UG Percentage</label>
+                        <input id="ugper" type="text" name="ug_percentage" class="form-control"
+                            id="exampleInputPassword1" placeholder="UG Percentage">
+                        <button type="button" id="ubutton3" class="ubutton3" onclick="updateEducation()">Update</button>
+                        <!-- <button type="button" id="dbutton3" class="dbutton3">Delete</button> -->
+                    </div>
+                    <div class="textcol form-group">
+                        <label for="exampleInputPassword1">UG Year</label>
+                        <input id="ugyear" type="number" name="ug_year" min="1900" max="2023" step="1"
+                            class="form-control" id="exampleInputPassword1" placeholder="UG Year">
+                        <button type="button" id="ubutton4" class="ubutton4" onclick="updateEducation()">Update</button>
+                        <!-- <button type="button" id="dbutton4" class="dbutton4">Delete</button> -->
+                    </div>
+                    <div class="textcol form-group">
+                        <label for="exampleInputPassword1">PG college name</label>
+                        <input id="pclgname" type="text" name="pg_collage" class="form-control"
+                            id="exampleInputPassword1" placeholder="PG college name">
+                        <button type="button" id="ubutton5" class="ubutton5" onclick="updateEducation()">Update</button>
+                        <!-- <button type="button" id="dbutton5" class="dbutton5">Delete</button> -->
+                    </div>
+                    <div class="textcol form-group">
+                        <label for="exampleInputPassword1">PG Stream</label>
+                        <input id="pgstream" type="text" name="pg_stream" class="form-control"
+                            id="exampleInputPassword1" placeholder="PG Stream">
+                        <button type="button" id="ubutton6" class="ubutton6" onclick="updateEducation()">Update</button>
+                        <!-- <button type="button" id="dbutton6" class="dbutton6">Delete</button> -->
+                    </div>
+                    <div class="textcol form-group">
+                        <label for="exampleInputPassword1">PG Percentage</label>
+                        <input id="pgper" type="text" name="pg_percentage" class="form-control"
+                            id="exampleInputPassword1" placeholder="PG Percentage">
+                        <button type="button" id="ubutton7" class="ubutton7" onclick="updateEducation()">Update</button>
+                        <!-- <button type="button" id="dbutton7" class="dbutton7">Delete</button> -->
+                    </div>
+                    <div class="textcol form-group">
+                        <label for="exampleInputPassword1">PG Year</label>
+                        <input id="pgyear" type="number" min="1900" max="2023" step="1" class="form-control"
+                            id="exampleInputPassword1" name="pg_year" placeholder="PG Year">
+                        <button type="button" id="ubutton8" class="ubutton8" onclick="updateEducation()">Update</button>
+                        <!-- <button type="button" id="dbutton8" class="dbutton8">Delete</button> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="education.js"></script>
+</body>
+
+</html>

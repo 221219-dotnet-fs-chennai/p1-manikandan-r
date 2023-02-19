@@ -24,6 +24,7 @@ namespace Trainer_EF_Layer
                 trainerDetail = new TEF.TrainerDetail()
                 {
                     EmailId = trainer.EmailId,
+                    Password = trainer.Password,
                     Firstname = trainer.Firstname,
                     Lastname = trainer.Lastname,
                     Age = trainer.Age,
@@ -244,26 +245,26 @@ namespace Trainer_EF_Layer
             city = city.ToLower();
             skill = skill.ToLower();
 
-            if (city == "ex: chennai or delhi" && skill == "ex: python or java")
+            if (city == "ex:_chennai_or_delhi" && skill == "ex:_python_or_java")
             {
                 Console.WriteLine("You Didn't choose any filter\n");
                 return GetAllTrainerDetails().ToList();
             }
-            else if (city != "ex: chennai or delhi" && skill == "ex: python or java")
+            else if (city != "ex:_chennai_or_delhi" && skill == "ex:_python_or_java")
             {
                 var query_1 = from trainer in GetAllTrainerDetails()
                               where trainer.City.ToLower() == city
                               select trainer;
                 return query_1.ToList();
             }
-            else if (city == "ex: chennai or delhi" && skill != "ex: python or java")
+            else if (city == "ex:_chennai_or_delhi" && skill != "ex:_python_or_java")
             {
                 var query_2 = from trainer in GetAllTrainerDetails()
                               where trainer.Skill_1.ToLower() == skill || trainer.Skill_2.ToLower() == skill || trainer.Skill_3.ToLower() == skill
                               select trainer;
                 return query_2.ToList();
             }
-            else if (city != "ex: chennai or delhi" && skill != "ex: python or java")
+            else if (city != "ex:_chennai_or_delhi" && skill != "ex:_python_or_java")
             {
                 var query_3 = from trainer in GetAllTrainerDetails()
                               where (trainer.Skill_1.ToLower() == skill || trainer.Skill_2.ToLower() == skill || trainer.Skill_3.ToLower() == skill) && (trainer.City.ToLower() == city)

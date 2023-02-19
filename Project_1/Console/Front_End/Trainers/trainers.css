@@ -1,0 +1,193 @@
+/* red= #FF4040 
+beige*/
+
+body {
+    background: rgb(0, 12, 34);
+    background-size: cover;
+    overflow-x: hidden;
+    background-repeat: round;
+    width: 100vw;
+    height: 100vh;
+}
+
+.scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.div {
+    padding: 35px 0px 0px 30px;
+}
+
+.home-button {
+    text-decoration: none;
+    color: #FF4040;
+    font-family: 'Lexend Deca';
+    font-weight: bold;
+    font-size: 1.6vw;
+}
+
+
+.home-button::before {
+    content: '';
+    width: 0;
+    height: 2em;
+    border-radius: 19em;
+    position: absolute;
+    top: 5%;
+    left: 1%;
+    background-image: linear-gradient(to right, #FF4040 100%, beige 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+.home-button:hover {
+    text-decoration: none;
+    color: rgb(0, 12, 34);
+}
+
+.home-button:hover::before {
+    width: 5em;
+}
+
+.home-button-2 {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #FF4040;
+    font-family: 'Lexend Deca';
+    font-weight: bold;
+    font-size: 1.6vw;
+}
+
+.home-button-2::before {
+    content: '';
+    width: 0;
+    height: 2em;
+    border-radius: 19em;
+    position: absolute;
+    top: 5%;
+    left: 9%;
+    background-image: linear-gradient(to right, #FF4040 100%, beige 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+.home-button-2:hover {
+    text-decoration: none;
+    color: rgb(0, 12, 34);
+}
+
+.home-button-2:hover::before {
+    width: 8.5em;
+}
+
+.viewalltrainers{
+    margin-right: 25px;
+    padding: 7px;
+    text-decoration: none;
+    margin-top: 10px;
+    width: 15%;
+    font-family: 'Lexend Deca';
+    border: none;
+    background-color: beige;
+    border-radius: 0.5em;
+    cursor:pointer;
+}
+
+.viewalltrainers:hover {
+    box-shadow:  3px 3px 10px #1a1515,
+    -3px -3px 10px #4b3d3d;
+}
+
+.title {
+    color: beige;
+    font-size: 3rem;
+    font-family: 'Lexend Deca';
+    text-transform: capitalize;
+    top: 40%;
+    left: 30%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(28%, -140%);
+    letter-spacing: 3px;
+}
+
+.title {
+    background: linear-gradient(-225deg,
+            #231557 0%,
+            #FF4040 67%,
+            #837f02 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3.5s infinite linear;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0;
+    }
+
+    60% {
+        background-position: 600px;
+    }
+
+    100% {
+        background-position: 600px;
+    }
+}
+
+.maindiv {
+    margin: 0;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-62%, -10%);
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 1% 12%;
+    justify-content: space-between;
+    align-content: space-evenly;
+    text-align: center;
+    color: rgb(255, 64, 64);
+}
+
+.seconddiv {
+    text-decoration: none;
+    color: #F1E5AC;
+    margin-top: 20px;
+    padding: 55px;
+    padding-left: 75px;
+    padding-right: 75px;
+    height: 75%;
+    border: 3px #F1E5AC solid;
+    border-radius: 10px;
+    transition: 0.3s ease-out;
+}
+
+
+.seconddiv:hover {
+    transform: scale(0.98);
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px 1px rgba(241, 229, 172, 0.30);
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+.fname {
+    /* font-size: 40%; */
+    font-size: 1.2rem;
+    color: #F1E5AC;
+    font-family: 'Lexend Deca';
+    text-transform: capitalize;
+}
+
+.skill1,
+.skill2 {
+    text-transform: uppercase;
+}
+
+.empty,
+.city {
+    text-transform: capitalize;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="company.css">
+    <title>Document</title>
+</head>
+
+<body class="scroll">
+    <div class="div">
+        <div class="div1">
+            <a class="home-button" href="profile.html">Back</a>
+        </div>
+        <div class="forms">
+            <form id="signupform">
+                <div class="model grid-container">
+                    <p class="details">Company Details</p>
+                    <br>
+                    <div class="textcol form-group">
+                        <label for="exampleInputEmail1"></label>
+                        <input id="userid" type="hidden" name="userid" class="form-control" id="exampleInputEmail1"
+                        placeholder="User ID">
+                    </div>
+                    <br>
+                    <div class="textcol form-group">
+                        <label for="exampleInputPassword1">Company Name</label>
+                        <input id="companyname" type="text" name="companyname" class="form-control"
+                            id="exampleInputPassword1" placeholder="Company name">
+                        <button type="button" id="ubutton1" class="ubutton1" onclick="updateCompany()">Update</button>
+                        <!-- <button type="button" id="dbutton1" class="dbutton1">Delete</button> -->
+                    </div>
+                    <div class="textcol form-group">
+                        <label for="exampleInputPassword1">Field of working</label>
+                        <input id="field" type="text" name="field" class="form-control" id="exampleInputPassword1"
+                        placeholder="Field">
+                        <button type="button" id="ubutton2" class="ubutton2" onclick="updateCompany()">Update</button>
+                        <!-- <button type="button" id="dbutton2" class="dbutton2">Delete</button> -->
+                    </div>
+                    <div class="textcol form-group">
+                        <label for="exampleInputPassword1">Experience in Years</label>
+                        <input id="experience" type="text" name="experience" class="form-control"
+                        id="exampleInputPassword1" placeholder="Experience">
+                        <button type="button" id="ubutton3" class="ubutton3" onclick="updateCompany()">Update</button>
+                        <!-- <button type="button" id="dbutton3" class="dbutton3">Delete</button> -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="company.js"></script>
+</body>
+
+</html>

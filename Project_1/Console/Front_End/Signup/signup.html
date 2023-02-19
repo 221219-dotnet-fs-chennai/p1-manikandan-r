@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="signup.css" type="text/css">
+  <script src="signup.js"></script>
+  <title>Signup Page</title>
+</head>
+
+<body class="scroll">
+  <div class="all">
+    <div class="div">
+      <a class="home-button" href="../Home/home.html">Home</a>
+      <a class="login-button pad" href="../Profile/login.html">Already have an account? login</a>
+    </div>
+    <div class="div">
+    </div>
+    <div class="forms">
+      <form id="signupform">
+        <div class="model grid-container">
+          <p class="details">Personal Details</p>
+          <br>
+          <div class="textcol form-group">
+            <label for="exampleInputEmail1"></label>
+            <input id="userid" type="hidden" name="userid" class="form-control" id="exampleInputEmail1"
+              placeholder="User ID">
+          </div>
+          <br>
+          <div class="textcol form-group">
+            <label for="exampleInputEmail1">Email address*</label>
+            <input id="emailid" type="email" name="emailid" class="form-control" id="exampleInputEmail1"
+              placeholder="Enter email">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Password*</label>
+            <input id="password" type="password" name="password" class="form-control" id="exampleInputPassword1"
+              placeholder="Password">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">First Name*</label>
+            <input id="fname" type="text" name="firstname" class="form-control" id="exampleInputPassword1"
+              placeholder="First Name">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Last Name*</label>
+            <input id="lname" type="text" name="lastname" class="form-control" id="exampleInputPassword1"
+              placeholder="Last Name">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Age*</label>
+            <input id="age" type="number" name="age" class="form-control" id="exampleInputPassword1" placeholder="Age">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Gender*</label>
+            <input id="gender" type="text" name="gender" class="form-control" id="exampleInputPassword1"
+              placeholder="Gender">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Phone Number*</label>
+            <input id="phonenumber" type="text" class="form-control" id="exampleInputPassword1"
+              placeholder="Phone Number" name="phonenumber">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">City*</label>
+            <input id="city" type="text" name="city" class="form-control" id="exampleInputPassword1" placeholder="City">
+          </div>
+        </div>
+        <br>
+        <div class="model grid-container">
+          <p class="details">Education Details</p>
+          <br>
+          <div class="textcol form-group">
+            <label for="exampleInputEmail1"></label>
+            <input id="userid" type="hidden" name="userid" class="form-control" id="exampleInputEmail1"
+              placeholder="User ID">
+          </div>
+          <br>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">UG college name*</label>
+            <input id="uclgname" type="text" name="ug_collage" class="form-control" id="exampleInputPassword1"
+              placeholder="UG college name">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">UG Stream*</label>
+            <input id="ugstream" type="text" name="ug_stream" class="form-control" id="exampleInputPassword1"
+              placeholder="UG Stream">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">UG Percentage*</label>
+            <input id="ugper" type="text" name="ug_percentage" class="form-control" id="exampleInputPassword1"
+              placeholder="UG Percentage">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">UG Year*</label>
+            <input id="ugyear" type="number" name="ug_year" min="1900" max="2023" step="1" class="form-control"
+              id="exampleInputPassword1" placeholder="UG Year">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">PG college name</label>
+            <input id="pclgname" type="text" name="pg_collage" class="form-control" id="exampleInputPassword1"
+              placeholder="PG college name">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">PG Stream</label>
+            <input id="pgstream" type="text" name="pg_stream" class="form-control" id="exampleInputPassword1"
+              placeholder="PG Stream">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">PG Percentage</label>
+            <input id="pgper" type="text" name="pg_percentage" class="form-control" id="exampleInputPassword1"
+              placeholder="PG Percentage">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">PG Year</label>
+            <input id="pgyear" type="number" min="1900" max="2023" step="1" class="form-control"
+              id="exampleInputPassword1" name="pg_year" placeholder="PG Year">
+          </div>
+        </div>
+        <div class="model grid-container">
+          <p class="details">Skill Details</p>
+          <br>
+          <div class="textcol form-group">
+            <label for="exampleInputEmail1"></label>
+            <input id="userid" type="hidden" name="userid" class="form-control" id="exampleInputEmail1"
+              placeholder="User ID">
+          </div>
+          <br>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Skill 1*</label>
+            <input id="skill1" type="text" name="skill_1" class="form-control" id="exampleInputPassword1"
+              placeholder="Skill 1">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Skill 2*</label>
+            <input id="skill2" type="text" name="skill_2" class="form-control" id="exampleInputPassword1"
+              placeholder="Skill 2">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Skill 3</label>
+            <input id="skill3" type="text" name="skill_3" class="form-control" id="exampleInputPassword1"
+              placeholder="Skill 3">
+          </div>
+          <br>
+        </div>
+        <div class="model grid-container">
+          <p class="details">Company Details</p>
+          <br>
+          <div class="textcol form-group">
+            <label for="exampleInputEmail1"></label>
+            <input id="userid" type="hidden" name="userid" class="form-control" id="exampleInputEmail1"
+              placeholder="User ID">
+          </div>
+          <br>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Last (or) Current working Company</label>
+            <input id="companyname" type="text" name="companyname" class="form-control" id="exampleInputPassword1"
+              placeholder="Company name">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Field of working</label>
+            <input id="field" type="text" name="field" class="form-control" id="exampleInputPassword1"
+              placeholder="Field">
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Experience in Years</label>
+            <input id="experience" type="text" name="experience" class="form-control" id="exampleInputPassword1"
+              placeholder="Experience">
+          </div>
+        </div>
+        <br>
+        <br>
+        <button onclick="signUpfunction()" type="submit" class="sbtn">Submit
+          <div class="background"></div>
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

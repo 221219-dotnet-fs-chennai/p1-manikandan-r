@@ -1,0 +1,137 @@
+body {
+    background: rgb(0, 12, 34);
+    background-size: cover;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-repeat: round;
+    width: 100vw;
+    height: 100vh;
+}
+
+.scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.div {
+    padding: 30px 0px 0px 30px;
+    transform: translate(75%, -10%);
+}
+
+.home-button {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #FF4040;
+    font-family: 'Lexend Deca';
+    font-weight: bold;
+    font-size: 1.6vw;
+}
+
+
+.home-button::before {
+    content: '';
+    width: 0;
+    height: 2em;
+    border-radius: 19em;
+    position: absolute;
+    top: 33%;
+    left: 1.5%;
+    background-image: linear-gradient(to right, #FF4040 100%, beige 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+.home-button:hover {
+    text-decoration: none;
+    color: rgb(0, 12, 34);
+}
+
+.home-button:hover::before {
+    width: 5em;
+}
+
+.home-button1 {
+    text-decoration: none;
+    color: #FF4040;
+    font-family: 'Lexend Deca';
+    font-weight: bold;
+    font-size: 1.6vw;
+}
+
+
+.home-button1::before {
+    content: '';
+    width: 0;
+    height: 2em;
+    border-radius: 19em;
+    position: absolute;
+    top: 33%;
+    left: 10%;
+    background-image: linear-gradient(to right, #FF4040 100%, beige 100%);
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+.home-button1:hover {
+    text-decoration: none;
+    color: rgb(0, 12, 34);
+}
+
+.home-button1:hover::before {
+    width: 7em;
+}
+
+.maindiv {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-56%, -10%);
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 1% 4%;
+    justify-content: space-between;
+    align-content: space-evenly;
+    text-align: center;
+    color: rgb(255, 64, 64);
+}
+
+
+.link{
+    padding: 70px;
+    padding-top: 200px;
+    padding-bottom: 120px;
+    border-radius: 10px;
+    color: #FF4040;
+    border: 3px #F1E5AC solid;
+    font-family: 'Lexend Deca';
+    font-size: 1.4em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease-out;
+}
+
+.link:hover{
+    transform: scale(0.98);
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px 1px rgba(241, 229, 172, 0.30);
+    border-bottom-right-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+.personal{
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.skill{
+    padding-left: 95px;
+    padding-right: 95px;
+
+}
+
+.image{
+    width: 28%;
+    padding-bottom: 40px;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="skill.css">
+  <title>Document</title>
+</head>
+
+<body class="scroll">
+  <div class="div">
+    <div class="div1">
+      <a class="home-button" href="profile.html">Back</a>
+  </div>
+    <div class="forms">
+      <form id="signupform">
+        <div class="model grid-container">
+          <p class="details">Skill Details</p>
+          <br>
+          <div class="textcol form-group">
+            <label for="exampleInputEmail1"></label>
+            <input id="userid" type="hidden" name="userid" class="form-control" id="exampleInputEmail1"
+            placeholder="User ID">
+          </div>
+          <br>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Skill 1</label>
+            <input id="skill1" type="text" name="skill_1" class="form-control" id="exampleInputPassword1"
+            placeholder="Skill 1">
+            <button type="button" id="ubutton1" class="ubutton1" onclick="updateSkill()">Update</button>
+            <!-- <button type="button" id="dbutton1" class="dbutton1">Delete</button> -->
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Skill 2</label>
+            <input id="skill2" type="text" name="skill_2" class="form-control" id="exampleInputPassword1"
+            placeholder="Skill 2">
+            <button type="button" id="ubutton2" class="ubutton2" onclick="updateSkill()">Update</button>
+            <!-- <button type="button" id="dbutton2" class="dbutton2">Delete</button> -->
+          </div>
+          <div class="textcol form-group">
+            <label for="exampleInputPassword1">Skill 3</label>
+            <input id="skill3" type="text" name="skill_3" class="form-control" id="exampleInputPassword1"
+            placeholder="Skill 3">
+            <button type="button" id="ubutton3" class="ubutton3" onclick="updateSkill()">Update</button>
+            <!-- <button type="button" id="dbutton3" class="dbutton3">Delete</button> -->
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="skill.js"></script>
+  </body>
+  
+  </html>

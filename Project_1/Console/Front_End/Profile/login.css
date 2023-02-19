@@ -1,0 +1,139 @@
+body {
+  background: rgb(0, 12, 34);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.card {
+  width: 25%;
+  height: 40%;
+  padding: 1.9rem 1.2rem;
+  text-align: center;
+  background: #F1E5AC;
+  border-radius: 10px;
+  box-shadow: 12px 12px 24px #000612,
+    -12px -12px 24px #001232;
+}
+
+
+
+.field {
+  margin-top: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5em;
+  background-color: #1f2029;
+  border-radius: 4px;
+  padding: .5em 1em;
+}
+
+.input-icon {
+  height: 2em;
+  width: 1em;
+  fill: #ff3535;
+}
+
+.input-field {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: #d3d3d3;
+}
+
+.title {
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  font-family: 'Lexend Deca';
+  font-size: 2em;
+  font-weight: bolder;
+  color: #ff2d2d;
+}
+
+.button {
+  margin-top: 10%;
+  --color: #ff3535;
+  padding: 0.6em 1.3em;
+  background-color: transparent;
+  border-radius: 1em;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .5s;
+  font-weight: 400;
+  font-size: 17px;
+  border: 2px solid;
+  font-family: 'Lexend Deca';
+  text-transform: uppercase;
+  color: rgb(0, 12, 34);
+  z-index: 1;
+}
+
+.button::before,
+.button::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: var(--color);
+  transition: 1s ease;
+}
+
+.button::before {
+  top: -1em;
+  left: -1em;
+}
+
+.button::after {
+  left: calc(100% + 1em);
+  top: calc(100% + 1em);
+}
+
+.button:hover::before,
+.button:hover::after {
+  height: 410px;
+  width: 410px;
+}
+
+.button:hover {
+  color: rgb(10, 25, 30);
+}
+
+.button:active {
+  filter: brightness(.8);
+}
+
+.btn-link {
+  margin-top: 10%;
+  text-decoration: none;
+  color: #ff2d2d;
+  display: block;
+  font-size: 1.1em;
+  transition: color .3s ease-out;
+}
+
+.field input:focus::placeholder {
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.btn-link:hover {
+  color: rgb(0, 12, 34);
+}

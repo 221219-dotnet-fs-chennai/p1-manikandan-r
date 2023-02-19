@@ -19,6 +19,78 @@ namespace Services.Controllers
             _logic = logic;
         }
 
+        [HttpGet("GettrainerbyID")]
+        public IActionResult GettrainerbyID(string email)
+        {
+            try
+            {
+                var value = _logic.GetAllTrainers(email);
+                return Ok(value);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("GeteducationbyID")]
+        public IActionResult GeteducationbyID(string email)
+        {
+            try
+            {
+                var value = _logic.GetAllEducation(email);
+                return Ok(value);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("GetskillbyID")]
+        public IActionResult GetskillbyID(string email)
+        {
+            try
+            {
+                var value = _logic.GetAllSkills(email);
+                return Ok(value);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("GetcompanybyID")]
+        public IActionResult GetcompanybyID(string email)
+        {
+            try
+            {
+                var value = _logic.GetAllCompanies(email);
+                return Ok(value);
+            }
+            catch (SqlException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("LoginPage")]
         public ActionResult Login(string Email, string Password)
         {
@@ -183,7 +255,7 @@ namespace Services.Controllers
             }
         }
 
-        [HttpDelete("DeleteProfile/{Email}/{Password}")]
+        [HttpDelete("DeleteProfile")]
         public ActionResult DeleteTrainer(string Email, string Password)
         {
             try

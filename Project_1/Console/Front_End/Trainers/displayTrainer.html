@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="displayTrainer.css">
+    <title>Document</title>
+</head>
+
+<body class="scroll">
+    <div class="div">
+        <a class="home-button" href="trainers.html">Back</a>
+        <p class="title">Find Trainer by Filter</p>
+        <div class="filteroption">
+            <input type="checkbox" class="fcheckbox" id="citytext" checked>
+            <span class="ftext">City</span>
+            <input id="citybox" type="search" class="searchbox" name="city" placeholder="ex: chennai or delhi">
+            <br>
+            <input type="checkbox" class="fcheckbox" id="skilltext" checked>
+            <span class="ftext">Skill</span>
+            <input id="skillbox" type="search" class="searchbox" name="skill" placeholder="ex: python or java">
+            <br>
+            <button class="fbutton" type="button" onclick="filteroption()"><span class="ftext">Search</span></button>
+            <button class="fbutton" type="button" onclick="refreshPage()"><span class="ftext">Clear</span></button>
+        </div>
+        <div class="maindiv"></div>
+        <script>
+            document.getElementById('citytext').onchange = function () {
+                document.getElementById('citybox').disabled = !this.checked;
+            };                                                                                                                                                                                                                                                                                                                                  
+            document.getElementById('skilltext').onchange = function () {
+                document.getElementById('skillbox').disabled = !this.checked;
+            };
+        </script>
+        <script src="displayTrainer.js"></script>
+</body>
+
+</html>

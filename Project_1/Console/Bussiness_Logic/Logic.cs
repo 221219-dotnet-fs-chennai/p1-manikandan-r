@@ -1,6 +1,7 @@
 ﻿using Trainer_EF_Layer;
 using Models;
 using Trainer_EF_Layer.Entities;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Bussiness_Logic
 {
@@ -115,7 +116,6 @@ type the captcha after 7 seconds completed. If you fail You redirected to Main M
             return map.MapCompany(newrepo.AddCompany(map.mapCompany(company)));
         }
 
-
         public bool login(string eMail, string pass)
         {
             return newrepo.login(eMail, pass);
@@ -133,46 +133,28 @@ type the captcha after 7 seconds completed. If you fail You redirected to Main M
 
             var train = vali.TrainerByUserID(userId);
 
+            Console.WriteLine(trainer.Userid);
+            Console.WriteLine(trainer.Emailid);
+            Console.WriteLine(trainer.Password);
+            Console.WriteLine(trainer.Firstname);
+            Console.WriteLine(trainer.Lastname);
+            Console.WriteLine(trainer.Age);
+            Console.WriteLine(trainer.Gender);
+            Console.WriteLine(trainer.Phonenumber);
+            Console.WriteLine(trainer.City);
+
             if (train != null)
             {
-                if (trainer.Userid != "string" && train.UserId != trainer.Userid)
-                {
-                    train.UserId = trainer.Userid;
-                }
-                if (trainer.Emailid != "string" && train.EmailId != trainer.Emailid)
-                {
-                    train.EmailId = trainer.Emailid;
-                }
-                if (trainer.Password != "string" && train.Password != trainer.Password)
-                {
-                    train.Password = trainer.Password;
-                }
-                if (trainer.Firstname != "string" && train.Firstname != trainer.Firstname)
-                {
-                    train.Firstname = trainer.Firstname;
-                }
-                if (trainer.Lastname != "string" && train.Lastname != trainer.Lastname)
-                {
-                    train.Lastname = trainer.Lastname;
-                }
-                if (trainer.Age != 0 && train.Age != trainer.Age)
-                {
-                    train.Age = trainer.Age;
-                }
-                if (trainer.Gender != "string" && train.Gender != trainer.Gender)
-                {
-                    train.Gender = trainer.Gender;
-                }
-                if (trainer.Phonenumber != "string" && train.PhoneNumber != trainer.Phonenumber)
-                {
-                    train.PhoneNumber = trainer.Phonenumber;
-                }
-                if (trainer.City != "string" && train.City != trainer.City)
-                {
-                    train.City = trainer.City;
-                }
+                train.UserId = trainer.Userid;
+                train.EmailId = trainer.Emailid;
+                train.Password = trainer.Password;
+                train.Firstname = trainer.Firstname;
+                train.Lastname = trainer.Lastname;
+                train.Age = trainer.Age;
+                train.Gender = trainer.Gender;
+                train.PhoneNumber = trainer.Phonenumber;
+                train.City = trainer.City;
             }
-
             return map.MapTrainer(newrepo.UpdateTrainer(train));
         }
 
@@ -185,42 +167,15 @@ type the captcha after 7 seconds completed. If you fail You redirected to Main M
 
             if (edu != null)
             {
-                if (education.Userid != "string" && edu.UserId != education.Userid)
-                {
-                    edu.UserId = education.Userid;
-                }
-                if (education.Ug_collage != "string" && edu.UgCollage != education.Ug_collage)
-                {
-                    edu.UgCollage = education.Ug_collage;
-                }
-                if (education.Ug_stream != "string" && edu.UgStream != education.Ug_stream)
-                {
-                    edu.UgStream = education.Ug_stream;
-                }
-                if (education.Ug_percentage != "string" && edu.UgPercentage != education.Ug_percentage)
-                {
-                    edu.UgPercentage = education.Ug_percentage;
-                }
-                if (education.Ug_year != "string" && edu.UgYear != education.Ug_year)
-                {
-                    edu.UgYear = education.Ug_year;
-                }
-                if (education.Pg_collage != "string" && edu.PgCollage != education.Pg_collage)
-                {
-                    edu.PgCollage = education.Pg_collage;
-                }
-                if (education.Pg_stream != "string" && edu.PgStream != education.Pg_stream)
-                {
-                    edu.PgStream = education.Pg_stream;
-                }
-                if (education.Pg_percentage != "string" && edu.PgPercentage != education.Pg_percentage)
-                {
-                    edu.PgPercentage = education.Pg_percentage;
-                }
-                if (education.Pg_year != "string" && edu.PgYear != education.Pg_year)
-                {
-                    edu.PgYear = education.Pg_year;
-                }
+                edu.UserId = education.Userid;
+                edu.UgCollage = education.Ug_collage;
+                edu.UgStream = education.Ug_stream;
+                edu.UgPercentage = education.Ug_percentage;
+                edu.UgYear = education.Ug_year;
+                edu.PgCollage = education.Pg_collage;
+                edu.PgStream = education.Pg_stream;
+                edu.PgPercentage = education.Pg_percentage;
+                edu.PgYear = education.Pg_year;
             }
 
             return map.MapEducation(newrepo.UpdateEducation(edu));
@@ -233,24 +188,12 @@ type the captcha after 7 seconds completed. If you fail You redirected to Main M
 
             var ski = vali.TrainerBySkillUserID(userId);
 
-            if(ski != null)
+            if (ski != null)
             {
-                if(skill.Userid != "string" && ski.UserId != skill.Userid)
-                {
                     ski.UserId = skill.Userid;
-                }
-                if(skill.Skill_1 != "string" && ski.Skill1 != skill.Skill_1)
-                {
-                    ski.Skill1= skill.Skill_1;
-                }
-                if(skill.Skill_2 != "string" && ski.Skill2 != skill.Skill_2)
-                {
-                    ski.Skill2= skill.Skill_2;
-                }
-                if(skill.Skill_3 != "string" && ski.Skill3 != skill.Skill_3)
-                {
-                    ski.Skill3= skill.Skill_3;
-                }
+                    ski.Skill1 = skill.Skill_1;
+                    ski.Skill2 = skill.Skill_2;
+                    ski.Skill3 = skill.Skill_3;
             }
 
             return map.MapSkill(newrepo.UpdateSkill(ski));
@@ -263,24 +206,12 @@ type the captcha after 7 seconds completed. If you fail You redirected to Main M
 
             var comp = vali.TraiinerbyComUserID(userId);
 
-            if(comp != null)
+            if (comp != null)
             {
-                if(company.Userid != "string" && comp.UserId != company.Userid)
-                {
                     comp.UserId = company.Userid;
-                }
-                if(company.Companyname != "string" && comp.CompanyName != company.Companyname)
-                {
                     comp.CompanyName = company.Companyname;
-                }
-                if(company.Field != "string" && comp.Field != company.Field)
-                {
                     comp.Field = company.Field;
-                }
-                if(company.Experience != "string" && comp.OverallExperience != company.Experience)
-                {
                     comp.OverallExperience = company.Experience;
-                }
             }
 
             return map.MapCompany(newrepo.UpdateCompany(comp));
