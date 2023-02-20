@@ -7,9 +7,10 @@ var UserID;
 
 //     let email = document.getElementById("email").value;
     
-
-//     if(emailRegex.match(email))
+//     alert("first ")
+//     if(emailRegex.test(email))
 //     {
+//         alert("second")
 //         val = true;
 //     }
 //     else
@@ -27,14 +28,88 @@ function signUpfunction() {
     let userId = document.getElementById("userid").value; 
     let email = document.getElementById("emailid").value;
     let password = document.getElementById("password").value;
+    let fnmae = document.getElementById("fname").value;
+    let lname = document.getElementById("lname").value;
+    let age = document.getElementById("age").value;
+    let gender = document.getElementById("gender").value;
+    let phonenumber = document.getElementById("phonenumber").value;
+    let city = document.getElementById("city").value;
+    let uclg = document.getElementById("uclgname").value;
+    let ustream = document.getElementById("ugstream").value;
+    let ugper = document.getElementById("ugper").value;
+    let ugyear = document.getElementById("ugyear").value;
+    let skill1 = document.getElementById("skill1").value;
+    let skill2 = document.getElementById("skill2").value;
     
     if(email == null || email =="")
     {
         alert("Email ID cannot be empty");
+        return false;
     }
     if(password == null || password =="")
     {
         alert("Password cannot be empty");
+        return false
+    }
+    if(fname == null || fnmae =="")
+    {
+        alert("Firstname cannot be empty");
+        return false
+    }
+    if(lname == null || lname =="")
+    {
+        alert("Lastname cannot be empty");
+        return false
+    }
+    if(age == null || age == 0)
+    {
+        alert("Age cannot be empty");
+        return false
+    }
+    if(gender == null || gender =="")
+    {
+        alert("Gender cannot be empty");
+        return false
+    }
+    if(phonenumber == null || phonenumber =="")
+    {
+        alert("Phonenumber cannot be empty");
+        return false
+    }
+    if(city == null || city =="")
+    {
+        alert("City cannot be empty");
+        return false
+    }
+    if(uclg == null || uclg =="")
+    {
+        alert("Ug college name cannot be empty");
+        return false
+    }
+    if(ustream == null || ustream =="")
+    {
+        alert("Ug stream cannot be empty");
+        return false
+    }
+    if(ugper == null || ugper =="")
+    {
+        alert("Ug percentage cannot be empty");
+        return false
+    }
+    if(ugyear == null || ugyear =="")
+    {
+        alert("Ug year cannot be empty");
+        return false
+    }
+    if(skill1 == null || skill1 =="")
+    {
+        alert("Skill 1 cannot be empty");
+        return false
+    }
+    if(skill2 == null || skill2 =="")
+    {
+        alert("Skill 2 cannot be empty");
+        return false
     }
 
     addpersonal();

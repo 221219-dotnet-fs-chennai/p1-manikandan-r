@@ -53,7 +53,7 @@ async function filteroption() {
                 image.setAttribute('width', '30%')
 
                 const name = document.createElement('p')
-                name.textContent = element.firstname + " " + element.lastname
+                name.textContent = "UG: " + element.firstname + " " + element.lastname
                 name.className = 'fname'
 
                 const image1 = document.createElement('img')
@@ -72,7 +72,7 @@ async function filteroption() {
                 const eduimg = document.createElement('img')
                 eduimg.setAttribute('src', 'education.png')
                 eduimg.setAttribute('width', '15%')
-                eduimg.setAttribute('height', '6%')
+                eduimg.setAttribute('height', '5%')
 
                 const education = document.createElement('p')
                 education.textContent = element.ug_stream + ", " + element.ug_year
@@ -81,7 +81,7 @@ async function filteroption() {
                 const image2 = document.createElement('img')
                 image2.setAttribute('src', 'skill.png')
                 image2.setAttribute('width', '12%')
-                image2.setAttribute('height', '5%')
+                image2.setAttribute('height', '4%')
 
                 const empty = document.createElement('p')
                 empty.textContent = 'skills:'
@@ -94,7 +94,7 @@ async function filteroption() {
                 const image3 = document.createElement('img')
                 image3.setAttribute('src', 'location.png')
                 image3.setAttribute('width', '10%')
-                image3.setAttribute('height', '4%')
+                image3.setAttribute('height', '3.5%')
 
                 const city = document.createElement('p')
                 city.textContent = 'city: ' + element.city

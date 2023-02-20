@@ -26,7 +26,7 @@ fetch("https://localhost:7234/Api/User/GetAllTrainers")
             const image1 = document.createElement('img')
             image1.setAttribute('src', 'contact.png')
             image1.setAttribute('width', '14%')
-            image1.setAttribute('height', '5%')
+            image1.setAttribute('height', '4%')
 
             const email = document.createElement('p')
             email.textContent = element.emailid
@@ -42,13 +42,13 @@ fetch("https://localhost:7234/Api/User/GetAllTrainers")
             eduimg.setAttribute('height', '6%')
 
             const education = document.createElement('p')
-            education.textContent = element.ug_stream + ", " + element.ug_year
+            education.textContent = "UG: " + element.ug_stream + ", " + element.ug_year
             education.className = 'skill1'
 
             const image2 = document.createElement('img')
             image2.setAttribute('src', 'skill.png')
             image2.setAttribute('width', '12%')
-            image2.setAttribute('height', '5%')
+            image2.setAttribute('height', '4%')
 
             const skill1 = document.createElement('p')
             skill1.textContent = element.skill_1 + ", " + element.skill_2
@@ -57,7 +57,7 @@ fetch("https://localhost:7234/Api/User/GetAllTrainers")
             const image3 = document.createElement('img')
             image3.setAttribute('src', 'location.png')
             image3.setAttribute('width', '10%')
-            image3.setAttribute('height', '4%')
+            image3.setAttribute('height', '3.5%')
 
             const city = document.createElement('p')
             city.textContent = element.city
