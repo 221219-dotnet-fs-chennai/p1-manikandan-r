@@ -4,20 +4,28 @@ function validation() {
 
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    var password = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
     let email = document.getElementById("email").value;
 
+    let pass = document.getElementById("pass").value;
 
-    if(emailRegex.test(email))
-    {
-        val = true;
+
+    if (emailRegex.test(email)) {
+        if (password.test(pass)) {
+            val = true;
+        }
+        else{
+            alert("Password must contain 8 characters and an Upper case, lower case, symbol and number")
+            return false;
+        }
     }
-    else
-    {
+    else {
         alert("Email is invalid format")
+        return false;
     }
 
-    if(val)
-    {
+    if (val) {
         signin();
     }
 }

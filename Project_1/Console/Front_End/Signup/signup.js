@@ -1,31 +1,37 @@
 var UserID;
 
-// function validation() {
-//     var val = false;
+function validation() {
+    var val = false;
 
-//     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-//     let email = document.getElementById("email").value;
-    
-//     alert("first ")
-//     if(emailRegex.test(email))
-//     {
-//         alert("second")
-//         val = true;
-//     }
-//     else
-//     {
-//         alert("Email is invalid format")
-//     }
+    var password = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
-//     if(val)
-//     {
-//         signUpfunction();
-//     }
-// }
+    let email = document.getElementById("emailid").value;
+
+    let pass = document.getElementById("password").value;
+
+    if (emailRegex.test(email)) {
+        if (password.test(pass)) {
+            val = true;
+        }
+        else {
+            alert("Password must contain 8 characters and an Upper case, lower case, symbol and number")
+            return false;
+        }
+    }
+    else {
+        alert("Email is invalid format")
+        return false;
+    }
+
+    if (val) {
+        signUpfunction();
+    }
+}
 
 function signUpfunction() {
-    let userId = document.getElementById("userid").value; 
+    let userId = document.getElementById("userid").value;
     let email = document.getElementById("emailid").value;
     let password = document.getElementById("password").value;
     let fnmae = document.getElementById("fname").value;
@@ -40,74 +46,60 @@ function signUpfunction() {
     let ugyear = document.getElementById("ugyear").value;
     let skill1 = document.getElementById("skill1").value;
     let skill2 = document.getElementById("skill2").value;
-    
-    if(email == null || email =="")
-    {
+
+    if (email == null || email == "") {
         alert("Email ID cannot be empty");
         return false;
     }
-    if(password == null || password =="")
-    {
+    if (password == null || password == "") {
         alert("Password cannot be empty");
         return false
     }
-    if(fname == null || fnmae =="")
-    {
+    if (fname == null || fnmae == "") {
         alert("Firstname cannot be empty");
         return false
     }
-    if(lname == null || lname =="")
-    {
+    if (lname == null || lname == "") {
         alert("Lastname cannot be empty");
         return false
     }
-    if(age == null || age == 0)
-    {
+    if (age == null || age == 0) {
         alert("Age cannot be empty");
         return false
     }
-    if(gender == null || gender =="")
-    {
+    if (gender == null || gender == "") {
         alert("Gender cannot be empty");
         return false
     }
-    if(phonenumber == null || phonenumber =="")
-    {
+    if (phonenumber == null || phonenumber == "") {
         alert("Phonenumber cannot be empty");
         return false
     }
-    if(city == null || city =="")
-    {
+    if (city == null || city == "") {
         alert("City cannot be empty");
         return false
     }
-    if(uclg == null || uclg =="")
-    {
+    if (uclg == null || uclg == "") {
         alert("Ug college name cannot be empty");
         return false
     }
-    if(ustream == null || ustream =="")
-    {
+    if (ustream == null || ustream == "") {
         alert("Ug stream cannot be empty");
         return false
     }
-    if(ugper == null || ugper =="")
-    {
+    if (ugper == null || ugper == "") {
         alert("Ug percentage cannot be empty");
         return false
     }
-    if(ugyear == null || ugyear =="")
-    {
+    if (ugyear == null || ugyear == "") {
         alert("Ug year cannot be empty");
         return false
     }
-    if(skill1 == null || skill1 =="")
-    {
+    if (skill1 == null || skill1 == "") {
         alert("Skill 1 cannot be empty");
         return false
     }
-    if(skill2 == null || skill2 =="")
-    {
+    if (skill2 == null || skill2 == "") {
         alert("Skill 2 cannot be empty");
         return false
     }
@@ -116,8 +108,6 @@ function signUpfunction() {
     addeducation();
     addskill();
     addcompany();
-
-    alert("Submitted Successfully")
 }
 
 
@@ -126,7 +116,8 @@ async function addpersonal() {
     const signinform = document.getElementById("signupform");
 
     signinform.addEventListener("submit", event => {
-        event.preventDefault(); });
+        event.preventDefault();
+    });
 
     //let userId = document.getElementById("userid").value; 
     let email = document.getElementById("emailid").value;
@@ -146,7 +137,7 @@ async function addpersonal() {
     await fetch("https://localhost:7234/Api/TrainerSignup/AddTrainer",
         {
             method: "POST",
-            
+
             body: JSON.stringify({
                 userid: UserID,
                 emailid: email,
@@ -165,6 +156,12 @@ async function addpersonal() {
             },
         })
 
+        .then((data => {
+            if(data.status == 400)
+            {
+                alert("The data is already present in the database");
+            }
+        }))
         .then((response) => response.json())
         .then(json => console.log(json))
         .catch(error => console.log(error))
@@ -175,7 +172,8 @@ async function addeducation() {
     const signinform = document.getElementById("signupform");
 
     signinform.addEventListener("submit", event => {
-        event.preventDefault(); });
+        event.preventDefault();
+    });
 
     let uclgname = document.getElementById("uclgname").value;
     let ugstream = document.getElementById("ugstream").value;
@@ -218,7 +216,8 @@ async function addskill() {
     const signinform = document.getElementById("signupform");
 
     signinform.addEventListener("submit", event => {
-        event.preventDefault(); });
+        event.preventDefault();
+    });
 
     let skill1 = document.getElementById("skill1").value;
     let skill2 = document.getElementById("skill2").value;
@@ -251,7 +250,8 @@ async function addcompany() {
     const signinform = document.getElementById("signupform");
 
     signinform.addEventListener("submit", event => {
-        event.preventDefault(); });
+        event.preventDefault();
+    });
 
     let companyname = document.getElementById("companyname").value;
     let field = document.getElementById("field").value;
@@ -275,6 +275,12 @@ async function addcompany() {
             },
         })
 
+        .then((data => {
+            if(data.status == 200 || data.status == 204 || data.status == 201)
+            {
+                alert("Submitted Successfully")
+            }
+        }))
         .then((response) => response.json())
         .then(json => console.log(json))
 }
