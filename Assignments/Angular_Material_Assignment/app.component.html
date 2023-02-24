@@ -1,0 +1,70 @@
+<body>
+    <h1 style="text-align: center; margin: 40px; font-weight: bold;" class="text">Angular Material Assignment</h1>
+
+    <hr>
+    <h2 style="text-decoration: underline;" class="text">Fab Buttons</h2>
+    <div>
+        <button mat-fab class="padd">Basic</button>
+        <button mat-fab color="primary" class="padd">Primary</button>
+        <button mat-fab color="accent" class="padd">Accent</button>
+        <button mat-fab color="warn" class="padd">Warn</button>
+        <button mat-fab disabled class="padd">Disabled</button>
+    </div>
+    <hr>
+    <h2 style="text-decoration: underline;" class="text">Checkbox</h2>
+    <mat-checkbox color="primary">
+        <span class="text">
+            Primary theme checkbox
+        </span>
+    </mat-checkbox>
+    <br>
+    <mat-checkbox color="accent">
+        <span class="text">
+            Accent theme checkbox
+        </span>
+    </mat-checkbox>
+    <br>
+    <mat-checkbox color="warn">
+        <span class="text">
+            Warn theme checkbox
+        </span>
+    </mat-checkbox>
+    <br>
+    <mat-checkbox color="warn" disabled>
+        <span class="text">
+            Disabled checkbox
+        </span>
+    </mat-checkbox>
+    <br>
+    <mat-checkbox color="primary" indeterminate="true">
+        <span class="text">
+            Indeterminate checkbox
+        </span>
+    </mat-checkbox>
+    <hr>
+    <h2 style="text-decoration: underline;" class="text">Double Slider</h2>
+    <mat-slider min="200" max="500" style="margin-left: 30px;">
+        <input value="300" matSliderStartThumb>
+        <input value="400" matSliderEndThumb>
+    </mat-slider>
+    <hr>
+    <h2 style="text-decoration: underline;" class="text">Short and Long Dynamic tabs</h2>
+    <mat-tab-group dynamicHeight style="border: 3px rgb(114, 14, 176) solid; margin: 10px;">
+        <mat-tab label="Short tab">
+            <div class="example-small-box mat-elevation-z4" style="border: 2px white solid;">
+                <span class="text">Small content</span>
+            </div>
+        </mat-tab>
+        <mat-tab label="Long tab">
+            <div class="example-large-box mat-elevation-z4"  style="border: 2px white solid;">
+                <span class="text">Large content</span>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+    <hr>
+    <h2 style="text-decoration: underline;" class="text">Page Number Bar</h2>
+    <mat-paginator [length]="200" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page">
+    </mat-paginator>    
+    <hr>
+
+</body>
